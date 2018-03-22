@@ -2,5 +2,11 @@
 
 @section('title','美食源-首页')
 @section('content')
-   <h1>首页</h1>
+    <center>
+       <h1>我是主体内容</h1>
+       <h1>我是主体内容</h1>
+       <h1>我是主体内容</h1>
+       <h1>我是主体内容</h1>
+       <h1>我是主体内容</h1>
+    </center>
 @endsection

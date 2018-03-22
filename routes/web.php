@@ -14,4 +14,26 @@
 Route::get('/', 'Home\HomeController@index');
 
 Route::get('/login','Home\LoginController@login');
+
+Route::post('/login/dologin','Home\LoginController@dologin');
+
+Route::get('/login/outlogin','Home\LoginController@outlogin');
+
 Route::get('/register','Home\LoginController@register');
+
+Route::post('/register/store','Home\LoginController@store');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route::get('/test','TestController@test');
