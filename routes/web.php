@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+//广告位路由设置
+Route::resource('/admin/home_ad','Home_adController');
