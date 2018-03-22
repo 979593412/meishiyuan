@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a712ab26e67376d6e8f82c2981ef0766",
+    "content-hash": "b58607be2bce8218dac85fbfb3fa5b29",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -489,6 +489,57 @@
             "time": "2018-02-07T20:20:57+00:00"
         },
         {
+            "name": "germey/geetest",
+            "version": "v3.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Germey/LaravelGeetest.git",
+                "reference": "22a5e06426a91ca0551666ac171e6fd8df2cf7fb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/Germey/LaravelGeetest/22a5e06426a91ca0551666ac171e6fd8df2cf7fb.zip",
+                "reference": "22a5e06426a91ca0551666ac171e6fd8df2cf7fb",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "5.*",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "dev-master",
+                "phpunit/phpunit": "~4.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Germey\\Geetest\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Germey",
+                    "email": "cqc@cuiqingcai.com"
+                }
+            ],
+            "description": "Geetest Package for Laravel5",
+            "keywords": [
+                "Germey",
+                "geetest",
+                "laravel"
+            ],
+            "time": "2018-01-24T04:01:35+00:00"
+        },
+        {
             "name": "jakub-onderka/php-console-color",
             "version": "0.1",
             "source": {
@@ -577,16 +628,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.6.11",
+            "version": "v5.6.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "195ba6a67bdad2a23105c7ab410cd43e0f20bb73"
+                "reference": "82d8165d1ea86bdd81ddfa1db9343fa19e7d1450"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/195ba6a67bdad2a23105c7ab410cd43e0f20bb73",
-                "reference": "195ba6a67bdad2a23105c7ab410cd43e0f20bb73",
+                "url": "https://files.phpcomposer.com/files/laravel/framework/82d8165d1ea86bdd81ddfa1db9343fa19e7d1450.zip",
+                "reference": "82d8165d1ea86bdd81ddfa1db9343fa19e7d1450",
                 "shasum": ""
             },
             "require": {
@@ -595,7 +646,7 @@
                 "erusev/parsedown": "~1.7",
                 "ext-mbstring": "*",
                 "ext-openssl": "*",
-                "league/flysystem": "~1.0",
+                "league/flysystem": "^1.0.8",
                 "monolog/monolog": "~1.12",
                 "nesbot/carbon": "^1.24.1",
                 "php": "^7.1.3",
@@ -711,7 +762,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2018-03-09T16:53:27+00:00"
+            "time": "2018-03-14T17:29:38+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -940,16 +991,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "1.24.2",
+            "version": "1.25.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "bba6c6e410c6b4317e37a9474aeaa753808c3875"
+                "reference": "cbcf13da0b531767e39eb86e9687f5deba9857b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/bba6c6e410c6b4317e37a9474aeaa753808c3875",
-                "reference": "bba6c6e410c6b4317e37a9474aeaa753808c3875",
+                "url": "https://files.phpcomposer.com/files/briannesbitt/Carbon/cbcf13da0b531767e39eb86e9687f5deba9857b4.zip",
+                "reference": "cbcf13da0b531767e39eb86e9687f5deba9857b4",
                 "shasum": ""
             },
             "require": {
@@ -989,7 +1040,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2018-03-10T10:10:14+00:00"
+            "time": "2018-03-19T15:50:49+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -2727,16 +2778,16 @@
         },
         {
             "name": "nunomaduro/collision",
-            "version": "v2.0.0",
+            "version": "v2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nunomaduro/collision.git",
-                "reference": "4e310ef9384f53ee8dda8736afb3cbaf320753a0"
+                "reference": "245958b02c6a9edf24627380f368333ac5413a51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nunomaduro/collision/zipball/4e310ef9384f53ee8dda8736afb3cbaf320753a0",
-                "reference": "4e310ef9384f53ee8dda8736afb3cbaf320753a0",
+                "url": "https://files.phpcomposer.com/files/nunomaduro/collision/245958b02c6a9edf24627380f368333ac5413a51.zip",
+                "reference": "245958b02c6a9edf24627380f368333ac5413a51",
                 "shasum": ""
             },
             "require": {
@@ -2785,7 +2836,7 @@
                 "php",
                 "symfony"
             ],
-            "time": "2018-02-18T12:29:27+00:00"
+            "time": "2018-03-21T20:11:24+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -4054,16 +4105,16 @@
         },
         {
             "name": "symfony/thanks",
-            "version": "v1.0.6",
+            "version": "v1.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/thanks.git",
-                "reference": "9474ce305253c2f0bc20322ff8e9973cf25c9a94"
+                "reference": "bade4992c46ed722162694b4af8d72f84402819a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/thanks/zipball/9474ce305253c2f0bc20322ff8e9973cf25c9a94",
-                "reference": "9474ce305253c2f0bc20322ff8e9973cf25c9a94",
+                "url": "https://files.phpcomposer.com/files/symfony/thanks/bade4992c46ed722162694b4af8d72f84402819a.zip",
+                "reference": "bade4992c46ed722162694b4af8d72f84402819a",
                 "shasum": ""
             },
             "require": {
@@ -4093,7 +4144,7 @@
                 }
             ],
             "description": "Give thanks (in the form of a GitHub ⭐) to your fellow PHP package maintainers (not limited to Symfony components)!",
-            "time": "2018-02-02T13:47:40+00:00"
+            "time": "2018-03-14T21:51:39+00:00"
         },
         {
             "name": "theseer/tokenizer",
