@@ -131,11 +131,11 @@
                     <div class="mb10">
                         点击验证
                     </div>
+
                     {!! Geetest::render() !!}
-                    {{--<div class="mb10">--}}
-                    {{--<input class="mb10 block w100 code" type="text" name="code" placeholder="请输入验证码" autofocus="autofocus">--}}
-                    {{--</div>--}}
+
                     {{csrf_field()}}
+                    <p>&nbsp;</p>
                     <input class="button" type="submit" value="注册">
 
                     <br>
@@ -177,14 +177,6 @@
 {{--<script src="{{asset('js-jquery-dropdown-bundle-27f2f3c8c86ebe0ca851.js')}}"></script>--}}
 
 <div id='color_timer'></div>
-
-<form action="/" method="post">
-    <input name="_token" type="hidden" value="{{ csrf_token() }}">
-    <input type="text" name="name" placeholder="name">
-    {!! Geetest::render() !!}
-    <input type="submit" value="submit">
-</form>
-
 </body>
 
 </html>

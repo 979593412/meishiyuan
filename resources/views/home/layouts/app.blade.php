@@ -15,7 +15,7 @@
 </head>
 <body>
      <a href="{{url('/login')}}">登录</a>
-     <a href="{{url('/login/create')}}">注册</a>
+     <a href="{{url('/register')}}">注册</a>
 
     @section('content')
 
