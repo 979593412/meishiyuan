@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
 
 
 //轮播图----------------------------------------------------
@@ -24,4 +23,17 @@ Route::resource('/admin/fenlei','admin\CarouselController');
 
 
 //前台页面
+
+Route::get('/', 'Home\HomeController@index');
+
+Route::get('/login','Home\LoginController@login');
+
+Route::post('/login/dologin','Home\LoginController@dologin');
+
+Route::get('/login/outlogin','Home\LoginController@outlogin');
+
+Route::get('/register','Home\LoginController@register');
+
+Route::post('/register/store','Home\LoginController@store');
+
 
