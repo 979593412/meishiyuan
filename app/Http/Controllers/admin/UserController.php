@@ -5,6 +5,8 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Crypt;
 
 use DB;
 
@@ -17,16 +19,25 @@ class UserController extends Controller
 
     // 保存数据页面
     public function store(Request $request){
-//         1.接受用户传递过来的信息
+       // 1.接受用户传递过来的信息
         $res = $request->all();
-//        dd($res);
-        // 第二种方法 批量赋值
-
-        $ress = User::create(['username'=>$res['username'],'password'=>$res['password'],'auth'=>$res['auth'],'status'=>$res['status']]);
 
 
+        $pan = User::where('username',$res['username'])->first();
+        if (!empty($pan)){
+            return redirect('admin/user/add')->with('msg','用户名已存在');
+        }
+//        dd($pan);
+//        if ($res['username'] == $pan){
+//            return redirect('admin/user/add')->with('msg','用户名已存在');
+//        }
 
-//        dd($ress);
+        // 加密
+        $password = Hash::make('password');
+
+        // 入库
+        $ress = User::create(['username'=>$res['username'],'password'=>$password,'auth'=>$res['auth'],'status'=>$res['status']]);
+
         // 4.根据添加执行结果,执行跳转(成功,列表页,失败添加页)
         if($ress){
             // 添加成功跳转到列表页
@@ -36,6 +47,8 @@ class UserController extends Controller
         }
 //
     }
+
+
 
 
     //列表页
