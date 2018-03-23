@@ -82,6 +82,10 @@
                       确认密码
                   </div>
                   <input class="mb20 block w100"   type="password" name="repassword" lay-verify="repass" placeholder="与密码相同" value="">
+                  <div class="mb10">
+                      邮箱
+                  </div>
+                  <input class="mb20 block w100"   type="text" name="email" lay-verify="email" placeholder="请输入一个邮箱" value="">
 
                   <div class="mb10">
                       点击验证

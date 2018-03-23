@@ -89,14 +89,18 @@ class LoginController extends Controller
         $validator = Validator::make($input, [
             'geetest_challenge' => 'required|geetest',
             'username'=>'required|between:4,10|alpha_num',
-            'password'=>'required|between:4,10'
+            'password'=>'required|between:4,10',
+            'email'=>'required|email'
         ], [
             'geetest' => config('laravel-geetest.server_fail_alert'),
             'username.required'=>'用户名不能为空',
             'username.between'=>'用户名必须在4-10位之间',
             'username.alpha_num'=>'用户名只能由字母数字组合',
             'password.required'=>'密码不能为空',
-            'password.between'=>'密码必须6到12位'
+            'password.between'=>'密码必须6到12位',
+            'email.required'=>'邮箱不能为空',
+            'email.email'=>'邮箱格式不正确'
+
         ]);
 
         if ($validator->fails()) {
@@ -117,12 +121,19 @@ class LoginController extends Controller
             return redirect('/register')->with('errors','两次密码不一致');
         }
 
-        //5.信息保存到数据库
+        //5.判断邮箱是否被使用
+        $user = User::where('email',$input['email'])->first();
+
+        if($user){
+            return redirect('/register')->with('errors','邮箱已存在');
+        }
+
+        //6.信息保存到数据库
         $input['status'] = '1';
         $input['password'] = encrypt($input['password']);
         $res = User::create($input);
         if ($res){
-            //6.注册成功，信息存入session，跳转到首页
+            //7.注册成功，信息存入session，跳转到首页
             Session::put('user',$res);
             return redirect('/');
         }else{
