@@ -14,6 +14,7 @@
 
 
 
+
 //轮播图----------------------------------------------------
 //admin后台主页面;
 
@@ -40,3 +41,6 @@ Route::post('/register/store','Home\LoginController@store');
 Route::resource('/admin/home_ad','Admin\Home_adController');
 
 
+
+
+Route::resource('/admin/links','Admin\LinksController');
