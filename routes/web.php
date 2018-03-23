@@ -16,4 +16,5 @@ Route::get('/', function () {
 });
 
 //广告位路由设置
-Route::resource('/admin/home_ad','Home_adController');
+Route::resource('/admin/home_ad','Admin\Home_adController');
+

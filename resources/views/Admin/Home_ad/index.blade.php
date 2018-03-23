@@ -1,4 +1,4 @@
-@extends('admin.layout')
+@extends('Admin.layout')
 
 
 @section('title', '广告位')
@@ -12,7 +12,7 @@
             <dl class="am-icon-home" style="float: right;">当前位置： 首页 > <a href="#">商品列表</a></dl>
 
             <dl>
-                <a type="button" class="am-btn am-btn-danger am-round am-btn-xs am-icon-plus" href="{{url('/admin/home_ad/create')}}"> 添加广告</a>
+                <a type="button" class="am-btn am-btn-danger am-round am-btn-xs am-icon-plus" href="{{url('admin/home_ad/create')}}"> 添加广告</a>
             </dl>
             <!--这里打开的是新页面-->
 
@@ -100,7 +100,7 @@
                         $(this).parents('tr').remove();
                         ps += $(this).val()+',';
 
-                        // $.get('/admin/home_ad/'+ps,{},function(){});
+                        // $.get('/Admin/home_ad/'+ps,{},function(){});
 
                     });
                     // console.log(ps);

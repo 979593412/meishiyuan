@@ -1,4 +1,4 @@
-@extends('admin.layout')
+@extends('Admin.layout')
 
 
 @section('title', '广告位')
@@ -9,7 +9,7 @@
         <div class="listbiaoti am-cf">
             <ul class="am-icon-flag on"> 栏目名称</ul>
 
-            <dl class="am-icon-home" style="float: right;"> 当前位置： <a href="{{url('/admin/home_ad')}}">广告首页</a> > <a href="{{url('/admin/home_ad/create')}}">添加页面</a></dl>
+            <dl class="am-icon-home" style="float: right;"> 当前位置： <a href="{{url('Admin')}}">广告首页</a> > <a href="{{url('Admin')}}">添加页面</a></dl>
 
 
 

@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
@@ -23,7 +25,7 @@ class Home_adController extends Controller
 
 
 //        print_r($gg);
-        return view('admin.Home_ad.index', ['gg' => $gg]);
+        return view('Admin.Home_ad.index', ['gg' => $gg]);
     }
 
     /**
@@ -35,7 +37,7 @@ class Home_adController extends Controller
     {
         //广告位添加页面
 
-        return view('admin.Home_ad.create');
+        return view('Admin.Home_ad.create');
     }
 
     /**
@@ -116,7 +118,7 @@ class Home_adController extends Controller
         $data = Home_ad::find($id);
 //        print_r($data);
 
-        return view('admin.Home_ad.edit', ['data' => $data]);
+        return view('Admin.Home_ad.edit', ['data' => $data]);
     }
 
 
