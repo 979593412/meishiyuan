@@ -14,7 +14,6 @@
 
 
 
-
 //轮播图----------------------------------------------------
 //admin后台主页面;
 
@@ -35,5 +34,9 @@ Route::get('/login/outlogin','Home\LoginController@outlogin');
 Route::get('/register','Home\LoginController@register');
 
 Route::post('/register/store','Home\LoginController@store');
+
+
+//广告位路由设置
+Route::resource('/admin/home_ad','Admin\Home_adController');
 
 
