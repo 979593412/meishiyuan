@@ -1,13 +1,8 @@
 <!DOCTYPE html>
 
-<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7 show-anti-ie"> <![endif]-->
-<!--[if IE 7]>    <html class="lt-ie9 lt-ie8 show-anti-ie"> <![endif]-->
-<!--[if IE 8]>    <html xmlns:ng="http://angularjs.org" class="lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class=""> <!--<![endif]-->
+<html>
 
 <head>
-
-
 
     <title>@yield('title')</title>
 
@@ -19,11 +14,6 @@
     <meta name="baidu-site-verification" content="HNAbHIxmbo" />
     <meta name="renderer" content="webkit">
 
-    <script src="{{ asset('home/js/ds.js') }}"></script>
-    <script src="{{ asset('home/js/jquery-bundle-f92c742e6d6c46814813.js') }}"></script>
-    <script src="{{ asset('home/js/js-2013-anonymous-bundle-a2a728e532f859c762a5.js') }}"></script>
-
-
     <meta name="keywords" content="菜谱,美食,烹饪,美食源">
     <meta name="description" content="美食源美食菜谱网倡导在家烹饪、健康的生活方式，提供有版权的实用菜谱做法与饮食知识，提供厨师和美食爱好者一个记录、分享的平台。">
     <meta property="wb:webmaster" content="3616bc72d0bf0c7e" />
@@ -34,78 +24,15 @@
     <meta name="sogou_site_verification" content="BiVBs1HCQM"/>
     <meta name="baidu_union_verify" content="2e1ace664f00eeef623d4af0d37edf17">
     <meta name="shenma-site-verification" content="cfb8d844a5731f6993ba537751ae9d6b_1468826090">
-
-
     <link href="{{asset('home/css/f97edcb6e2dbe6a5cca5.css')}}" rel="stylesheet" type="text/css">
-    <link href="{{asset('home/css/5b114797a93be8f6e3f7.css')}}" rel="stylesheet" type="text/css">
-
-    <script>
-        var _hmt = _hmt || [];
-        (function() {
-            var hm = document.createElement("script");
-            hm.src = "{{asset('home/js/hm.js')}}?ecd4feb5c351cc02583045a5813b5142";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
-
-
-
-    <script type='text/javascript'>
-        var _vds = _vds || [];
-        window._vds = _vds;
-        (function(){
-            _vds.push(['setAccountId', '8187ff886f0929da']);
-            (function() {
-                var vds = document.createElement('script');
-                vds.type='text/javascript';
-                vds.async = true;
-                vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
-                var s = document.getElementsByTagName('script')[0];
-                s.parentNode.insertBefore(vds, s);
-            })();
-        })();
-    </script>
-
-
-
-
-
-
-    <script type="text/javascript">
-        _gaq=[['_setAccount', 'UA-22069234-1'],
-            ['_setCustomVar', 1, 'user', 'anonymous', 3],
-            ['_setCustomVar', 4, 'dish_title', 'dish_title_1', 3],
-            ['_setCustomVar', 5, 'recommend_recipe_list', 'recommend_recipe_list_0', 3],
-            ['_trackPageview'],['_trackPageLoadTime']];
-
-
-        (function(){
-            var ga = document.createElement('script');
-            ga.type = 'text/javascript';
-            ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })()
-    </script>
 
 </head>
 
-
-
 <body>
-
-
-<div class="popup-layer">
-
-    <div class="reveal-modal-bg"></div>
-
-</div>
 
 <div class="topbar-outer has-bottom-border">
     <div class="topbar-container">
         <div class="topbar">
-
 
             <div class="pure-g">
                 <div class="pure-u-1-6">
@@ -113,7 +40,7 @@
                 </div>
                 <div class="pure-u-5-6">
                     <div class="float-left">
-                        <form class="search" action="#">
+                        <form class="search" action="http://www.xiachufang.com/search/">
                             <input type="text" name="keyword" class="typeahead float-left" value="" placeholder="搜索菜谱、食材">
                             <input type="hidden" name="cat" value="1001">
                             <input type="submit" value="搜菜谱" class="button float-left">
@@ -121,24 +48,24 @@
                     </div>
                     <div class="float-left">
                         <ul class="site-nav plain pure-g">
-                            <li class="pure-u"><a href="#" rel="nofollow">会员专区</a></li>
+                            <li class="pure-u"><a href="http://www.xiachufang.com/feature/vip/" rel="nofollow">会员专区</a></li>
 
                             <li class="topbar-cats pure-u">
-                                <a href="#" class="block-link" data-ga-event="公共页面/导航栏/$text"><span>菜谱分类</span></a>
+                                <a href="http://www.xiachufang.com/category/" class="block-link" data-ga-event="公共页面/导航栏/$text"><span>菜谱分类</span></a>
                                 <div class="topbar-cats-submenu hidden">
                                     <div class="topbar-cats-submenu-bg">
 
 
                                         <ul class="plain">
                                             <li class='topbar-cat-head'>常用主题</li>
-                                            <li><a href="" title="家常菜菜谱大全" data-ga-event="公共页面/导航栏/$text">家常菜</a></li>
-                                            <li><a href="" title="快手菜菜谱大全" data-ga-event="公共页面/导航栏/$text">快手菜</a></li>
-                                            <li><a href="" title="下饭菜菜谱大全" data-ga-event="公共页面/导航栏/$text">下饭菜</a></li>
-                                            <li><a href="" title="早餐菜谱大全" data-ga-event="公共页面/导航栏/$text">早餐</a></li>
-                                            <li><a href="" title="减肥菜谱大全" data-ga-event="公共页面/导航栏/$text">减肥</a></li>
-                                            <li><a href="" title="汤羹菜谱大全" data-ga-event="公共页面/导航栏/$text">汤羹</a></li>
-                                            <li><a href="" title="烘焙菜谱大全" data-ga-event="公共页面/导航栏/$text">烘焙</a></li>
-                                            <li><a href="" title="小吃菜谱大全" data-ga-event="公共页面/导航栏/$text">小吃</a></li>
+                                            <li><a href="http://www.xiachufang.com/category/40076/" title="家常菜菜谱大全" data-ga-event="公共页面/导航栏/$text">家常菜</a></li>
+                                            <li><a href="http://www.xiachufang.com/category/40077/" title="快手菜菜谱大全" data-ga-event="公共页面/导航栏/$text">快手菜</a></li>
+                                            <li><a href="http://www.xiachufang.com/category/40078/" title="下饭菜菜谱大全" data-ga-event="公共页面/导航栏/$text">下饭菜</a></li>
+                                            <li><a href="http://www.xiachufang.com/category/40071/" title="早餐菜谱大全" data-ga-event="公共页面/导航栏/$text">早餐</a></li>
+                                            <li><a href="http://www.xiachufang.com/category/30048/" title="减肥菜谱大全" data-ga-event="公共页面/导航栏/$text">减肥</a></li>
+                                            <li><a href="http://www.xiachufang.com/category/20130/" title="汤羹菜谱大全" data-ga-event="公共页面/导航栏/$text">汤羹</a></li>
+                                            <li><a href="http://www.xiachufang.com/category/51761/" title="烘焙菜谱大全" data-ga-event="公共页面/导航栏/$text">烘焙</a></li>
+                                            <li><a href="http://www.xiachufang.com/category/40073/" title="小吃菜谱大全" data-ga-event="公共页面/导航栏/$text">小吃</a></li>
                                         </ul>
                                         <ul class="plain">
                                             <li class='topbar-cat-head'>常见食材</li>
@@ -218,8 +145,6 @@
                                 <a href="{{url('/login')}}" data-ga-event="公共页面/导航栏/$text">登录</a>&nbsp;&nbsp;
                                 <a href="{{url('/register')}}" data-ga-event="公共页面/导航栏/$text">注册</a>
                             @else
-                                <script src="{{asset('home/js/jquery-bundle-f92c742e6d6c46814813.js')}}"></script>
-
                                 <div class="user-action">
                                     <div class="user-nav">
                                         <a class="user-avatar avatar" href="#" data-ga-event="公共页面/导航栏/$text"><img src="{{asset('home/images/face.png')}}" alt="手机用户1903_nqcp的厨房" width="30" height="30"></a>
@@ -240,6 +165,9 @@
                                 </div>
                             @endif
                         </div>
+
+
+
                     </div>
                 </div>
             </div>
@@ -249,12 +177,9 @@
     </div>
 </div>
 
-
 @section('content')
 
 @show
-
-
 
 <div class="bottom-outer">
     <div class="bottom-container">
@@ -262,43 +187,44 @@
     </div>
 </div>
 
+
+
 <div class="footer-outer">
     <div class="footer-container">
 
-
         <div class="pure-g buttons">
-            <a href="#" class="button">入驻下厨房市集</a>
-            <a href="#" class="button">广告合作</a>
+            <a href="http://www.xiachufang.com/page/join_market/" class="button">入驻下厨房市集</a>
+            <a href="http://www.xiachufang.com/contact/" class="button">广告合作</a>
         </div>
 
         <div class="pure-g">
             <div class="pure-u-3-4">
                 <a data-ga-event="公共页面/footer/$text" href="http://blog.xiachufang.com" target="_blank" title="美食生活杂志">美食生活杂志</a> &nbsp;
                 <a href="http://www.xiachufang.com/job/" target="_blank" title="厨房工作">厨房工作</a> &nbsp;
-                <a data-ga-event="公共页面/footer/$text" href="#" target="_blank" title="社区指导原则">社区指导原则</a> &nbsp;
-                <a data-ga-event="公共页面/footer/$text" href="#" target="_blank" title="下厨房出版的书">美食源出版的书</a> &nbsp;
-                <a data-ga-event="公共页面/footer/$text" href="#" target="_blank" title="帮助中心">帮助中心</a> &nbsp;
-                <a data-ga-event="公共页面/footer/$text" href="#" target="_blank" title="联系我们">联系我们</a> &nbsp;
-                <a href="#" title="意见反馈" rel="nofollow">意见反馈</a> &nbsp;
-                <a data-ga-event="公共页面/footer/$text" href="#" target="_blank" title="隐私声明">隐私声明</a>
+                <a data-ga-event="公共页面/footer/$text" href="http://www.xiachufang.com/principle/" target="_blank" title="社区指导原则">社区指导原则</a> &nbsp;
+                <a data-ga-event="公共页面/footer/$text" href="https://site.douban.com/106718/room/1939571/" target="_blank" title="下厨房出版的书">下厨房出版的书</a> &nbsp;
+                <a data-ga-event="公共页面/footer/$text" href="http://www.xiachufang.com/faq/" target="_blank" title="帮助中心">帮助中心</a> &nbsp;
+                <a data-ga-event="公共页面/footer/$text" href="http://www.xiachufang.com/contact/" target="_blank" title="联系我们">联系我们</a> &nbsp;
+                <a href="http://www.xiachufang.com/auth/login/" title="意见反馈" rel="nofollow">意见反馈</a> &nbsp;
+                <a data-ga-event="公共页面/footer/$text" href="http://www.xiachufang.com/privacy_policy/" target="_blank" title="隐私声明">隐私声明</a>
             </div>
             <div class="pure-u-1-4 align-right">
                 <div class="social-likes">
                     <a href="https://weibo.com/xiachufang" target="_blank" rel="nofollow">
-                        <img src="#" alt="微博" title="微博">
+                        <img src="https://ohfnc0uzy.qnssl.com/simpleicons/sinaweibo.svg" alt="微博" title="微博">
                     </a>
                     &nbsp;
-                    <a href="h#" target="_blank" rel="nofollow">
-                        <img src="#" alt="Twitter" title="Twitter">
+                    <a href="https://twitter.com/xiachufang" target="_blank" rel="nofollow">
+                        <img src="https://ohfnc0uzy.qnssl.com/simpleicons/twitter.svg" alt="Twitter" title="Twitter">
                     </a>
                 </div>
             </div>
         </div>
         <div class="pure-g">
             <div class="pure-u-3-4">
-                Copyright &copy; meishiyuan.com &nbsp;
-                <a href="http://www.miibeian.gov.cn" class="gray-link" target="_blank" rel="nofollow">京ICP备xxxxxxxx号-1</a> &nbsp;
-                京公网安备xxxxxxxxxxxxxx号
+                Copyright &copy; xiachufang.com &nbsp;
+                <a href="http://www.miibeian.gov.cn" class="gray-link" target="_blank" rel="nofollow">京ICP备13009078号-1</a> &nbsp;
+                京公网安备11010802022310号
             </div>
             <div class="pure-u-1-4 align-right">
                 唯有美食与爱不可辜负
@@ -309,7 +235,14 @@
 </div>
 
 
+{{--菜谱分类下拉--}}
+<script src="{{asset('home/js/jquery-bundle-f92c742e6d6c46814813.js')}}"></script>
+<script src="{{asset('home/js/js-2013-anonymous-bundle-a2a728e532f859c762a5.js')}}"></script>
+<script src="{{asset('home/js/js-2013-bundle-69abae1ec9e0f5b1130e.js')}}"></script>
+{{--菜谱分类下拉--}}
+
 <div id='color_timer'></div>
+
 
 
 </body>

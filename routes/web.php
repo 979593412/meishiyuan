@@ -23,17 +23,3 @@ Route::get('/register','Home\LoginController@register');
 
 Route::post('/register/store','Home\LoginController@store');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-Route::get('/test','TestController@test');
