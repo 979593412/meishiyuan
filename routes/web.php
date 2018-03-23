@@ -14,3 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+//轮播图----------------------------------------------------
+//admin后台主页面;
+
+Route::resource('/admin/fenlei','admin\CarouselController');
+
+
+
+//前台页面
+
