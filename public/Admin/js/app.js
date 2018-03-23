@@ -2,8 +2,8 @@
   'use strict';
 
   $(function() {
-    var $fullText = $('.admin-fullText');
-    $('#admin-fullscreen').on('click', function() {
+    var $fullText = $('.Admin-fullText');
+    $('#Admin-fullscreen').on('click', function() {
       $.AMUI.fullscreen.toggle();
     });
 
