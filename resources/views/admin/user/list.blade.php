@@ -44,7 +44,7 @@
 
     <th class="table-id">ID</th>
     <th class="table-title">用户名</th>
-    <th class="table-type">密码</th>
+    <!-- <th class="table-type">密码</th> -->
     <th class="table-title">VIP</th>
     <th class="table-type">状态</th>
 
@@ -62,7 +62,7 @@
 
     <td>{{ $v->id }}</td>
     <td><a href="#">{{ $v->username }}</a></td>
-    <td>{{ $v->password }}</td>
+    <!-- <td>{{ $v->password }}</td> -->
     <td class="am-hide-sm-only">
     @if($v->auth == 2)   会员  @else 超级管理员
     @endif
@@ -77,9 +77,9 @@
 
     <div class="am-btn-toolbar">
     <div class="am-btn-group am-btn-group-xs">
-    <a href="" class="am-btn am-btn-default am-btn-xs am-text-success am-round"><span class="am-icon-search" title="查看订单详情"></span></a>
-    <a href="{{ url('admin/user/edit/'.$v->id) }}" class="am-btn am-btn-default am-btn-xs am-text-secondary am-round"  title="修改订单"><span class="am-icon-pencil-square-o"></span></a>
-    <a href="{{ url('admin/user/delete/'.$v->id)}}" class="am-btn am-btn-default am-btn-xs am-text-danger am-round" title="删除订单"><span class="am-icon-trash-o" ></span></a>
+    <!-- <a href="" class="am-btn am-btn-default am-btn-xs am-text-success am-round"><span class="am-icon-search" title="查看订单详情"></span></a> -->
+    <a href="{{ url('admin/user/edit/'.$v->id) }}" class="am-btn am-btn-default am-btn-xs am-text-secondary am-round"  title="修改用户"><span class="am-icon-pencil-square-o"></span></a>
+    <a href="{{ url('admin/user/delete/'.$v->id)}}" class="am-btn am-btn-default am-btn-xs am-text-danger am-round" title="删除用户"><span class="am-icon-trash-o" ></span></a>
 
 
     </div>
@@ -105,8 +105,7 @@
     </div>
 
     <ul class="am-pagination am-fr">
-         {{ $user->links() }}
-                {{--{{ $user->appends(['username' => $username])->links() }}--}}
+                {{ $user->appends($request->all())->render() }}
     </ul>
 
 

@@ -39,6 +39,10 @@
     <label for="doc-vld-url-2">密码：</label>
     <input name="password"  type="password" id="doc-vld-url-2" placeholder="请输入密码" required/>
     </div>
+     <div class="am-form-group">
+    <label for="doc-vld-url-2">确认密码：</label>
+    <input name="repass"  type="password" id="doc-vld-url-2" placeholder="请确认密码" required/>
+    </div>
 
 
     <div class="am-form-group">

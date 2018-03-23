@@ -10,13 +10,13 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-    <script src="/assets/js/jquery.min.js"></script>
-    <script src="/assets/js/app.js"></script>
-    <script src="/assets/layui/layui.js" charset="utf-8"></script>
-    <link rel="icon" type="image/png" href="/assets/i/favicon.png">
-    <link rel="apple-touch-icon-precomposed" href="/assets/i/app-icon72x72@2x.png">
-    <link rel="stylesheet" href="/assets/css/amazeui.min.css"/>
-    <link rel="stylesheet" href="/assets/css/admin.css">
+    <script src="/Admin/js/jquery.min.js"></script>
+    <script src="/Admin/js/app.js"></script>
+    <script src="/Admin/layui/layui.js" charset="utf-8"></script>
+    <link rel="icon" type="image/png" href="/Admin/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="/Admin/i/app-icon72x72@2x.png">
+    <link rel="stylesheet" href="/Admin/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="/Admin/css/admin.css">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <style type="text/css">        #pull_right {
             text-align: center;
@@ -483,7 +483,7 @@
 <![endif]-->
 
 <!--[if (gte IE 9)|!(IE)]><!-->
-<script src="/assets/js/amazeui.min.js"></script>
+<script src="/Admin/js/amazeui.min.js"></script>
 <!--<![endif]-->
 
 

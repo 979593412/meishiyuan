@@ -32,8 +32,13 @@ class UserController extends Controller
 //            return redirect('admin/user/add')->with('msg','用户名已存在');
 //        }
 
+        if ($res['password'] !== $res['repass']) {
+
+                return redirect('admin/user/add')->with('msg','两次密码不正确');
+            }
+
         // 加密
-        $password = Hash::make('password');
+        $password = encrypt('password');
 
         // 入库
         $ress = User::create(['username'=>$res['username'],'password'=>$password,'auth'=>$res['auth'],'status'=>$res['status']]);
@@ -57,7 +62,8 @@ class UserController extends Controller
 //      分页并且单条件搜索搜索条件
         $username = $request->input('username');
         $user = User::where('username','like','%'.$username.'%')->paginate(5);
-        return view('admin.user.list',compact('user','username'));
+       
+        return view('admin.user.list',['user'=>$user,'request'=>$request]);
 
     }
 
@@ -76,8 +82,10 @@ class UserController extends Controller
         $user = User::find($id);
         // 2.获取要修改的值,更新user模型
         $res = $request->all();
+       
         $user->username = $res['username'];
-        $user->password = $res['password'];
+        $mi = encrypt($res['password']);
+        $user->password = $mi;
         $user->auth = $res['auth'];
         $user->status = $res['status'];
 
