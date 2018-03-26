@@ -2,10 +2,15 @@
   'use strict';
 
   $(function() {
+<<<<<<< HEAD
 
     var $fullText = $('.admin-fullText');
     $('#admin-fullscreen').on('click', function() {
 
+=======
+    var $fullText = $('.admin-fullText');
+    $('#admin-fullscreen').on('click', function() {
+>>>>>>> msy/jishijia
       $.AMUI.fullscreen.toggle();
     });
 
