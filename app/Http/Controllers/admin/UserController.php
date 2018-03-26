@@ -4,7 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Model\User;
+use App\Model\Admin_User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Crypt;
 
@@ -23,7 +23,7 @@ class UserController extends Controller
         $res = $request->all();
         // return $res;
 
-        $pan = User::where('username',$res['username'])->first();
+        $pan = Admin_User::where('username',$res['username'])->first();
         if (!empty($pan)){
             return redirect('admin/user/add')->with('msg','用户名已存在');
         }
@@ -35,10 +35,10 @@ class UserController extends Controller
             }
 
         // 加密
-        $password = encrypt('password');
+        $password = encrypt($res['password']);
 
         // 入库
-        $ress = User::create(['username'=>$res['username'],'password'=>$password,'auth'=>$res['auth'],'status'=>$res['status']]);
+        $ress = Admin_User::create(['username'=>$res['username'],'password'=>$password,'auth'=>$res['auth'],'status'=>$res['status']]);
 
         // 4.根据添加执行结果,执行跳转(成功,列表页,失败添加页)
         if($ress){
@@ -58,7 +58,7 @@ class UserController extends Controller
 
 //      分页并且单条件搜索搜索条件
         $username = $request->input('username');
-        $user = User::where('username','like','%'.$username.'%')->paginate(5);
+        $user = Admin_User::where('username','like','%'.$username.'%')->paginate(5);
        
         return view('admin.user.list',['user'=>$user,'request'=>$request]);
 
@@ -67,7 +67,9 @@ class UserController extends Controller
     // 修改
     public function edit($id){
         // 获取id
-        $user = User::find($id);
+        $user = Admin_User::find($id);
+        $user->password = decrypt($user->password);
+        // dd( $user['password']);
 
         return view('admin.user.edit',compact('user'));
     }
@@ -76,7 +78,7 @@ class UserController extends Controller
     {
 
         // 1.根据id获取要修改的用户
-        $user = User::find($id);
+        $user = Admin_User::find($id);
         // 2.获取要修改的值,更新user模型
         $res = $request->all();
        
@@ -106,7 +108,7 @@ class UserController extends Controller
         // 获取id
 //        如果你希望在找不到模型时抛出异常，可以使用 findOrFail 以及 firstOrFail
 //        方法。这些方法会检索查询的第一个结果。如果没有找到相应结果，就会抛出一个
-        $user = User::findOrFail($id);
+        $user = Admin_User::findOrFail($id);
 
         $ress = $user->delete();
 

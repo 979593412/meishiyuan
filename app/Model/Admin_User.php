@@ -4,7 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Admin_User extends Model
 {
     //1.模型默认的关联表
     public $table = 'admin_user';
