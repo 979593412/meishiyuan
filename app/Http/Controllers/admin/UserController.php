@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Admin_User;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Crypt; 
+use Illuminate\Support\Facades\Crypt;  
 
 use DB;
 
