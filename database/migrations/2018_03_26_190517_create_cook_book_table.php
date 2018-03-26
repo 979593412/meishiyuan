@@ -17,7 +17,7 @@ class CreateCookBookTable extends Migration
             $table->increments('id')->comment('菜谱ID');
             $table->string('title','20')->comment('菜谱标题');
             $table->string('pic','255')->default('')->comment('菜谱图片');
-            $table->text('content')->default('')->comment('菜谱描述');
+            $table->text('content')->comment('菜谱描述');
             $table->integer('uid')->comment('菜谱创建者');
             $table->timestamps();
         });
