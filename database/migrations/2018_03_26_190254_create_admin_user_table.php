@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHomeUserTable extends Migration
+class CreateAdminUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateHomeUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('home_user', function (Blueprint $table) {
+        Schema::create('admin_user', function (Blueprint $table) {
             $table->increments('id')->comment('用户ID');
             $table->string('username','20')->comment('用户名');
             $table->string('password','255')->comment('密码');
-            $table->string('email','50')->default('')->comment('邮箱');
-            $table->char('phone','11')->default('')->comment('电话');
-            $table->enum('status',['0','1'])->comment('状态');
+            $table->enum('auth', ['1','2'])->comment('权限');
+            $table->enum('status', ['0','1'])->comment('用户状态');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateHomeUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('home_user');
+        Schema::dropIfExists('admin_user');
     }
 }
