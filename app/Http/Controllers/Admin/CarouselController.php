@@ -20,7 +20,7 @@ class CarouselController extends Controller
     {
         //查询数据 显示到页面上
 
-        $cc = DB::table('carousel')->paginate(5);
+            $cc = DB::table('carousel')->paginate(5);
 
 
         return view('/Admin.Carousel.index',['cc'=>$cc]);
