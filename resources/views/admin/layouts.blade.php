@@ -13,10 +13,13 @@
     <script src="/Admin/js/jquery.min.js"></script>
     <script src="/Admin/js/app.js"></script>
     <script src="/Admin/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/Admin/js/jquery.min.js"></script>
+    <script src="/Admin/lib/layui/layui.js" charset="utf-8"></script>
     <link rel="icon" type="image/png" href="/Admin/i/favicon.png">
     <link rel="apple-touch-icon-precomposed" href="/Admin/i/app-icon72x72@2x.png">
     <link rel="stylesheet" href="/Admin/css/amazeui.min.css"/>
     <link rel="stylesheet" href="/Admin/css/admin.css">
+    
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <style type="text/css">        #pull_right {
             text-align: center;
@@ -115,7 +118,7 @@
 
 <body>
 <header class="am-topbar admin-header">
-    <div class="am-topbar-brand"><img src="/assets/i/logo.png"></div>
+    <div class="am-topbar-brand"><img src="/Admin/i/logo.png"></div>
 
     <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
         <ul class="am-nav am-nav-pills am-topbar-nav admin-header-list">

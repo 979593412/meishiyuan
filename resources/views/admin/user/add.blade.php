@@ -71,53 +71,12 @@
     </div>
     </div>
     </div>
+    </div> 
     </div>
-    </div>
 
 
 
-        {{--<script>--}}
-
-            {{--form.on('submit(add)',function (data) {--}}
-
-                {{--// ajax--}}
-                {{--$.ajax({--}}
-                    {{--type:"POST",--}}
-                    {{--url:"/admin/user",--}}
-                    {{--data:data.field,--}}
-                    {{--dataType:"json",--}}
-                    {{--success:function (data) {--}}
-                        {{--if(data==1){--}}
-                            {{--// 发异步,把数据提交给php--}}
-                            {{--layer.alert("增加成功",{icon: 6},function () {--}}
-                                {{--console.log(data);--}}
-                                {{--// 获取frame索引--}}
-                                {{--var index = parent.layer.getFrameIndex(window.name);--}}
-                                {{--// 关闭当前frame--}}
-                                {{--parent.layer.close(index);--}}
-
-
-                            {{--});--}}
-                        {{--}--}}
-
-                    {{--}--}}
-                    {{--error:function () {--}}
-                        {{--layer.alert("此用户已存在",{icon: 5},function () {--}}
-                            {{--// 获取frame索引--}}
-                            {{--var index = parent.layer.getFrameIndex(window.name);--}}
-                            {{--// 关闭当前frame--}}
-                            {{--parent.layer.close(index);--}}
-
-                        {{--});--}}
-                    {{--}--}}
-
-                {{--});--}}
-
-            {{--return false;--}}
-            {{--});--}}
-
-        {{--</script>--}}
-
+      
 
 @endsection
 

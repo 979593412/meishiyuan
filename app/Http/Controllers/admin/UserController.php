@@ -21,16 +21,13 @@ class UserController extends Controller
     public function store(Request $request){
        // 1.接受用户传递过来的信息
         $res = $request->all();
-
+        // return $res;
 
         $pan = User::where('username',$res['username'])->first();
         if (!empty($pan)){
             return redirect('admin/user/add')->with('msg','用户名已存在');
         }
-//        dd($pan);
-//        if ($res['username'] == $pan){
-//            return redirect('admin/user/add')->with('msg','用户名已存在');
-//        }
+      
 
         if ($res['password'] !== $res['repass']) {
 
@@ -45,7 +42,7 @@ class UserController extends Controller
 
         // 4.根据添加执行结果,执行跳转(成功,列表页,失败添加页)
         if($ress){
-            // 添加成功跳转到列表页
+            // 添加成功跳转到列表页 
             return redirect('admin/user/list');
         } else {
             return back()->with('msg','添加失败');
