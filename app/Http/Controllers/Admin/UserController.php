@@ -60,7 +60,7 @@ class UserController extends Controller
         $username = $request->input('username');
         $user = Admin_User::where('username','like','%'.$username.'%')->paginate(5);
        
-        return view('admin.user.list',['user'=>$user,'request'=>$request]);
+        return view('Admin.user.list',['user'=>$user,'request'=>$request]);
 
     }
 

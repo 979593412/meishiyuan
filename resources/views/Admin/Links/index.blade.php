@@ -1,4 +1,4 @@
-@extends('Admin.layouts.app')
+@extends('Admin.layout')
 @section('title','友情链接')
 @section('content')
 <div class="admin-biaogelist">

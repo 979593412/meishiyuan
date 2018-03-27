@@ -1,5 +1,5 @@
 
-@extends('admin.layouts')
+@extends('admin.layout')
 
 @section('title', '后台用户浏览页面')
 
