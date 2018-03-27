@@ -4,9 +4,9 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Model\Admin_User;
+use App\Model\Admin_User; 
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Crypt; 
+use Illuminate\Support\Facades\Crypt;  
 
 use DB;
 
@@ -60,7 +60,7 @@ class UserController extends Controller
         $username = $request->input('username');
         $user = Admin_User::where('username','like','%'.$username.'%')->paginate(5);
        
-        return view('admin.user.list',['user'=>$user,'request'=>$request]);
+        return view('Admin.user.list',['user'=>$user,'request'=>$request]);
 
     }
 
