@@ -152,7 +152,7 @@
                                             <ul class="plain">
                                                 <li><a href="#" data-ga-event="公共页面/导航栏/$text">我的厨房</a></li>
                                                 <li><a href="#" data-ga-event="公共页面/导航栏/$text">我的菜单</a></li>
-                                                <li><a href="#" data-ga-event="公共页面/导航栏/$text">帐号设置</a></li>
+                                                <li><a href="/home/details" data-ga-event="公共页面/导航栏/$text">帐号设置</a></li>
                                                 <li><a href="#" data-ga-event="公共页面/导航栏/$text">发现好友</a></li>
                                                 <li><a href="{{url('/login/outlogin')}}">退出</a></li>
                                             </ul>

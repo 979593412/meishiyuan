@@ -44,6 +44,11 @@ Route::get('home/gghz',function (){
     return view('home.home_ad.gghz');
 });
 
+//账号设置
+Route::get('/home/details',function (){
+   return view('home.details.details');
+});
+
 
 
 
