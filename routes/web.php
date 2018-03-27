@@ -39,6 +39,13 @@ Route::post('/register/store','Home\LoginController@store');
 
 //广告位路由设置
 Route::resource('/admin/home_ad','Admin\Home_adController');
+Route::get('/home/gghz',function (){
+    return view('home.home_ad.gghz');
+});
+
+Route::get('home/details',function (){
+    return view('home.details.details');
+});
 
 
 
