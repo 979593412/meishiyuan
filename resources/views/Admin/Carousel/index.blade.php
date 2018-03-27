@@ -1,4 +1,4 @@
-@extends('Admin.Carousel.layout')
+@extends('Admin.layout')
 
 @section('title', '添加轮播图页')
 
