@@ -234,15 +234,32 @@
 
         <div class="sideMenu am-icon-dashboard" style="color:#aeb2b7; margin: 10px 0 0 0;"> 欢迎系统管理员：清风抚雪</div>
         <div class="sideMenu">
+
+            <h3 class="am-icon-users on"><em></em> <a href="#">用户管理</a></h3>
+            <ul>
+                <li><a href="/admin/user/list">用户列表</a></li>
+
+            </ul>
+
+
             <h3 class="am-icon-flag"><em></em> <a href="#">商品管理</a></h3>
             <ul>
-                <li><a href="">商品列表</a></li>
+                <li>商品列表</li>
                 <li class="func" dataType='html' dataLink='msn.htm' iconImg='images/msn.gif'>添加新商品</li>
                 <li>商品分类</li>
                 <li>用户评论</li>
                 <li>商品回收站</li>
                 <li>库存管理</li>
             </ul>
+
+            <h3 class="am-icon-users on"><em></em> <a href="#">附属模块</a></h3>
+            <ul>
+                <li><a href="/admin/fenlei">轮播图</a></li>
+                <li><a href="/admin/home_ad">广告位</a></li>
+                <li><a href="/admin/links">友情链接</a></li>
+            </ul>
+
+
             <h3 class="am-icon-cart-plus"><em></em> <a href="#"> 订单管理</a></h3>
             <ul>
                 <li>订单列表</li>
@@ -305,21 +322,21 @@
                 <li>
                     <button type="button" class="am-btn am-btn-default am-radius am-btn-xs"> 首页
                 </li>
-                <li>
-                    <button type="button" class="am-btn am-btn-default am-radius am-btn-xs">帮助中心<a
-                                href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close="">×</a>
-                    </button>
-                </li>
-                <li>
-                    <button type="button" class="am-btn am-btn-default am-radius am-btn-xs">奖金管理<a
-                                href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close="">×</a>
-                    </button>
-                </li>
-                <li>
-                    <button type="button" class="am-btn am-btn-default am-radius am-btn-xs">产品管理<a
-                                href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close="">×</a>
-                    </button>
-                </li>
+                {{--<li>--}}
+                    {{--<button type="button" class="am-btn am-btn-default am-radius am-btn-xs">帮助中心<a--}}
+                                {{--href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close="">×</a>--}}
+                    {{--</button>--}}
+                {{--</li>--}}
+                {{--<li>--}}
+                    {{--<button type="button" class="am-btn am-btn-default am-radius am-btn-xs">奖金管理<a--}}
+                                {{--href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close="">×</a>--}}
+                    {{--</button>--}}
+                {{--</li>--}}
+                {{--<li>--}}
+                    {{--<button type="button" class="am-btn am-btn-default am-radius am-btn-xs">产品管理<a--}}
+                                {{--href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close="">×</a>--}}
+                    {{--</button>--}}
+                {{--</li>--}}
 
 
             </ul>
