@@ -50,7 +50,7 @@ Route::get('home/details',function (){
 
 
 
-Route::resource('/admin/links','Admin\LinksController');
+
 
 
 //login 后台登录
@@ -63,8 +63,11 @@ Route::get('/admin/code','Admin\LoginController@code');
 
 //登录验证
 Route::post('/admin/dologin','Admin\LoginController@dologin');
-
-
+//友情链接
+Route::resource('/admin/links','Admin\LinksController');
+//分类路由
+Route::get('/admin/cate/create/{id}','Admin\CateController@create');
+Route::resource('/admin/cate','Admin\CateController');
 
 
 

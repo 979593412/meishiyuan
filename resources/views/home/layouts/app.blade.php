@@ -25,6 +25,7 @@
     <meta name="baidu_union_verify" content="2e1ace664f00eeef623d4af0d37edf17">
     <meta name="shenma-site-verification" content="cfb8d844a5731f6993ba537751ae9d6b_1468826090">
     <link href="{{asset('home/css/f97edcb6e2dbe6a5cca5.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('home/css/5b114797a93be8f6e3f7.css')}}" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -50,90 +51,6 @@
                         <ul class="site-nav plain pure-g">
                             <li class="pure-u"><a href="http://www.xiachufang.com/feature/vip/" rel="nofollow">会员专区</a></li>
 
-                            <li class="topbar-cats pure-u">
-                                <a href="http://www.xiachufang.com/category/" class="block-link" data-ga-event="公共页面/导航栏/$text"><span>菜谱分类</span></a>
-                                <div class="topbar-cats-submenu hidden">
-                                    <div class="topbar-cats-submenu-bg">
-
-
-                                        <ul class="plain">
-                                            <li class='topbar-cat-head'>常用主题</li>
-                                            <li><a href="http://www.xiachufang.com/category/40076/" title="家常菜菜谱大全" data-ga-event="公共页面/导航栏/$text">家常菜</a></li>
-                                            <li><a href="http://www.xiachufang.com/category/40077/" title="快手菜菜谱大全" data-ga-event="公共页面/导航栏/$text">快手菜</a></li>
-                                            <li><a href="http://www.xiachufang.com/category/40078/" title="下饭菜菜谱大全" data-ga-event="公共页面/导航栏/$text">下饭菜</a></li>
-                                            <li><a href="http://www.xiachufang.com/category/40071/" title="早餐菜谱大全" data-ga-event="公共页面/导航栏/$text">早餐</a></li>
-                                            <li><a href="http://www.xiachufang.com/category/30048/" title="减肥菜谱大全" data-ga-event="公共页面/导航栏/$text">减肥</a></li>
-                                            <li><a href="http://www.xiachufang.com/category/20130/" title="汤羹菜谱大全" data-ga-event="公共页面/导航栏/$text">汤羹</a></li>
-                                            <li><a href="http://www.xiachufang.com/category/51761/" title="烘焙菜谱大全" data-ga-event="公共页面/导航栏/$text">烘焙</a></li>
-                                            <li><a href="http://www.xiachufang.com/category/40073/" title="小吃菜谱大全" data-ga-event="公共页面/导航栏/$text">小吃</a></li>
-                                        </ul>
-                                        <ul class="plain">
-                                            <li class='topbar-cat-head'>常见食材</li>
-                                            <li><a href="http://www.xiachufang.com/category/731/" title="猪肉做法大全" data-ga-event="公共页面/导航栏/$text">猪肉</a></li>
-                                            <li><a href="http://www.xiachufang.com/category/1136/" title="鸡肉做法大全" data-ga-event="公共页面/导航栏/$text">鸡肉</a></li>
-                                            <li><a href="http://www.xiachufang.com/category/1445/" title="牛肉做法大全" data-ga-event="公共页面/导航栏/$text">牛肉</a></li>
-                                            <li><a href="http://www.xiachufang.com/category/957/" title="鱼做法大全" data-ga-event="公共页面/导航栏/$text">鱼</a></li>
-                                            <li><a href="http://www.xiachufang.com/category/394/" title="鸡蛋做法大全" data-ga-event="公共页面/导航栏/$text">鸡蛋</a></li>
-                                            <li><a href="http://www.xiachufang.com/category/206/" title="土豆做法大全" data-ga-event="公共页面/导航栏/$text">土豆</a></li>
-                                            <li><a href="http://www.xiachufang.com/category/178/" title="茄子做法大全" data-ga-event="公共页面/导航栏/$text">茄子</a></li>
-                                            <li><a href="http://www.xiachufang.com/category/80/" title="豆腐做法大全" data-ga-event="公共页面/导航栏/$text">豆腐</a></li>
-                                        </ul>
-                                        <ul class="plain">
-                                            <li class='topbar-cat-head'>时令食材</li>
-                                            <li>
-                                                <a href="http://www.xiachufang.com/category/21/" title="鲍鱼做法大全" data-ga-event="公共页面/导航栏/$text">鲍鱼</a>
-                                                <span class="topbar-cat-score">
-                        10.0
-                    </span>
-                                            </li>
-                                            <li>
-                                                <a href="http://www.xiachufang.com/category/3362/" title="海虾做法大全" data-ga-event="公共页面/导航栏/$text">海虾</a>
-                                                <span class="topbar-cat-score">
-                        10.0
-                    </span>
-                                            </li>
-                                            <li>
-                                                <a href="http://www.xiachufang.com/category/1495/" title="海参做法大全" data-ga-event="公共页面/导航栏/$text">海参</a>
-                                                <span class="topbar-cat-score">
-                        10.0
-                    </span>
-                                            </li>
-                                            <li>
-                                                <a href="http://www.xiachufang.com/category/141/" title="冬笋做法大全" data-ga-event="公共页面/导航栏/$text">冬笋</a>
-                                                <span class="topbar-cat-score">
-                        9.9
-                    </span>
-                                            </li>
-                                            <li>
-                                                <a href="http://www.xiachufang.com/category/145/" title="羊排做法大全" data-ga-event="公共页面/导航栏/$text">羊排</a>
-                                                <span class="topbar-cat-score">
-                        9.9
-                    </span>
-                                            </li>
-                                            <li>
-                                                <a href="http://www.xiachufang.com/category/692/" title="马蹄做法大全" data-ga-event="公共页面/导航栏/$text">马蹄</a>
-                                                <span class="topbar-cat-score">
-                        9.9
-                    </span>
-                                            </li>
-                                            <li>
-                                                <a href="http://www.xiachufang.com/category/833/" title="蓝莓做法大全" data-ga-event="公共页面/导航栏/$text">蓝莓</a>
-                                                <span class="topbar-cat-score">
-                        9.9
-                    </span>
-                                            </li>
-                                            <li>
-                                                <a href="http://www.xiachufang.com/category/2918/" title="龙虾做法大全" data-ga-event="公共页面/导航栏/$text">龙虾</a>
-                                                <span class="topbar-cat-score">
-                        9.9
-                    </span>
-                                            </li>
-                                        </ul>
-                                        <div class="topbar-cats-submenu-bottom"><a href="http://www.xiachufang.com/category/" data-ga-event="公共页面/导航栏/$text">查看全部分类</a></div>
-
-                                    </div>
-                                </div>
-                            </li>
                             <li class="pure-u"><a href="http://www.xiachufang.com/explore/menu/collect/" data-ga-event="公共页面/导航栏/$text">菜单</a></li>
                             <li class="pure-u"><a href="http://www.xiachufang.com/activity/" data-ga-event="公共页面/导航栏/$text">作品动态</a></li>
                         </ul>
@@ -176,10 +93,15 @@
         </div>
     </div>
 </div>
+<div class="page-outer">
+    <div class="page-container">
+        <div class="pure-g">
+            @section('content')
 
-@section('content')
-
-@show
+            @show
+        </div>
+    </div>
+</div>
 
 <div class="bottom-outer">
     <div class="bottom-container">

@@ -152,6 +152,6 @@ class LinksController extends Controller
     public function destroy($id)
     {
         $user = Links::find($id)->delete();
-        return redirect('admin/links')->with('message','添加成功');
+        return redirect('admin/links')->with('message','删除成功');
     }
 }
