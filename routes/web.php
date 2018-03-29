@@ -37,8 +37,10 @@ Route::group(['parfix'=>'admin','namespace'=>'Admin','middleware'=>'islogin'],fu
 // 后台用户删除页面
     Route::get('user/delete/{id}','UserController@delete');
 });
-
-
+//广告合作
+Route::get('/home/gghz',function (){
+    return view('home.home_ad.gghz');
+});
 
 
 
