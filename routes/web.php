@@ -43,9 +43,9 @@ Route::get('/home/gghz',function (){
     return view('home.home_ad.gghz');
 });
 
-Route::get('home/details',function (){
-    return view('home.details.details');
-});
+//设置个人信息页
+Route::get('home/details','Home\DetailsController@index');
+Route::post('/home/details/update','Home\detailsController@update');
 
 
 
@@ -80,3 +80,6 @@ Route::get('admin/user/edit/{id}','Admin\UserController@edit');
 Route::post('admin/user/update/{id}','Admin\UserController@update');
 // 后台用户删除页面
 Route::get('admin/user/delete/{id}','Admin\UserController@delete');
+
+
+
