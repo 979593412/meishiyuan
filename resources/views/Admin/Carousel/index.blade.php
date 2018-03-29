@@ -1,4 +1,4 @@
-@extends('Admin.layout')
+@extends('Admin.Carousel.layout')
 
 @section('title', '添加轮播图页')
 
@@ -232,7 +232,7 @@
       <tr>
         <td><input type="checkbox" /></td>
         <td class="am-text-center">{{$v->id}}</td>
-        <td><a href="#">{{$v->pic}}</a></td>
+        <td><img src="/uploads/{{$v->pic}}" alt=""></td>
         <td>{{$v->created_at}}</td>
         <td class="am-hide-sm-only">{{$v->updated_at}}</td>
 

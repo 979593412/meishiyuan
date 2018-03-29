@@ -150,7 +150,7 @@
                                         <a class="user-avatar avatar" href="#" data-ga-event="公共页面/导航栏/$text"><img src="{{asset('home/images/face.png')}}" alt="手机用户1903_nqcp的厨房" width="30" height="30"></a>
                                         <div class="user-nav-submenu hidden" style="display: none;">
                                             <ul class="plain">
-                                                <li><a href="#" data-ga-event="公共页面/导航栏/$text">我的厨房</a></li>
+                                                <li><a href="{{url('/home/chufang')}}" data-ga-event="公共页面/导航栏/$text">我的厨房</a></li>
                                                 <li><a href="#" data-ga-event="公共页面/导航栏/$text">我的菜单</a></li>
                                                 <li><a href="/home/details" data-ga-event="公共页面/导航栏/$text">帐号设置</a></li>
                                                 <li><a href="#" data-ga-event="公共页面/导航栏/$text">发现好友</a></li>

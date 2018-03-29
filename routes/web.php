@@ -1,18 +1,7 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
-
-
+//-----------------------------------后台
 
 
 //轮播图----------------------------------------------------
@@ -21,6 +10,38 @@
 Route::resource('/admin/fenlei','admin\CarouselController');
 
 
+
+//login 后台登录
+Route::get('/admin/logins','Admin\LoginController@login');
+//生成路由的验证码
+Route::get('/admin/code','Admin\LoginController@code');
+// 第三方验证码生成  gregwar/captcha 插件 Packagist
+//Route::get('/code/captcha/{id}','Admin\LoginController@captcha');
+//登录验证
+Route::post('/admin/dologin','Admin\LoginController@dologin');
+
+
+//后台登录验证路由组
+Route::group(['parfix'=>'admin','namespace'=>'Admin','middleware'=>'islogin'],function (){
+    // 后台用户列表页面
+    Route::get('user/list','UserController@list');
+    // 后台用户添加页面
+    Route::get('user/add','UserController@add');
+// 后台保存页面
+    Route::post('user/store','UserController@store');
+
+// 后台修改页面
+    Route::get('user/edit/{id}','UserController@edit');
+    Route::post('user/update/{id}','UserController@update');
+// 后台用户删除页面
+    Route::get('user/delete/{id}','UserController@delete');
+});
+
+
+
+
+
+//---------------------------前台
 
 //前台页面
 
@@ -37,46 +58,20 @@ Route::get('/register','Home\LoginController@register');
 Route::post('/register/store','Home\LoginController@store');
 
 
-//广告位路由设置
-Route::resource('/admin/home_ad','Admin\Home_adController');
-Route::get('/home/gghz',function (){
-    return view('home.home_ad.gghz');
-});
 
-Route::get('home/details',function (){
-    return view('home.details.details');
-});
+// 我的厨房模块
+Route::get('/home/chufang','Home\KitchenController@index');
 
+//菜谱
+Route::get('/home/chufang/caipu','Home\KitchenController@caipu');
 
+//作品
+Route::get('/home/chufang/zuopin','Home\KitchenController@zuopin');
 
+//菜单
+Route::get('/home/chufang/caidan','Home\KitchenController@caidan');
 
-Route::resource('/admin/links','Admin\LinksController');
+//留言板
+Route::get('/home/chufang/liuyanban','Home\KitchenController@liuyanban');
 
-
-//login 后台登录
-Route::get('/admin/logins','Admin\LoginController@login');
-//生成路由的验证码
-Route::get('/admin/code','Admin\LoginController@code');
-
-// 第三方验证码生成  gregwar/captcha 插件 Packagist
-//Route::get('/code/captcha/{id}','Admin\LoginController@captcha');
-
-//登录验证
-Route::post('/admin/dologin','Admin\LoginController@dologin');
-
-
-
-
-
-// 后台用户列表页面
-Route::get('/admin/user/list','Admin\UserController@list');
-// 后台用户添加页面
-Route::get('admin/user/add','Admin\UserController@add');
-// 后台保存页面
-Route::post('admin/user/store','Admin\UserController@store');
-
-// 后台修改页面
-Route::get('admin/user/edit/{id}','Admin\UserController@edit');
-Route::post('admin/user/update/{id}','Admin\UserController@update');
-// 后台用户删除页面
-Route::get('admin/user/delete/{id}','Admin\UserController@delete');
+//-----------------------我的厨房模块结束---------------------
