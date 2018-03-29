@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="zh">
 <head>
 
     <title>@yield('title')</title>
@@ -24,11 +22,14 @@
     <meta name="sogou_site_verification" content="BiVBs1HCQM"/>
     <meta name="baidu_union_verify" content="2e1ace664f00eeef623d4af0d37edf17">
     <meta name="shenma-site-verification" content="cfb8d844a5731f6993ba537751ae9d6b_1468826090">
+    <link rel="stylesheet" href="{{asset('layui/css/layui.css')}}"  media="all">
+    <script src="{{asset('layui/layui.js')}}" charset="utf-8"></script>
+    <script src="{{asset('home/js/jquery-3.2.1.min.js')}}"></script>
     <link href="{{asset('home/css/f97edcb6e2dbe6a5cca5.css')}}" rel="stylesheet" type="text/css">
 
 </head>
 
-<body>
+<body style="height:100%;">
 
 <div class="topbar-outer has-bottom-border">
     <div class="topbar-container">
