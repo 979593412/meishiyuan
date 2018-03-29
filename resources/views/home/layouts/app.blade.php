@@ -202,7 +202,7 @@
                             @else
                                 <div class="user-action">
                                     <div class="user-nav">
-                                        <a class="user-avatar avatar" href="#" data-ga-event="公共页面/导航栏/$text"><img src="/uploads/{{session()->get('userInfo')->face}}" alt="{{session()->get('userInfo')->nickname}}" width="30" height="30"></a>
+                                        <a class="user-avatar avatar" href="#" data-ga-event="公共页面/导航栏/$text"><img src="{{isset(session()->get('userInfo')->face) ? '/uploads/'.session()->get('userInfo')->face : '/home/images/face.png'}}" alt="{{session()->get('userInfo')->nickname}}" width="30" height="30"></a>
                                         <div class="user-nav-submenu hidden" style="display: none;">
                                             <ul class="plain">
                                                 <li><a href="#" data-ga-event="公共页面/导航栏/$text">我的厨房</a></li>

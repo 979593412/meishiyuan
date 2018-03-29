@@ -6,6 +6,7 @@ use App\Model\Details;
 use App\Model\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Session;
 
 class detailsController extends Controller
 {
@@ -19,16 +20,14 @@ class detailsController extends Controller
     public function update(Request $request)
     {
         //检查昵称是否已经存在
-        $users = Details::where('nickname',$request->input('nickname') ) -> get();
+        $user = Details::where('nickname',$request->input('nickname') ) -> first();
 
-        foreach ($users as $user) {
-            $id =  $user->id;
-        }
+
 //        echo '<pre>';
 //        print_r($id);
 //        dd();
 
-        if (empty($id)){
+        if (empty($user->id)){
 
             //获取用户传过来的数据
             $birthday = implode('-', $request->only('year','month','day') );
@@ -54,7 +53,13 @@ class detailsController extends Controller
 
 
 
+
+
             if ($tf) {
+
+                    $user = Details::where('uid', $id)->first();
+                    Session::put('userInfo', $user);
+
                 return back() -> with('msg','设置成功');
 
             } else {
@@ -63,7 +68,7 @@ class detailsController extends Controller
 
 
         } else {
-            return back() -> with('msg','昵称已经存在');
+            return back() -> with('msg','昵称已经存在或为空~');
         }
     }
 

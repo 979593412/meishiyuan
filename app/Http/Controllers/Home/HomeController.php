@@ -18,7 +18,7 @@ class HomeController extends Controller
             $id = session()->get('user')->id;
 
             $user = Details::where('uid', $id)->first();
-//
+
             Session::put('userInfo', $user);
 
         }

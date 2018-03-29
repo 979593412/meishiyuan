@@ -20,7 +20,7 @@
 <div class="bar">
     
     <ul class="plain pure-g">
-          <li class="active pure-u"><span>基本信息</span></li>
+          <li class="active pure-u"><span>基本信息</span><a href="javascript:void (0);">{{session()->get('msg')}}</a></li>
           {{--<li class="pure-u"><a href="https://www.xiachufang.com/account/pic/">设置头像</a></li>--}}
           {{--<li class="pure-u"><a href="https://www.xiachufang.com/account/complete/">绑定邮箱</a></li>--}}
           {{--<li class="pure-u"><a href="https://www.xiachufang.com/account/bind/">绑定账号</a></li>--}}
