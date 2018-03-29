@@ -3,6 +3,14 @@
 @section('title','个人信息页')
 
 @section('content')
+    {{--城市联动js文件--}}
+    {{--<script src="/home/js/area.js"></script>--}}
+    <script class="resources library" src="/home/js/area.js" type="text/javascript"></script>
+
+
+
+
+
 
     <div class="page-container">
 <h1 class="page-title">设置个人信息</h1>
@@ -12,10 +20,10 @@
 <div class="bar">
     
     <ul class="plain pure-g">
-          <li class="active pure-u"><span>基本信息</span></li>
-          <li class="pure-u"><a href="https://www.xiachufang.com/account/pic/">设置头像</a></li>
-          <li class="pure-u"><a href="https://www.xiachufang.com/account/complete/">绑定邮箱</a></li>
-          <li class="pure-u"><a href="https://www.xiachufang.com/account/bind/">绑定账号</a></li>
+          <li class="active pure-u"><span>基本信息</span><a href="javascript:void (0);">{{session()->get('msg')}}</a></li>
+          {{--<li class="pure-u"><a href="https://www.xiachufang.com/account/pic/">设置头像</a></li>--}}
+          {{--<li class="pure-u"><a href="https://www.xiachufang.com/account/complete/">绑定邮箱</a></li>--}}
+          {{--<li class="pure-u"><a href="https://www.xiachufang.com/account/bind/">绑定账号</a></li>--}}
     </ul>
 </div>
 
@@ -27,32 +35,48 @@
 
 
 
-<form enctype="multipart/form-data" class="align-left" id="account-form" method="POST">
-  <input type="hidden" name="xf" value="HZ_-c">
+<form enctype="multipart/form-data" class="align-left" id="account-form" method="POST" action="/home/details/update">
+
+  {{ csrf_field() }}
+    <div class="pure-g mb20">
+        <div class="pure-u-1-8 align-right pr20">头像</div>
+        <div class="pure-u-7-8">
+
+            <div class="col-sm-9 big-photo">
+                <div id="preview">
+                    <img id="imghead" border="0" src="/Admin/i/photo_icon.png" width="80" height="80" onclick="$('#previewImg').click();">
+                </div>
+                <input type="file" onchange="previewImage(this)" style="display: none;" id="previewImg" name="face">
+
+            </div>
+
+            <span class="gray-font">&nbsp;&nbsp;提示：点击上传你可爱的头像吧</span>
+        </div>
+    </div>
 
   <div class="pure-g mb20">
     <div class="pure-u-1-8 align-right pr20">昵称</div>
     <div class="pure-u-7-8">
-      <input type="text" name="name" value="手机用户1903_nqcp">
-        <span class="gray-font">&nbsp;&nbsp;提示：七天内只能修改一次昵称</span>
+      <input type="text" name="nickname" placeholder="{{session()->get('userInfo')->nickname}}">
+        <span class="gray-font">&nbsp;&nbsp;提示：给自己起一个好听的昵称吧</span>
     </div>
   </div>
 
   <div class="pure-g mb20">
     <div class="pure-u-1-8 align-right pr20">自我介绍</div>
     <div class="pure-u-1-2">
-      <textarea name="desc" rows="3"></textarea>
+      <textarea name="info" rows="3" placeholder="{{session()->get('userInfo')->info}}"></textarea>
     </div>
   </div>
 
   <div class="pure-g mb20">
     <div class="pure-u-1-8 align-right pr20">性别</div>
     <div class="pure-u-1-2">
-      <input type="radio" name="gender" none="" value="0">
+      <input type="radio" name="sex" none="" value="m">
       <span>&nbsp;男&nbsp;&nbsp;</span>
-      <input type="radio" name="gender" none="" value="1">
+      <input type="radio" name="sex" none="" value="w">
       <span>&nbsp;女&nbsp;&nbsp;</span>
-      <input type="radio" name="gender" none="" value="2">
+      <input type="radio" name="sex" none="" value="x">
       <span>&nbsp;其他</span>
     </div>
   </div>
@@ -189,171 +213,51 @@
   <div class="pure-g mb20">
     <div class="pure-u-1-8 align-right pr20">家乡</div>
     <div class="pure-u-1-2">
-      <select name="home_province" id="account-home-province">
-        <option value="">请选择</option>
+
+          <select id="s_province" name="s_province"></select>  
+          {{--城市联动--}}
+        <select id="s_city" name="s_city" ></select>
         
-        <option value="1">北京</option>
-        
-        <option value="2">天津</option>
-        
-        <option value="3">河北</option>
-        
-        <option value="4">山西</option>
-        
-        <option value="5">内蒙</option>
-        
-        <option value="6">辽宁</option>
-        
-        <option value="7">吉林</option>
-        
-        <option value="8">黑龙江</option>
-        
-        <option value="9">上海</option>
-        
-        <option value="10">江苏</option>
-        
-        <option value="11">浙江</option>
-        
-        <option value="12">安徽</option>
-        
-        <option value="13">福建</option>
-        
-        <option value="14">江西</option>
-        
-        <option value="15">山东</option>
-        
-        <option value="16">河南</option>
-        
-        <option value="17">湖北</option>
-        
-        <option value="18">湖南</option>
-        
-        <option value="19">广东</option>
-        
-        <option value="20">广西</option>
-        
-        <option value="21">海南</option>
-        
-        <option value="22">重庆</option>
-        
-        <option value="23">四川</option>
-        
-        <option value="24">贵州</option>
-        
-        <option value="25">云南</option>
-        
-        <option value="26">西藏</option>
-        
-        <option value="27">陕西</option>
-        
-        <option value="28">甘肃</option>
-        
-        <option value="29">青海</option>
-        
-        <option value="30">宁夏</option>
-        
-        <option value="31">新疆</option>
-        
-        <option value="32">香港</option>
-        
-        <option value="33">澳门</option>
-        
-        <option value="34">台湾</option>
-        
-        <option value="35">海外</option>
-      </select>
-      <select name="home_city" data="" class="ml10">
-        <option value="">请选择</option>
-      </select>
+        <select id="s_county" name="s_county"></select>
+          
+
     </div>
   </div>
 
-  <div class="pure-g mb20">
-    <div class="pure-u-1-8 align-right pr20">现居</div>
-    <div class="pure-u-1-2">
-      <select name="current_province" id="account-current-province">
-        <option value="">请选择</option>
-        
-        <option value="1">北京</option>
-        
-        <option value="2">天津</option>
-        
-        <option value="3">河北</option>
-        
-        <option value="4">山西</option>
-        
-        <option value="5">内蒙</option>
-        
-        <option value="6">辽宁</option>
-        
-        <option value="7">吉林</option>
-        
-        <option value="8">黑龙江</option>
-        
-        <option value="9">上海</option>
-        
-        <option value="10">江苏</option>
-        
-        <option value="11">浙江</option>
-        
-        <option value="12">安徽</option>
-        
-        <option value="13">福建</option>
-        
-        <option value="14">江西</option>
-        
-        <option value="15">山东</option>
-        
-        <option value="16">河南</option>
-        
-        <option value="17">湖北</option>
-        
-        <option value="18">湖南</option>
-        
-        <option value="19">广东</option>
-        
-        <option value="20">广西</option>
-        
-        <option value="21">海南</option>
-        
-        <option value="22">重庆</option>
-        
-        <option value="23">四川</option>
-        
-        <option value="24">贵州</option>
-        
-        <option value="25">云南</option>
-        
-        <option value="26">西藏</option>
-        
-        <option value="27">陕西</option>
-        
-        <option value="28">甘肃</option>
-        
-        <option value="29">青海</option>
-        
-        <option value="30">宁夏</option>
-        
-        <option value="31">新疆</option>
-        
-        <option value="32">香港</option>
-        
-        <option value="33">澳门</option>
-        
-        <option value="34">台湾</option>
-        
-        <option value="35">海外</option>
-      </select>
-      <select name="current_city" data="" class="ml10">
-        <option value="">请选择</option>
-      </select>
-    </div>
-  </div>
+  {{--<div class="pure-g mb20">--}}
+    {{--<div class="pure-u-1-8 align-right pr20">现居</div>--}}
+    {{--<div class="pure-u-1-2">--}}
+        {{--<select name="" id=""></select>--}}
+    {{--</div>--}}
+  {{--</div>--}}
+
+
+
+    {{--城市联动js--}}
+    <script type="text/javascript">_init_area();</script>
+    <div id="show"></div>
+    <script type="text/javascript">
+
+        var Gid  = document.getElementById ;
+
+        var showArea = function(){
+
+            Gid('show').innerHTML = "<h3>省" + Gid('s_province').value + " - 市" +
+
+                Gid('s_city').value + " - 县/区" +
+
+                Gid('s_county').value + "</h3>"
+
+        }
+
+        Gid('s_county').setAttribute('onchange','showArea()');
+
+    </script>
 
   <div class="pure-g mb20">
     <div class="pure-u-1-8 align-right pr20">职业</div>
     <div class="pure-u-7-8">
-      <select name="profession" id="jobs">
+      <select name="career" id="jobs">
         <option value="">请选择</option>
         <option value="学生">学生</option>
         <option value="政府职员">政府职员</option>
@@ -375,7 +279,7 @@
         <option value="全职主妇">全职主妇</option>
         <option value="其他">其他</option>
       </select>
-      <input type="text" name="other_jobs" value="" class="ml10 hidden">
+      {{--<input type="text" name="other_jobs" value="" class="ml10 hidden">--}}
     </div>
   </div>
 
