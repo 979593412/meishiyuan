@@ -12,6 +12,7 @@ class User extends Model
     public $primaryKey='id';
 
     //选择不批量插入的字段
+
     public $guarded = ['geetest_challenge', 'geetest_validate', 'geetest_seccode'];
 
 
@@ -23,6 +24,9 @@ class User extends Model
     }
 
 
-
+    public function Details()
+    {
+        return $this->hasOne('App\Model\Details', 'uid', 'id');
+    }
 
 }

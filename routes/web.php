@@ -7,8 +7,13 @@
 //轮播图----------------------------------------------------
 Route::resource('/admin/fenlei','admin\CarouselController');
 
+
 //友情链接
 Route::resource('/admin/links','Admin\LinksController');
+
+//后台广告
+Route::resource('/admin/home_ad','Admin\Home_adController');
+
 
 //login 后台登录
 Route::get('/admin/logins','Admin\LoginController@login');
@@ -35,8 +40,10 @@ Route::group(['parfix'=>'admin','namespace'=>'Admin','middleware'=>'islogin'],fu
 // 后台用户删除页面
     Route::get('user/delete/{id}','UserController@delete');
 });
-
-
+//广告合作
+Route::get('/home/gghz',function (){
+    return view('home.home_ad.gghz');
+});
 
 
 
@@ -56,7 +63,13 @@ Route::get('/login/outlogin','Home\LoginController@outlogin');
 //注册
 Route::get('/register','Home\LoginController@register');
 
+
 Route::post('/register/store','Home\LoginController@store');
+
+//设置个人信息页
+Route::get('home/details','Home\DetailsController@index');
+Route::post('/home/details/update','Home\detailsController@update');
+
 
 
 
@@ -76,9 +89,22 @@ Route::get('/home/chufang/caidan','Home\KitchenController@caidan');
 //留言板
 Route::get('/home/chufang/liuyanban','Home\KitchenController@liuyanban');
 
+
 //-----------------------我的厨房模块结束---------------------
 
 
 //分类路由
 Route::get('/admin/cate/create/{id}','Admin\CateController@create');
 Route::resource('/admin/cate','Admin\CateController');
+
+
+//-----------------------我的厨房模块结束---------------------
+
+// 后台修改页面
+Route::get('admin/user/edit/{id}','Admin\UserController@edit');
+Route::post('admin/user/update/{id}','Admin\UserController@update');
+// 后台用户删除页面
+Route::get('admin/user/delete/{id}','Admin\UserController@delete');
+
+
+
