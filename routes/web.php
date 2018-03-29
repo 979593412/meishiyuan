@@ -53,9 +53,13 @@ Route::post('/login/dologin','Home\LoginController@dologin');
 
 Route::get('/login/outlogin','Home\LoginController@outlogin');
 
+
+
+
 Route::get('/register','Home\LoginController@register');
 
 Route::post('/register/store','Home\LoginController@store');
+
 
 
 
@@ -64,6 +68,16 @@ Route::get('/home/chufang','Home\KitchenController@index');
 
 //菜谱
 Route::get('/home/chufang/caipu','Home\KitchenController@caipu');
+
+//登录验证
+Route::post('/admin/dologin','Admin\LoginController@dologin');
+//友情链接
+Route::resource('/admin/links','Admin\LinksController');
+//分类路由
+Route::get('/admin/cate/create/{id}','Admin\CateController@create');
+Route::resource('/admin/cate','Admin\CateController');
+
+
 
 //作品
 Route::get('/home/chufang/zuopin','Home\KitchenController@zuopin');
