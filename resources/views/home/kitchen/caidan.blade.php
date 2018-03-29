@@ -188,35 +188,31 @@
 
 
 
-
-
-
-
                 <!-- middle info   概况 -->
-                @foreach($user as $v)
-                    <div class="pure-u-5-8 font12 pr30">
-                        <h1 class="page-title mb10">
-                            {{$v->username}}
-                        </h1>
 
-                        <!-- basic info -->
-                        <div class="gray-font">
-                            <div>
+                <div class="pure-u-5-8 font12 pr30">
+                    <h1 class="page-title mb10">
+                        {{$user->username}}
+                    </h1>
 
-                                <span class="display-inline-block">{{$v->updated_at}}加入</span>
-                            </div>
-                            <div>
+                    <!-- basic info -->
+                    <div class="gray-font">
+                        <div>
 
-                            </div>
+                            <span class="display-inline-block">{{$user->updated_at}}加入</span>
                         </div>
-                        <!-- basic info -->
+                        <div>
 
-                        <!-- desc -->
-                        <div class="people-base-desc dark-gray-font mt10"></div>
-                        <!-- desc -->
+                        </div>
                     </div>
-            @endforeach
-            <!-- middle 概况结束 info -->
+                    <!-- basic info -->
+
+                    <!-- desc -->
+                    <div class="people-base-desc dark-gray-font mt10"></div>
+                    <!-- desc -->
+                </div>
+
+                <!-- middle 概况结束 info -->
 
 
 

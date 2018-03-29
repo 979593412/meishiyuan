@@ -5,11 +5,10 @@
 
 
 //轮播图----------------------------------------------------
-//admin后台主页面;
-
 Route::resource('/admin/fenlei','admin\CarouselController');
 
-
+//友情链接
+Route::resource('/admin/links','Admin\LinksController');
 
 //login 后台登录
 Route::get('/admin/logins','Admin\LoginController@login');
@@ -41,6 +40,7 @@ Route::group(['parfix'=>'admin','namespace'=>'Admin','middleware'=>'islogin'],fu
 
 
 
+
 //---------------------------前台
 
 //前台页面
@@ -53,9 +53,7 @@ Route::post('/login/dologin','Home\LoginController@dologin');
 
 Route::get('/login/outlogin','Home\LoginController@outlogin');
 
-
-
-
+//注册
 Route::get('/register','Home\LoginController@register');
 
 Route::post('/register/store','Home\LoginController@store');
@@ -69,16 +67,6 @@ Route::get('/home/chufang','Home\KitchenController@index');
 //菜谱
 Route::get('/home/chufang/caipu','Home\KitchenController@caipu');
 
-//登录验证
-Route::post('/admin/dologin','Admin\LoginController@dologin');
-//友情链接
-Route::resource('/admin/links','Admin\LinksController');
-//分类路由
-Route::get('/admin/cate/create/{id}','Admin\CateController@create');
-Route::resource('/admin/cate','Admin\CateController');
-
-
-
 //作品
 Route::get('/home/chufang/zuopin','Home\KitchenController@zuopin');
 
@@ -89,3 +77,8 @@ Route::get('/home/chufang/caidan','Home\KitchenController@caidan');
 Route::get('/home/chufang/liuyanban','Home\KitchenController@liuyanban');
 
 //-----------------------我的厨房模块结束---------------------
+
+
+//分类路由
+Route::get('/admin/cate/create/{id}','Admin\CateController@create');
+Route::resource('/admin/cate','Admin\CateController');

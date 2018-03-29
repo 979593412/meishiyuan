@@ -14,16 +14,24 @@ class KitchenController extends Controller
     public function index()
     {
 //
-        $user = DB::table('home_user')->first();
+//        $user =User::find('1');
+//        $cook=$user->cook_book;
+
+        $all=User::with('cook_book')->get();
+//        dd($cook);
 //        $shoucang=DB::table('collection')->first();
 //        $caipu=DB::table('cook_book')->first();
 
+        $users = DB::table('home_user')
+            ->leftJoin('cook_book', 'home_user.id', '=', 'cook_book.user_id')
+            ->get();
+//        dd($users);
 
-        return view('home.kitchen.kitchen')->with('user',$user);
+        return view('home.kitchen.kitchen')->with('users',$users);
     }
     public function caipu()
     {
-        $user = DB::table('home_user')->get();
+        $user = DB::table('home_user')->first();
         $shoucang=DB::table('collection')->get();
 
         return view('home.kitchen.caipu')->with('user',$user,'shoucang',$shoucang);;
@@ -38,7 +46,7 @@ class KitchenController extends Controller
     }
     public function caidan()
     {
-        $user = DB::table('home_user')->get();
+        $user = DB::table('home_user')->first();
         $shoucang=DB::table('collection')->get();
 
         return view('home.kitchen.caidan')->with('user',$user,'shoucang',$shoucang);;

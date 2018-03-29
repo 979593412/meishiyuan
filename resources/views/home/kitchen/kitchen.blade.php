@@ -213,19 +213,20 @@
 
                     <div class="pure-u-5-8 font12 pr30">
                         <h1 class="page-title mb10">
-                            {{$user->username}}
+
                         </h1>
 
                         <!-- basic info -->
                         <div class="gray-font">
                             <div>
 
-                                <span class="display-inline-block">{{$user->updated_at}}加入</span>
+                                <span class="display-inline-block">加入</span>
                             </div>
                             <div>
 
                             </div>
                         </div>
+
                         <!-- basic info -->
 
                         <!-- desc -->
@@ -293,18 +294,19 @@
                 </div>
 
             </div>
-            <!-- people profile nav -->
 
-            {{----------------------------------------------------------------------------------------------}}
-            <div class="ias-container">
 
+        <!-- people profile nav -->
+            @foreach($users as $v)
+
+            <div class="ias-container" >
                 <div class="dishes-280-full-width-list">
                     <ul class="plain pure-g">
                         <li class="pure-u">
 
-                            <div class="dish-280  white-bg has-border" data-digged="false" data-id="138051111"
+                            <div class="dish-280  white-bg has-border"   style="float: left;margin:10px; " data-digged="false" data-id="138051111"
                                  role="dish">
-                                <div class="cover">
+                                <div class="cover" >
                                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAA1BMVEXo6Og4/a9sAAAADUlEQVR42gECAP3/AAAAAgABUyucMAAAAABJRU5ErkJggg"
                                          data-src="http://s2.cdn.xiachufang.com/f9ecf28040394d8682b61e8e5cab13dd_600w_600h.jpg?imageView2/1/w/280/h/280/interlace/1/q/90"
                                          alt="五花肉泡菜炒饭" width="280" height="280">
@@ -314,15 +316,11 @@
                                        class="plain digg-link login"></a>
                                 </div>
                                 <p class="name ellipsis red-font">
-                                    <a href="https://www.xiachufang.com/dish/138051111/">五花肉泡菜炒饭</a>&nbsp;
+                                    <a href="https://www.xiachufang.com/dish/138051111/">{{$v->title}}</a>&nbsp;
                                 </p>
                                 <p class="desc">
-                                    昨天见厨友做了这个
-                                    长草了
-                                    第一次尝试五花肉泡菜炒饭
-                                    用昨天剩的米饭
-                                    简单好吃！
-                                    #晚餐•{{$user->updated_at}}#
+                                    {{$v->content}}
+                                    #晚餐•{{$v->updated_at}}#
                                 </p>
                                 <div class="stats pure-g">
                                     <p class="pure-u-1-2">20小时前</p>
@@ -331,27 +329,25 @@
                                         <span class="n-comments">90</span>
                                     </p>
                                 </div>
-                                <div class="author clearfix ellipsis">
+                                <div class="author clearfix ellipsis"  style="float: left">
                                     <a href="https://www.xiachufang.com/cook/103096891/" title="下山虎虎"
                                        class="avatar-link avatar">
                                         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAA1BMVEXo6Og4/a9sAAAADUlEQVR42gECAP3/AAAAAgABUyucMAAAAABJRU5ErkJggg"
                                              data-src="http://s2.cdn.xiachufang.com/19a0440abccf40d586662fa89fd9503f_1600w_1200h.jpg?imageView2/1/w/30/h/30/interlace/1/q/90"
                                              alt="下山虎虎" width="30" height="30">
-                                        {{$user->username}}
+                                        {{$v->username}}
                                     </a>
                                     <a href="https://www.xiachufang.com/feature/cook/master/"
                                        class="icon icon-cooker"></a>
                                     <span class="location gray-font">（陕西,西安）</span>
-
                                 </div>
                             </div>
-
                         </li>
-                    {{--------------------------------------------------------------------------------------------------}}
-
+                    </ul>
                 </div>
-                <!-- end of page-container -->
-            </div>
+                        @endforeach
+            <!-- end of page-container -->
+
 
             <div class="bottom-outer">
                 <div class="bottom-container">

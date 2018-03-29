@@ -193,17 +193,17 @@
 
 
                 <!-- middle info   概况 -->
-                @foreach($user as $v)
+
                     <div class="pure-u-5-8 font12 pr30">
                         <h1 class="page-title mb10">
-                            {{$v->username}}
+                            {{$user->username}}
                         </h1>
 
                         <!-- basic info -->
                         <div class="gray-font">
                             <div>
 
-                                <span class="display-inline-block">{{$v->updated_at}}加入</span>
+                                <span class="display-inline-block">{{$user->updated_at}}加入</span>
                             </div>
                             <div>
 
@@ -215,7 +215,7 @@
                         <div class="people-base-desc dark-gray-font mt10"></div>
                         <!-- desc -->
                     </div>
-            @endforeach
+
             <!-- middle 概况结束 info -->
 
 
