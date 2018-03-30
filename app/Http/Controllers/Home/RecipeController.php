@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Home;
 
 use App\Model\Recipe;
+use App\User;
 use Image;
 use Session;
 use Illuminate\Http\Request;
@@ -79,7 +80,7 @@ class RecipeController extends Controller
 
         if ($res){
             //7.添加成功，跳转
-            return redirect('/');
+            return redirect('/recipe/'.$input['id']);
         }else{
             return redirect('/recipe/create')->with('errors','添加菜谱失败');
         }
@@ -94,7 +95,9 @@ class RecipeController extends Controller
      */
     public function show($id)
     {
-        //
+        $recipe = Recipe::where('id',$id)->first();
+        //菜谱详情页面
+        return view('home.recipe.show',['recipe'=>$recipe]);
     }
 
     /**

@@ -11,4 +11,9 @@ class User extends Model
 
     //选择不批量插入的字段
     protected $guarded = ['geetest_challenge', 'geetest_validate', 'geetest_seccode'];
+
+    public function phone()
+    {
+        return $this->hasOne('App\Phone');
+    }
 }
