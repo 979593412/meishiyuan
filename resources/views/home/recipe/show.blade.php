@@ -46,7 +46,7 @@
                         </h1>
                         <div class="block recipe-show">
                             <div class="cover image expandable block-negative-margin" style="background-image: url('/home/recipe/upload/{{$recipe->pic}}')">
-                                <img src="{{public_path('home/recipe/upload/'.$recipe->pic)}}" alt="红烧排骨的做法" itemprop="image" width="660">
+                                <img src="{{public_path('home/recipe/upload/'.$recipe->pic)}}" alt="{{$recipe->title}}" itemprop="image" width="660">
                             </div>
                             <div class="container pos-r pb20 has-bottom-border">
                                 <div class="stats clearfix">

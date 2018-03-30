@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Home;
 
 use App\Model\Recipe;
-use App\User;
+use App\Model\User;
 use Image;
 use Session;
 use Illuminate\Http\Request;
@@ -28,8 +28,10 @@ class RecipeController extends Controller
      */
     public function create()
     {
+        $user = User::with('Details')->where('id',Session::get('user')->id)->first();
+//        dd($user);
         //创建菜谱页面
-        return view('home.recipe.create');
+        return view('home.recipe.create',['user'=>$user]);
     }
 
     /**
@@ -96,8 +98,9 @@ class RecipeController extends Controller
     public function show($id)
     {
         $recipe = Recipe::where('id',$id)->first();
+        $user = User::with('Details')->where('id',$recipe->uid)->first();
         //菜谱详情页面
-        return view('home.recipe.show',['recipe'=>$recipe]);
+        return view('home.recipe.show',['recipe'=>$recipe,'user'=>$user]);
     }
 
     /**

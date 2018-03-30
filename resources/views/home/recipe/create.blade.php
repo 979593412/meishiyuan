@@ -43,9 +43,9 @@
 
 
                             <div class="author mt30">
-                                <a href="#" title="XXX的厨房" class="avatar-link avatar" tabindex="-1" target="_blank">
-                                    <img src="{{asset('home/images/face.png')}}" alt="XXX的厨房" width="60" height="60">
-                                    &nbsp;XXX
+                                <a href="#" title="{{$user->Details->nickname}}的厨房" class="avatar-link avatar" tabindex="-1" target="_blank">
+                                    <img src="{{!empty(session()->get('userInfo')->face) ? '/uploads/'.session()->get('userInfo')->face : '/home/images/face.png'}}" alt="{{$user->nickname}}" width="60" height="60">
+                                    &nbsp;{{$user->Details->nickname}}
                                 </a>
                             </div>
                             @if (count($errors) > 0)
