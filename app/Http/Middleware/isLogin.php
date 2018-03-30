@@ -15,11 +15,10 @@ class isLogin
      */
     public function handle($request, Closure $next)
     {
-        //如果已经登录
-        if(session()->get('user')){
+        if(session()->get('admin_user')){
             return $next($request);
         }else{
-            return redirect('/login')->with('errors','请登录后重试');
+            return redirect('admin/logins')->with('errors','请注意一下素质');
         }
 
     }

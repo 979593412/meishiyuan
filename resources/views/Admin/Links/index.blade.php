@@ -1,4 +1,4 @@
-@extends('Admin.layouts.app')
+@extends('Admin.layout')
 @section('title','友情链接')
 @section('content')
 <div class="admin-biaogelist">
@@ -40,7 +40,7 @@
                 <td>{{$user->id}}</td>
                 <td>{{$user->title}}</td>
                 <td>{{$user->url}}</td>
-                <td><img style="width:120px" src="{{$user->pic}}" alt=""></td>
+                <td><img style="width:120px;height: 47px;" src="{{$user->pic}}" alt=""></td>
                 <td>{{$user->created_at}}</td>
                 <td>
                   <form action="/admin/links/{{$user->id}}" method="post" >

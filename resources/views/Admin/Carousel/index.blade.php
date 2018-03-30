@@ -232,7 +232,7 @@
       <tr>
         <td><input type="checkbox" /></td>
         <td class="am-text-center">{{$v->id}}</td>
-        <td><a href="#">{{$v->pic}}</a></td>
+        <td><img src="/uploads/{{$v->pic}}" alt=""></td>
         <td>{{$v->created_at}}</td>
         <td class="am-hide-sm-only">{{$v->updated_at}}</td>
 
