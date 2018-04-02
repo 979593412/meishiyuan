@@ -161,6 +161,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Germey\Geetest\GeetestServiceProvider::class,
+
     ],
 
     /*
@@ -210,6 +211,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Geetest' => Germey\Geetest\Geetest::class,
+//        'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
     ],
 
 ];

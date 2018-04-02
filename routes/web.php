@@ -37,6 +37,14 @@ Route::get('/register','Home\LoginController@register');
 Route::post('/register/store','Home\LoginController@store');
 
 
+
+
+// 前台收藏
+Route::get('/home/dianzan','Home\CollectController@index');
+Route::get('/home/add','Home\CollectController@add');
+Route::get('/home/delete','Home\CollectController@delete');
+
+
 //广告位路由设置
 Route::resource('/admin/home_ad','Admin\Home_adController');
 Route::get('/home/gghz',function (){

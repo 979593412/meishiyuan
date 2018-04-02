@@ -25,7 +25,10 @@
     <meta name="baidu_union_verify" content="2e1ace664f00eeef623d4af0d37edf17">
     <meta name="shenma-site-verification" content="cfb8d844a5731f6993ba537751ae9d6b_1468826090">
     <link href="{{asset('home/css/f97edcb6e2dbe6a5cca5.css')}}" rel="stylesheet" type="text/css">
-
+    
+    <!-- 点赞 -->
+    <link rel="stylesheet" type="text/css" href="{{asset('home/css/dianzan.css')}}"/>
+    <script src="{{asset('home/js/jQuery.js')}}" type="text/javascript"></script>
 </head>
 
 <body>
@@ -158,7 +161,7 @@
                                             </ul>
                                         </div>
                                     </div>
-                                    <a class="user-collect" href="#" title="我的收藏">
+                                    <a class="user-collect" href="/home/dianzan" title="我的收藏">
                                         <i class="icon"></i>
                                     </a>
 
