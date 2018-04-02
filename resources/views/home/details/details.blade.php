@@ -57,7 +57,7 @@
   <div class="pure-g mb20">
     <div class="pure-u-1-8 align-right pr20">昵称</div>
     <div class="pure-u-7-8">
-      <input type="text" name="nickname" placeholder="{{session()->get('userInfo')->nickname}}">
+      <input type="text" name="nickname" value="{{session()->get('userInfo')->nickname}}">
         <span class="gray-font">&nbsp;&nbsp;提示：给自己起一个好听的昵称吧</span>
     </div>
   </div>
@@ -65,7 +65,7 @@
   <div class="pure-g mb20">
     <div class="pure-u-1-8 align-right pr20">自我介绍</div>
     <div class="pure-u-1-2">
-      <textarea name="info" rows="3" placeholder="{{session()->get('userInfo')->info}}"></textarea>
+      <textarea name="info" rows="3" placeholder="{{session()->get('userInfo')->info}}">{{session()->get('userInfo')->info}}</textarea>
     </div>
   </div>
 
@@ -258,7 +258,7 @@
     <div class="pure-u-1-8 align-right pr20">职业</div>
     <div class="pure-u-7-8">
       <select name="career" id="jobs">
-        <option value="">请选择</option>
+        <option value="0">请选择</option>
         <option value="学生">学生</option>
         <option value="政府职员">政府职员</option>
         <option value="教师">教师</option>

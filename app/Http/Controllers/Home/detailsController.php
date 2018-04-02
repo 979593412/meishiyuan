@@ -20,14 +20,14 @@ class detailsController extends Controller
     public function update(Request $request)
     {
         //检查昵称是否已经存在
-        $user = Details::where('nickname',$request->input('nickname') ) -> first();
+        //$user = Details::where('nickname',$request->input('nickname') ) -> first();
 
 
 //        echo '<pre>';
 //        print_r($id);
 //        dd();
 
-        if (empty($user->id)){
+        //if (empty($user->id)){
 
             //获取用户传过来的数据
             $birthday = implode('-', $request->only('year','month','day') );
@@ -67,9 +67,9 @@ class detailsController extends Controller
             }
 
 
-        } else {
-            return back() -> with('msg','昵称已经存在或为空~');
-        }
+//        } else {
+//            return back() -> with('msg','昵称已经存在或为空~');
+//        }
     }
 
 

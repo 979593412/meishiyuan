@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="zh">
 <head>
 
     <title>@yield('title')</title>
@@ -24,6 +22,9 @@
     <meta name="sogou_site_verification" content="BiVBs1HCQM"/>
     <meta name="baidu_union_verify" content="2e1ace664f00eeef623d4af0d37edf17">
     <meta name="shenma-site-verification" content="cfb8d844a5731f6993ba537751ae9d6b_1468826090">
+    <link rel="stylesheet" href="{{asset('layui/css/layui.css')}}"  media="all">
+    <script src="{{asset('layui/layui.js')}}" charset="utf-8"></script>
+    <script src="{{asset('home/js/jquery-3.2.1.min.js')}}"></script>
     <link href="{{asset('home/css/f97edcb6e2dbe6a5cca5.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('home/css/5b114797a93be8f6e3f7.css')}}" rel="stylesheet" type="text/css">
 
@@ -42,7 +43,6 @@
                     var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
                     img.width  =  rect.width;
                     img.height =  rect.height;
-//                 img.style.marginLeft = rect.left+'px';
                     img.style.marginTop = rect.top+'px';
                 }
                 var reader = new FileReader();
@@ -84,7 +84,7 @@
 
 </head>
 
-<body>
+<body style="height:100%;">
 
 <div class="topbar-outer has-bottom-border">
     <div class="topbar-container">
@@ -119,7 +119,7 @@
                             @else
                                 <div class="user-action">
                                     <div class="user-nav">
-                                        <a class="user-avatar avatar" href="#" data-ga-event="公共页面/导航栏/$text"><img src="{{isset(session()->get('userInfo')->face) ? '/uploads/'.session()->get('userInfo')->face : '/home/images/face.png'}}" alt="{{session()->get('userInfo')->nickname}}" width="30" height="30"></a>
+                                        <a class="user-avatar avatar" href="#" data-ga-event="公共页面/导航栏/$text"><img src="{{!empty(session()->get('userInfo')->face) ? '/uploads/'.session()->get('userInfo')->face : '/home/images/face.png'}}"  width="30" height="30"></a>
                                         <div class="user-nav-submenu hidden" style="display: none;">
                                             <ul class="plain">
                                                 <li><a href="{{url('/home/chufang')}}" data-ga-event="公共页面/导航栏/$text">我的厨房</a></li>
@@ -150,11 +150,10 @@
 </div>
 <div class="page-outer">
     <div class="page-container">
-        <div class="pure-g">
+
             @section('content')
 
             @show
-        </div>
     </div>
 </div>
 
@@ -170,7 +169,11 @@
     <div class="footer-container">
 
         <div class="pure-g buttons">
-            <a href="http://www.xiachufang.com/page/join_market/" class="button">入驻美食源市集</a>
+
+
+
+            <a href="#" class="button">入驻下厨房市集</a>
+
             <a href="{{asset('/home/gghz')}}" class="button">广告合作</a>
         </div>
 
@@ -199,9 +202,9 @@
         </div>
         <div class="pure-g">
             <div class="pure-u-3-4">
-                Copyright &copy; xiachufang.com &nbsp;
-                <a href="http://www.miibeian.gov.cn" class="gray-link" target="_blank" rel="nofollow">京ICP备13009078号-1</a> &nbsp;
-                京公网安备11010802022310号
+                Copyright &copy; meishiyuan.com &nbsp;
+                <a href="http://www.miibeian.gov.cn" class="gray-link" target="_blank" rel="nofollow">京ICP备xxxxxxxxx号-1</a> &nbsp;
+                京公网安备xxxxxxxxxxxx号
             </div>
             <div class="pure-u-1-4 align-right">
                 唯有美食与爱不可辜负

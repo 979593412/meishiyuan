@@ -14,12 +14,12 @@ class CreateHomeUserTable extends Migration
     public function up()
     {
         Schema::create('home_user', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('username','20');
-            $table->string('password','255');
-            $table->string('email','50')->default('');
-            $table->char('phone','11')->default('');
-            $table->enum('status',['0','1']);
+            $table->increments('id')->comment('用户ID');
+            $table->string('username','20')->comment('用户名');
+            $table->string('password','255')->comment('密码');
+            $table->string('email','50')->default('')->comment('邮箱');
+            $table->char('phone','11')->default('')->comment('电话');
+            $table->enum('status',['0','1'])->comment('状态');
             $table->timestamps();
         });
     }

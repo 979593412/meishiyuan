@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cate extends Model
 {
-     //    1. 模型关联的数据表
+//    1. 模型关联的数据表
     public $table = 'cook_category';
 
 //    2. 主键

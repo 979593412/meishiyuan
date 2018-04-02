@@ -5,23 +5,32 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Admin\Cate;
+use DB;
 class CateController extends Controller
 {
-    /**
+    /**a
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
     {
-        $cates = Cate::get();
+        // $cates = DB::table('cook_category')->orderByRaw(" concat(path,id,',') ")->get();
+        // dd($cates);
+        // $cates = DB::select('select * from cook_category orderby concat(path,id,',') ',[]);
+        // select id,concat(catpath,'-',id) as abspath,name from category order by abspath
+        /*$cates = DB::select('select *,concat(path,id,",") as abspath from cook_category order by abspath');*/
+         // $cates = DB::select('select * from cook_category order by concat(path,id,",")');
+         $cates = Cate::get();
         $cates = $this->getTree($cates,0);
+
         //检测关键字
         $cname = $request->input('cname');
         if(!empty($cname)) {
             $cates = Cate::where('cname','like','%'.$cname.'%')->get();
         }
-
+        // print_r($cates);
+        // die;
         return view('Admin.Cate.index',['cates'=>$cates]);
     }
     protected function getTree($cates,$id=0){
@@ -34,6 +43,7 @@ class CateController extends Controller
         }
         return $subtree;
     }
+
 
     /**
      * Show the form for creating a new resource.
