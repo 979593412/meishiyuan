@@ -50,8 +50,6 @@ Route::get('/home/gghz',function (){
 });
 
 
-
-
 //---------------------------前台
 
 
@@ -66,7 +64,6 @@ Route::get('/login/outlogin','Home\LoginController@outlogin');
 
 //注册
 Route::get('/register','Home\LoginController@register');
-
 
 Route::post('/register/store','Home\LoginController@store');
 
@@ -84,7 +81,8 @@ Route::resource('/recipe','Home\RecipeController')->middleware('isHomelogin');
 //广告位路由设置
 Route::resource('/admin/home_ad','Admin\Home_adController');
 
-
+//菜谱列表页
+Route::get('/home/list','Home\ListController@index');
 
 
 
@@ -115,7 +113,6 @@ Route::get('/admin/cate/create/{id}','Admin\CateController@create');
 Route::resource('/admin/cate','Admin\CateController');
 
 
-//-----------------------我的厨房模块结束---------------------
 
 // 后台修改页面
 Route::get('admin/user/edit/{id}','Admin\UserController@edit');

@@ -6,8 +6,8 @@ use App\Model\Details;
 use Illuminate\Http\Request;
 use Session;
 use App\Http\Controllers\Controller;
-
-class HomeController extends Controller
+use App\Model\Home\Cate;
+class HomeController extends CommonController
 {
     //前台首页
     public function index()
@@ -24,7 +24,9 @@ class HomeController extends Controller
 
         }
 
-        return view('home.index');
+        $cates = Cate::get();
+        $cates = $this->getTree($cates,0);
+        return view('home.index',['cates'=>$cates]);
 
     }
 }

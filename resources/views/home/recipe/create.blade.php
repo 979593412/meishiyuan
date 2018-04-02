@@ -18,9 +18,11 @@
                     <div class="pure-u-2-3 main-panel">
 
                         <form action="{{url('/recipe')}}" method="post" enctype="multipart/form-data" class="layui-form">
+
                             {{--token--}}
                             {{csrf_field()}}
-                            <input type="hidden" name="cid" value="1">
+
+                            <input type="hidden" id="cid" name="cid" class="layui-input" lay-verify="required">
                             <h1 class="page-title">
                                 <input name="title" class="input text hint layui-input" placeholder="添加菜谱名称" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 62px;background-color: #fffce9;" type="text" lay-verify="required" value="{{old('title')}}">
                             </h1>
@@ -150,12 +152,13 @@
                                     <div class="title">推荐至分类</div>
                                 </div>
                                 <div class="layui-btn-container">
-                                    <button class="layui-btn layui-btn-primary layui-btn-radius layui-btn-xs">家常菜</button>
-                                    <button class="layui-btn layui-btn-radius layui-btn-xs">早餐</button>
-                                    <button class="layui-btn layui-btn-primary layui-btn-radius layui-btn-xs">减肥</button>
-                                    <button class="layui-btn layui-btn-primary layui-btn-radius layui-btn-xs layui-btn-disabled">小吃</button>
-                                    <button class="layui-btn layui-btn-primary layui-btn-radius layui-btn-xs">烘培</button>
-                                    <button class="layui-btn layui-btn-primary layui-btn-radius layui-btn-xs">下饭菜</button>
+                                    @foreach($cates as $v)
+                                        @foreach($v->sub as $n)
+                                            @foreach($n->sub as $a)
+                                                <button value="{{$a->id}}" class="cate-btn layui-btn layui-btn-primary layui-btn-radius layui-btn-xs">{{$a->cname}}</button>
+                                            @endforeach
+                                        @endforeach
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -181,6 +184,15 @@
             layui.use('form', function(){
                 var form = layui.form;
             });
+
+        //    获取分类ID
+            $('.cate-btn').each(function(){
+                $(this).click(function(){
+                    $(this).removeClass('layui-btn-primary').siblings().addClass('layui-btn-primary');
+                    $('#cid').val($(this).val());
+                })
+            });
+
         </script>
 
 

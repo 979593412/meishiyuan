@@ -43,7 +43,6 @@
                     var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
                     img.width  =  rect.width;
                     img.height =  rect.height;
-//                 img.style.marginLeft = rect.left+'px';
                     img.style.marginTop = rect.top+'px';
                 }
                 var reader = new FileReader();
@@ -170,7 +169,7 @@
     <div class="footer-container">
 
         <div class="pure-g buttons">
-            <a href="http://www.xiachufang.com/page/join_market/" class="button">入驻下厨房市集</a>
+            <a href="#" class="button">入驻下厨房市集</a>
             <a href="{{asset('/home/gghz')}}" class="button">广告合作</a>
         </div>
 
@@ -199,9 +198,9 @@
         </div>
         <div class="pure-g">
             <div class="pure-u-3-4">
-                Copyright &copy; xiachufang.com &nbsp;
-                <a href="http://www.miibeian.gov.cn" class="gray-link" target="_blank" rel="nofollow">京ICP备13009078号-1</a> &nbsp;
-                京公网安备11010802022310号
+                Copyright &copy; meishiyuan.com &nbsp;
+                <a href="http://www.miibeian.gov.cn" class="gray-link" target="_blank" rel="nofollow">京ICP备xxxxxxxxx号-1</a> &nbsp;
+                京公网安备xxxxxxxxxxxx号
             </div>
             <div class="pure-u-1-4 align-right">
                 唯有美食与爱不可辜负

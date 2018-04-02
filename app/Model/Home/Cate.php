@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Model\Admin;
+namespace App\Model\Home;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,7 +13,7 @@ class Cate extends Model
     public $primaryKey = 'id';
 
 //    3. 是否维护created_at updated_at字段
-    public $timestamps = true;
+    public $timestamps = false;
 
 //    4. 是否允许批量操作字段
     public $guarded = [];

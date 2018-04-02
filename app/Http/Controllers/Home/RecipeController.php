@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Home;
 use App\Model\Book_Food;
 use App\Model\Book_Step;
 use App\Model\Cook_book;
+use App\Model\Home\Cate;
 use App\Model\Recipe;
 use App\Model\User;
 use Image;
@@ -13,7 +14,7 @@ use DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
-class RecipeController extends Controller
+class RecipeController extends CommonController
 {
     /**
      * Display a listing of the resource.
@@ -32,9 +33,11 @@ class RecipeController extends Controller
      */
     public function create()
     {
+        $cates = Cate::get();
+        $cates = $this->getTree($cates,0);
         $user = User::with('Details')->where('id',Session::get('user')->id)->first();
         //创建菜谱页面
-        return view('home.recipe.create',['user'=>$user]);
+        return view('home.recipe.create',['user'=>$user,'cates'=>$cates]);
     }
 
     /**
