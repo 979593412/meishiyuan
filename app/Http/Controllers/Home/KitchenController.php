@@ -16,9 +16,8 @@ class KitchenController extends Controller
 //
 //        $user =User::find('1');
 //        $cook=$user->cook_book;
-
         $all=User::with('cook_book')->get();
-//        dd($cook);
+//        dd($all);
 //        $shoucang=DB::table('collection')->first();
 //        $caipu=DB::table('cook_book')->first();
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCollectionTable extends Migration
+class CreateBookStepTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateCollectionTable extends Migration
      */
     public function up()
     {
-        Schema::create('collection', function (Blueprint $table) {
-            $table->increments('id')->comment('个人收藏ID');
-            $table->integer('bid')->comment('菜谱ID');
-            $table->integer('uid')->comment('用户ID');
+        Schema::create('book_step', function (Blueprint $table) {
+            $table->increments('id')->comment('步骤ID');;
+            $table->integer('bid')->comment('菜谱ID');;
+            $table->string('step')->comment('步骤');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateCollectionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('collection');
+        Schema::dropIfExists('book_step');
     }
 }

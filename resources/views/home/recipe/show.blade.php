@@ -71,8 +71,8 @@
                                     </div>
                                 </div>
                                 <div class="collect pure-g align-right">
-                                    <a href="javascript:void(0)" class="button large-button collect-button"
-                                       rel="nofollow" data-track="https://track.xiachufang.com/?event=recipe_collect&amp;user_id=126629567&amp;recipe_id=9730&amp;recipe_ref=http%3A//www.xiachufang.com/category/40076/&amp;origin=web">
+                                    <a href="#" class="button large-button collect-button"
+                                       rel="nofollow">
                                         收藏
                                     </a>
                                 </div>
@@ -80,16 +80,16 @@
                             <div class="rate-dialog block-negative-margin">
                             </div>
                             <div class="author" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-                                <a href="" title="圆猪猪的厨房" class="avatar-link avatar">
-                                    <img src="{{asset('home/images/face.png')}}" alt="圆猪猪的厨房" width="60" height="60">
+                                <a href="{{url('home/chufang')}}" title="{{$user->Details->nickname}}的厨房" class="avatar-link avatar">
+                                    <img src="{{!empty(session()->get('userInfo')->face) ? '/uploads/'.session()->get('userInfo')->face : '/home/images/face.png'}}" alt="{{$user->nickname}}" width="60" height="60">
                                     &nbsp;
                                     <span itemprop="name">
-									圆猪猪
+									{{$user->Details->nickname}}
 								</span>
                                 </a>
                             </div>
                             <div class="desc mt30" itemprop="description">
-                                此菜味道香咸，排骨酥烂，色泽金红。一般人都可食用。适宜于气血不足，阴虚纳差者；湿热痰滞内蕴者慎服；肥胖、血脂较高者不宜多食。
+                                {{$recipe->content}}
                             </div>
                             <h2>
                                 用料 &nbsp;
@@ -97,44 +97,33 @@
                             <div class="ings">
                                 <table>
                                     <tbody>
+                                    @for($i = 0; $i < count($food); $i++)
                                     <tr itemprop="recipeIngredient">
                                         <td class="name">
                                             <a href="http://www.xiachufang.com/category/227/">
-                                                排骨
+                                                {{$food[$i]}}
                                             </a>
                                         </td>
                                         <td class="unit">
-                                            400克
+                                            {{$dosage[$i]}}
                                         </td>
                                     </tr>
-                                    <tr itemprop="recipeIngredient">
-                                        <td class="name">
-                                            <a href="http://www.xiachufang.com/category/227/">
-                                                排骨
-                                            </a>
-                                        </td>
-                                        <td class="unit">
-                                            400克
-                                        </td>
-                                    </tr>
+                                    @endfor
                                     </tbody>
                                 </table>
                             </div>
                             <h2 id="steps">
-                                红烧排骨的做法 &nbsp;
+                                {{$recipe->title}}的做法 &nbsp;
                             </h2>
                             <div class="steps">
                                 <ol>
+                                    @for($i = 0; $i < count($step); $i++)
                                     <li class="container" itemprop="recipeInstructions">
                                         <p class="text" style="width: 100%;">
-                                            锅内烧开水，放入斩件排骨氽烫至出血水，捞起洗净，沥净水备用
+                                            {{$step[$i]}}
                                         </p>
                                     </li>
-                                    <li class="container" itemprop="recipeInstructions">
-                                        <p class="text" style="width: 100%;">
-                                            锅内烧开水，放入斩件排骨氽烫至出血水，捞起洗净，沥净水备用
-                                        </p>
-                                    </li>
+                                    @endfor
                                 </ol>
                             </div>
                             <div class="tip-container">
@@ -142,11 +131,7 @@
                                     小贴士
                                 </h2>
                                 <div class="tip">
-                                    1.红烧菜用炒糖色的效果比用酱油上色要好看，而且味道也更好。但炒糖色的时侯，不要炒糊了，宁可色不够深，也不要炒的太长时间。
-                                    <br>
-                                    2.排骨最好选购肉比较多的，能带些肥肉更好味。
-                                    <br>
-                                    3.煮到最后时，汤汁越来越少，要不时的翻动一下排骨，让其均匀入味上色。
+                                    {{$recipe->tip}}
                                 </div>
                             </div>
                         </div>
@@ -160,7 +145,7 @@
                 <div class="time">
                     该菜谱创建于
                     <span itemprop="datePublished">
-					2011-02-16 18:50:29
+					{{$recipe->created_at}}
 				</span>
                 </div>
                 <div class="pv">

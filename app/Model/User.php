@@ -15,14 +15,13 @@ class User extends Model
 
     public $guarded = ['geetest_challenge', 'geetest_validate', 'geetest_seccode'];
 
-//    关联菜谱表
-
+//    关联菜谱
     public function cook_book()
     {
-        return $this->hasMany('App\Model\Cook_book','user_id','id');
+        return $this->hasMany('App\Model\Cook_book','uid','id');
     }
 
-
+    //关联用户详情
     public function Details()
     {
         return $this->hasOne('App\Model\Details', 'uid', 'id');

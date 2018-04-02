@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Model\Book_Food;
+use App\Model\Book_Step;
+use App\Model\Cook_book;
 use App\Model\Recipe;
 use App\Model\User;
 use Image;
 use Session;
+use DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -29,7 +33,6 @@ class RecipeController extends Controller
     public function create()
     {
         $user = User::with('Details')->where('id',Session::get('user')->id)->first();
-//        dd($user);
         //创建菜谱页面
         return view('home.recipe.create',['user'=>$user]);
     }
@@ -80,9 +83,27 @@ class RecipeController extends Controller
         //5.保存数据
         $res = Recipe::create($input);
 
-        if ($res){
-            //7.添加成功，跳转
-            return redirect('/recipe/'.$input['id']);
+        //6.获取刚刚插入数据库的菜谱ID
+        $id = $res->id;
+
+        $input = $request->except('_token','title','pic','content','cid','tip','step');
+
+        //7.添加食材表数据
+        $input['bid'] = $id;
+        $input['food'] = json_encode($input['food']);
+        $input['dosage'] = json_encode($input['dosage']);
+        $res1 = Book_Food::create($input);
+
+
+        $input = $request->except('_token','title','pic','content','cid','tip','food','dosage');
+        //8.添加步骤表数据
+        $input['bid'] = $id;
+        $input['step'] = json_encode($input['step']);
+        $res2 = Book_Step::create($input);
+
+        if ($res&&$res1&&$res2){
+            //9.添加成功，跳转
+            return redirect('/recipe/'.$id);
         }else{
             return redirect('/recipe/create')->with('errors','添加菜谱失败');
         }
@@ -97,10 +118,24 @@ class RecipeController extends Controller
      */
     public function show($id)
     {
-        $recipe = Recipe::where('id',$id)->first();
-        $user = User::with('Details')->where('id',$recipe->uid)->first();
-        //菜谱详情页面
-        return view('home.recipe.show',['recipe'=>$recipe,'user'=>$user]);
+        $recipe = Recipe::with('Book_Food')->with('Book_Step')->where('id',$id)->first();
+        if($recipe){
+            $food = [];
+            $dosage = [];
+            $step = [];
+            foreach ($recipe->Book_Food as $v){
+                $food = json_decode($v->food);
+                $dosage = json_decode($v->dosage);
+            }
+            foreach ($recipe->Book_Step as $v){
+                $step = json_decode($v->step);
+            }
+
+            $user = User::with('Details')->where('id',$recipe->uid)->first();
+            //菜谱详情页面
+            return view('home.recipe.show',['recipe'=>$recipe,'user'=>$user,'food'=>$food,'dosage'=>$dosage,'step'=>$step]);
+        }
+       return;
     }
 
     /**
