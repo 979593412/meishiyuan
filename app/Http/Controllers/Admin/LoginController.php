@@ -117,7 +117,7 @@ class LoginController extends Controller
 
 //          session()->get('user')->username;
 //            6. 如果都正确，跳转到后台首页（路由跳转）
-              return redirect('admin/user/list');
+              return redirect('/user/list');
 
         }
 

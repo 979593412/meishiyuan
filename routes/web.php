@@ -85,7 +85,10 @@ Route::get('/home/chufang/zuopin','Home\KitchenController@zuopin');
 
 //菜单
 Route::get('/home/chufang/caidan','Home\KitchenController@caidan');
-
+//创建菜单
+Route::get('/home/chufang/createcaidan','Home\KitchenController@createcaidan');
+//保存菜单
+Route::post('/home/chufang/storecaidan','Home\KitchenController@storecaidan');
 //留言板
 Route::get('/home/chufang/liuyanban','Home\KitchenController@liuyanban');
 
@@ -101,10 +104,10 @@ Route::resource('/admin/cate','Admin\CateController');
 //-----------------------我的厨房模块结束---------------------
 
 // 后台修改页面
-Route::get('admin/user/edit/{id}','Admin\UserController@edit');
-Route::post('admin/user/update/{id}','Admin\UserController@update');
-// 后台用户删除页面
-Route::get('admin/user/delete/{id}','Admin\UserController@delete');
+//Route::get('admin/user/edit/{id}','Admin\UserController@edit');
+//Route::post('admin/user/update/{id}','Admin\UserController@update');
+//// 后台用户删除页面
+//Route::get('admin/user/delete/{id}','Admin\UserController@delete');
 
 
 

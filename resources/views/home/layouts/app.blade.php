@@ -170,7 +170,7 @@
     <div class="footer-container">
 
         <div class="pure-g buttons">
-            <a href="http://www.xiachufang.com/page/join_market/" class="button">入驻下厨房市集</a>
+            <a href="http://www.xiachufang.com/page/join_market/" class="button">入驻美食源市集</a>
             <a href="{{asset('/home/gghz')}}" class="button">广告合作</a>
         </div>
 
