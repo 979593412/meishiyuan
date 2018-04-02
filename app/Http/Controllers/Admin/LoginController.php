@@ -119,11 +119,11 @@ class LoginController extends Controller
 //          session()->put('username',$user->username);
 //         session()->put('userid',$user->userid);
             //
-             Session::put('user',$user);
+             Session::put('admin_user',$user);
 
 //          session()->get('user')->username;
 //            6. 如果都正确，跳转到后台首页（路由跳转）
-              return redirect('admin/user/list');
+              return redirect('/user/list');
 
         }
 

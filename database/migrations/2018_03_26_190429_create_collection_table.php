@@ -15,8 +15,8 @@ class CreateCollectionTable extends Migration
     {
         Schema::create('collection', function (Blueprint $table) {
             $table->increments('id')->comment('个人收藏ID');
-            $table->integer('cid')->comment('菜谱ID');
-            $table->integer('hid')->comment('用户ID');
+            $table->integer('bid')->comment('菜谱ID');
+            $table->integer('uid')->comment('用户ID');
             $table->timestamps();
         });
     }

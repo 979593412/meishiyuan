@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="zh">
 <head>
 
     <title>@yield('title')</title>
@@ -24,14 +22,76 @@
     <meta name="sogou_site_verification" content="BiVBs1HCQM"/>
     <meta name="baidu_union_verify" content="2e1ace664f00eeef623d4af0d37edf17">
     <meta name="shenma-site-verification" content="cfb8d844a5731f6993ba537751ae9d6b_1468826090">
+    <link rel="stylesheet" href="{{asset('layui/css/layui.css')}}"  media="all">
+    <script src="{{asset('layui/layui.js')}}" charset="utf-8"></script>
+    <script src="{{asset('home/js/jquery-3.2.1.min.js')}}"></script>
     <link href="{{asset('home/css/f97edcb6e2dbe6a5cca5.css')}}" rel="stylesheet" type="text/css">
+
     
     <!-- 点赞 -->
     <link rel="stylesheet" type="text/css" href="{{asset('home/css/dianzan.css')}}"/>
-    <script src="{{asset('home/js/jQuery.js')}}" type="text/javascript"></script>
+
+
+    <link href="{{asset('home/css/5b114797a93be8f6e3f7.css')}}" rel="stylesheet" type="text/css">
+
+    <script>
+        //图片上传预览    IE是用了滤镜。
+        function previewImage(file)
+        {
+            var MAXWIDTH  = 80;
+            var MAXHEIGHT = 80;
+            var div = document.getElementById('preview');
+            if (file.files && file.files[0])
+            {
+                div.innerHTML ='<img id=imghead onclick=$("#previewImg").click()>';
+                var img = document.getElementById('imghead');
+                img.onload = function(){
+                    var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+                    img.width  =  rect.width;
+                    img.height =  rect.height;
+                    img.style.marginTop = rect.top+'px';
+                }
+                var reader = new FileReader();
+                reader.onload = function(evt){img.src = evt.target.result;}
+                reader.readAsDataURL(file.files[0]);
+            }
+            else //兼容IE
+            {
+                var sFilter='filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';
+                file.select();
+                var src = document.selection.createRange().text;
+                div.innerHTML = '<img id=imghead>';
+                var img = document.getElementById('imghead');
+                img.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = src;
+                var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+                status =('rect:'+rect.top+','+rect.left+','+rect.width+','+rect.height);
+                div.innerHTML = "<div id=divhead style='width:"+rect.width+"px;height:"+rect.height+"px;margin-top:"+rect.top+"px;"+sFilter+src+"\"'></div>";
+            }
+        }
+        function clacImgZoomParam( maxWidth, maxHeight, width, height ){
+            var param = {top:0, left:0, width:width, height:height};
+            if( width>maxWidth || height>maxHeight ){
+                rateWidth = width / maxWidth;
+                rateHeight = height / maxHeight;
+
+                if( rateWidth > rateHeight ){
+                    param.width =  maxWidth;
+                    param.height = Math.round(height / rateWidth);
+                }else{
+                    param.width = Math.round(width / rateHeight);
+                    param.height = maxHeight;
+                }
+            }
+            param.left = Math.round((maxWidth - param.width) / 2);
+            param.top = Math.round((maxHeight - param.height) / 2);
+            return param;
+        }
+    </script>
+
+
 </head>
 
-<body>
+<body style="height:100%;">
 
 <div class="topbar-outer has-bottom-border">
     <div class="topbar-container">
@@ -53,90 +113,6 @@
                         <ul class="site-nav plain pure-g">
                             <li class="pure-u"><a href="http://www.xiachufang.com/feature/vip/" rel="nofollow">会员专区</a></li>
 
-                            <li class="topbar-cats pure-u">
-                                <a href="http://www.xiachufang.com/category/" class="block-link" data-ga-event="公共页面/导航栏/$text"><span>菜谱分类</span></a>
-                                <div class="topbar-cats-submenu hidden">
-                                    <div class="topbar-cats-submenu-bg">
-
-
-                                        <ul class="plain">
-                                            <li class='topbar-cat-head'>常用主题</li>
-                                            <li><a href="http://www.xiachufang.com/category/40076/" title="家常菜菜谱大全" data-ga-event="公共页面/导航栏/$text">家常菜</a></li>
-                                            <li><a href="http://www.xiachufang.com/category/40077/" title="快手菜菜谱大全" data-ga-event="公共页面/导航栏/$text">快手菜</a></li>
-                                            <li><a href="http://www.xiachufang.com/category/40078/" title="下饭菜菜谱大全" data-ga-event="公共页面/导航栏/$text">下饭菜</a></li>
-                                            <li><a href="http://www.xiachufang.com/category/40071/" title="早餐菜谱大全" data-ga-event="公共页面/导航栏/$text">早餐</a></li>
-                                            <li><a href="http://www.xiachufang.com/category/30048/" title="减肥菜谱大全" data-ga-event="公共页面/导航栏/$text">减肥</a></li>
-                                            <li><a href="http://www.xiachufang.com/category/20130/" title="汤羹菜谱大全" data-ga-event="公共页面/导航栏/$text">汤羹</a></li>
-                                            <li><a href="http://www.xiachufang.com/category/51761/" title="烘焙菜谱大全" data-ga-event="公共页面/导航栏/$text">烘焙</a></li>
-                                            <li><a href="http://www.xiachufang.com/category/40073/" title="小吃菜谱大全" data-ga-event="公共页面/导航栏/$text">小吃</a></li>
-                                        </ul>
-                                        <ul class="plain">
-                                            <li class='topbar-cat-head'>常见食材</li>
-                                            <li><a href="http://www.xiachufang.com/category/731/" title="猪肉做法大全" data-ga-event="公共页面/导航栏/$text">猪肉</a></li>
-                                            <li><a href="http://www.xiachufang.com/category/1136/" title="鸡肉做法大全" data-ga-event="公共页面/导航栏/$text">鸡肉</a></li>
-                                            <li><a href="http://www.xiachufang.com/category/1445/" title="牛肉做法大全" data-ga-event="公共页面/导航栏/$text">牛肉</a></li>
-                                            <li><a href="http://www.xiachufang.com/category/957/" title="鱼做法大全" data-ga-event="公共页面/导航栏/$text">鱼</a></li>
-                                            <li><a href="http://www.xiachufang.com/category/394/" title="鸡蛋做法大全" data-ga-event="公共页面/导航栏/$text">鸡蛋</a></li>
-                                            <li><a href="http://www.xiachufang.com/category/206/" title="土豆做法大全" data-ga-event="公共页面/导航栏/$text">土豆</a></li>
-                                            <li><a href="http://www.xiachufang.com/category/178/" title="茄子做法大全" data-ga-event="公共页面/导航栏/$text">茄子</a></li>
-                                            <li><a href="http://www.xiachufang.com/category/80/" title="豆腐做法大全" data-ga-event="公共页面/导航栏/$text">豆腐</a></li>
-                                        </ul>
-                                        <ul class="plain">
-                                            <li class='topbar-cat-head'>时令食材</li>
-                                            <li>
-                                                <a href="http://www.xiachufang.com/category/21/" title="鲍鱼做法大全" data-ga-event="公共页面/导航栏/$text">鲍鱼</a>
-                                                <span class="topbar-cat-score">
-                        10.0
-                    </span>
-                                            </li>
-                                            <li>
-                                                <a href="http://www.xiachufang.com/category/3362/" title="海虾做法大全" data-ga-event="公共页面/导航栏/$text">海虾</a>
-                                                <span class="topbar-cat-score">
-                        10.0
-                    </span>
-                                            </li>
-                                            <li>
-                                                <a href="http://www.xiachufang.com/category/1495/" title="海参做法大全" data-ga-event="公共页面/导航栏/$text">海参</a>
-                                                <span class="topbar-cat-score">
-                        10.0
-                    </span>
-                                            </li>
-                                            <li>
-                                                <a href="http://www.xiachufang.com/category/141/" title="冬笋做法大全" data-ga-event="公共页面/导航栏/$text">冬笋</a>
-                                                <span class="topbar-cat-score">
-                        9.9
-                    </span>
-                                            </li>
-                                            <li>
-                                                <a href="http://www.xiachufang.com/category/145/" title="羊排做法大全" data-ga-event="公共页面/导航栏/$text">羊排</a>
-                                                <span class="topbar-cat-score">
-                        9.9
-                    </span>
-                                            </li>
-                                            <li>
-                                                <a href="http://www.xiachufang.com/category/692/" title="马蹄做法大全" data-ga-event="公共页面/导航栏/$text">马蹄</a>
-                                                <span class="topbar-cat-score">
-                        9.9
-                    </span>
-                                            </li>
-                                            <li>
-                                                <a href="http://www.xiachufang.com/category/833/" title="蓝莓做法大全" data-ga-event="公共页面/导航栏/$text">蓝莓</a>
-                                                <span class="topbar-cat-score">
-                        9.9
-                    </span>
-                                            </li>
-                                            <li>
-                                                <a href="http://www.xiachufang.com/category/2918/" title="龙虾做法大全" data-ga-event="公共页面/导航栏/$text">龙虾</a>
-                                                <span class="topbar-cat-score">
-                        9.9
-                    </span>
-                                            </li>
-                                        </ul>
-                                        <div class="topbar-cats-submenu-bottom"><a href="http://www.xiachufang.com/category/" data-ga-event="公共页面/导航栏/$text">查看全部分类</a></div>
-
-                                    </div>
-                                </div>
-                            </li>
                             <li class="pure-u"><a href="http://www.xiachufang.com/explore/menu/collect/" data-ga-event="公共页面/导航栏/$text">菜单</a></li>
                             <li class="pure-u"><a href="http://www.xiachufang.com/activity/" data-ga-event="公共页面/导航栏/$text">作品动态</a></li>
                         </ul>
@@ -150,10 +126,10 @@
                             @else
                                 <div class="user-action">
                                     <div class="user-nav">
-                                        <a class="user-avatar avatar" href="#" data-ga-event="公共页面/导航栏/$text"><img src="{{asset('home/images/face.png')}}" alt="手机用户1903_nqcp的厨房" width="30" height="30"></a>
+                                        <a class="user-avatar avatar" href="#" data-ga-event="公共页面/导航栏/$text"><img src="{{!empty(session()->get('userInfo')->face) ? '/uploads/'.session()->get('userInfo')->face : '/home/images/face.png'}}"  width="30" height="30"></a>
                                         <div class="user-nav-submenu hidden" style="display: none;">
                                             <ul class="plain">
-                                                <li><a href="#" data-ga-event="公共页面/导航栏/$text">我的厨房</a></li>
+                                                <li><a href="{{url('/home/chufang')}}" data-ga-event="公共页面/导航栏/$text">我的厨房</a></li>
                                                 <li><a href="#" data-ga-event="公共页面/导航栏/$text">我的菜单</a></li>
                                                 <li><a href="/home/details" data-ga-event="公共页面/导航栏/$text">帐号设置</a></li>
                                                 <li><a href="#" data-ga-event="公共页面/导航栏/$text">发现好友</a></li>
@@ -179,10 +155,14 @@
         </div>
     </div>
 </div>
+<div class="page-outer">
+    <div class="page-container">
 
-@section('content')
+            @section('content')
 
-@show
+            @show
+    </div>
+</div>
 
 <div class="bottom-outer">
     <div class="bottom-container">
@@ -196,7 +176,11 @@
     <div class="footer-container">
 
         <div class="pure-g buttons">
-            <a href="http://www.xiachufang.com/page/join_market/" class="button">入驻下厨房市集</a>
+
+
+
+            <a href="#" class="button">入驻下厨房市集</a>
+
             <a href="{{asset('/home/gghz')}}" class="button">广告合作</a>
         </div>
 
@@ -225,9 +209,9 @@
         </div>
         <div class="pure-g">
             <div class="pure-u-3-4">
-                Copyright &copy; xiachufang.com &nbsp;
-                <a href="http://www.miibeian.gov.cn" class="gray-link" target="_blank" rel="nofollow">京ICP备13009078号-1</a> &nbsp;
-                京公网安备11010802022310号
+                Copyright &copy; meishiyuan.com &nbsp;
+                <a href="http://www.miibeian.gov.cn" class="gray-link" target="_blank" rel="nofollow">京ICP备xxxxxxxxx号-1</a> &nbsp;
+                京公网安备xxxxxxxxxxxx号
             </div>
             <div class="pure-u-1-4 align-right">
                 唯有美食与爱不可辜负

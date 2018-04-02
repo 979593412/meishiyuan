@@ -162,6 +162,10 @@ return [
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Germey\Geetest\GeetestServiceProvider::class,
 
+
+
+        Intervention\Image\ImageServiceProvider::class,
+
     ],
 
     /*
@@ -211,7 +215,11 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Geetest' => Germey\Geetest\Geetest::class,
-//        'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
+
+
+
+        'Image' => Intervention\Image\Facades\Image::class,
+
     ],
 
 ];

@@ -19,8 +19,7 @@ class CarouselController extends Controller
     public function index()
     {
         //查询数据 显示到页面上
-
-            $cc = DB::table('carousel')->paginate(5);
+        $cc = DB::table('carousel')->paginate(5);
 
 
         return view('/Admin.Carousel.index',['cc'=>$cc]);
@@ -51,18 +50,26 @@ class CarouselController extends Controller
 
             echo '没有上传信息';
         }
-        //设置一个新的名字
-        $name=date('YmdHis',time()).rand(1111,9999);
+//        //设置一个新的名字
+//        $name=date('YmdHis',time()).rand(1111,9999);
+//
+//        //获取后缀名
+//        $suffix=$request->file('pic')->getClientOriginalExtension();
+//
+//        //拼接路径
+//        $res=$request->file('pic')->move('.\\uploads\\',$name.'.'.$suffix);
+//dd($res);
+
 
         //获取后缀名
-        $suffix=$request->file('pic')->getClientOriginalExtension();
-
+        $ext = '.' . $request->file('pic')->getClientOriginalExtension();
+        //随机生成文件名
+        $fileName = date('YmdHis') . mt_rand(1000, 9999) . $ext;
         //拼接路径
-        $res=$request->file('pic')->move('/uploads/',$name.'.'.$suffix);
-
+        $request->file('pic')->move('./uploads/', $fileName);
         //添加到数据库 批量赋值
             $data=new Carousel;
-            $data->pic = $res;
+            $data->pic = $fileName;
             $res=$data->save();
 
 //        根据结果执行操作
@@ -128,7 +135,7 @@ class CarouselController extends Controller
 
 
         if($res){
-            //添加成功
+            //删除成功
             return redirect('admin/fenlei');
         }else{
             return back()->with('msg','删除失败');
