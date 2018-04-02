@@ -95,11 +95,11 @@
 </div>
 <div class="page-outer">
     <div class="page-container">
-        <div class="pure-g">
+
             @section('content')
 
             @show
-        </div>
+
     </div>
 </div>
 

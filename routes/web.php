@@ -61,7 +61,8 @@ Route::get('/register','Home\LoginController@register');
 Route::post('/register/store','Home\LoginController@store');
 
 
-
+//菜谱列表页
+Route::get('/home/list','Home\ListController@index');
 
 // 我的厨房模块
 Route::get('/home/chufang','Home\KitchenController@index');
