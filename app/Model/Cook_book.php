@@ -4,7 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Recipe extends Model
+class Cook_book extends Model
 {
     //选择表
     protected $table = 'cook_book';
@@ -18,21 +18,16 @@ class Recipe extends Model
         return $this->belongsTo('App\Model\User', 'uid', 'id');
     }
 
-    public function Cate()
-    {
-        return $this->belongsTo('App\Model\Home\Cate', 'cid', 'id');
-    }
-
     //关联食材
     public function Book_Food()
     {
-        return $this->hasOne('App\Model\Book_Food','bid','id');
+        return $this->hasMany('App\Model\Book_Food','bid','id');
     }
 
     //关联步骤
     public function Book_Step()
     {
-        return $this->hasOne('App\Model\Book_Step','bid','id');
+        return $this->hasMany('App\Model\Book_Step','bid','id');
     }
 
 }

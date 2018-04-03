@@ -98,16 +98,18 @@
                                 <table>
                                     <tbody>
                                     @for($i = 0; $i < count($food); $i++)
-                                    <tr itemprop="recipeIngredient">
-                                        <td class="name">
-                                            <a href="http://www.xiachufang.com/category/227/">
-                                                {{$food[$i]}}
-                                            </a>
-                                        </td>
-                                        <td class="unit">
-                                            {{$dosage[$i]}}
-                                        </td>
-                                    </tr>
+                                        @if(!empty($dosage[$i]))
+                                            <tr itemprop="recipeIngredient">
+                                                <td class="name">
+                                                    <a href="http://www.xiachufang.com/category/227/">
+                                                        {{$food[$i]}}
+                                                    </a>
+                                                </td>
+                                                <td class="unit">
+                                                    {{$dosage[$i]}}
+                                                </td>
+                                            </tr>
+                                        @endif
                                     @endfor
                                     </tbody>
                                 </table>
@@ -118,11 +120,13 @@
                             <div class="steps">
                                 <ol>
                                     @for($i = 0; $i < count($step); $i++)
-                                    <li class="container" itemprop="recipeInstructions">
-                                        <p class="text" style="width: 100%;">
-                                            {{$step[$i]}}
-                                        </p>
-                                    </li>
+                                        @if(!empty($step[$i]))
+                                            <li class="container" itemprop="recipeInstructions">
+                                                <p class="text" style="width: 100%;">
+                                                    {{$step[$i]}}
+                                                </p>
+                                            </li>
+                                        @endif
                                     @endfor
                                 </ol>
                             </div>
