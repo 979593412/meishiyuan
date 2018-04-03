@@ -76,7 +76,7 @@
 
                     <div class="normal-recipe-list">
                         <ul class="list">
-                            <li style="margin: 0px; display: inline-block;float: left;width:430px">
+                            <li style="display: inline-block;float: left;width:750px">
                                 <a href="#" class="recipe recipe-215-horizontal pure-g image-link display-block"
                                 data-click-tracking-url="" data-expose-tracking-url="" target="_blank">
                                     <div class="cover pure-u">
@@ -114,7 +114,7 @@
                                     </div>
                                 </a>
                             </li>
-                            <li style="margin: 0px; display: inline-block;float: left;width:430px;">
+                            <li style="margin: 0px; display: inline-block;float: left;width:750px;">
                                 <a href="https://www.xiachufang.com/recipe/100399435/" class="recipe recipe-215-horizontal pure-g image-link display-block"
                                 data-click-tracking-url="" data-expose-tracking-url="" target="_blank">
                                     <div class="cover pure-u">
