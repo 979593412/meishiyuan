@@ -149,15 +149,23 @@
                         <div>
                             <div class="block">
                                 <div class="title-bar">
-                                    <div class="title">推荐至分类</div>
+                                    <div class="title">推荐至分类(必选一个)</div>
                                 </div>
                                 <div class="layui-btn-container">
                                     @foreach($cates as $v)
-                                        @foreach($v->sub as $n)
-                                            @foreach($n->sub as $a)
-                                                <button value="{{$a->id}}" class="cate-btn layui-btn layui-btn-primary layui-btn-radius layui-btn-xs">{{$a->cname}}</button>
-                                            @endforeach
-                                        @endforeach
+                                        @if(empty($v->sub))
+                                            <button value="{{$v->id}}" class="cate-btn layui-btn layui-btn-primary layui-btn-radius layui-btn-xs">{{$v->cname}}</button>
+                                            @else
+                                                @foreach($v->sub as $n)
+                                                    @if(empty($n->sub))
+                                                        <button value="{{$n->id}}" class="cate-btn layui-btn layui-btn-primary layui-btn-radius layui-btn-xs">{{$n->cname}}</button>
+                                                    @else
+                                                        @foreach($n->sub as $a)
+                                                            <button value="{{$a->id}}" class="cate-btn layui-btn layui-btn-primary layui-btn-radius layui-btn-xs">{{$a->cname}}</button>
+                                                        @endforeach
+                                                    @endif
+                                                @endforeach
+                                        @endif
                                     @endforeach
                                 </div>
                             </div>
