@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="zh">
 <head>
 
     <title>@yield('title')</title>
@@ -24,12 +22,76 @@
     <meta name="sogou_site_verification" content="BiVBs1HCQM"/>
     <meta name="baidu_union_verify" content="2e1ace664f00eeef623d4af0d37edf17">
     <meta name="shenma-site-verification" content="cfb8d844a5731f6993ba537751ae9d6b_1468826090">
+    <link rel="stylesheet" href="{{asset('layui/css/layui.css')}}"  media="all">
+    <script src="{{asset('layui/layui.js')}}" charset="utf-8"></script>
+    <script src="{{asset('home/js/jquery-3.2.1.min.js')}}"></script>
     <link href="{{asset('home/css/f97edcb6e2dbe6a5cca5.css')}}" rel="stylesheet" type="text/css">
+
+    
+    <!-- 点赞 -->
+    <link rel="stylesheet" type="text/css" href="{{asset('home/css/dianzan.css')}}"/>
+
+
     <link href="{{asset('home/css/5b114797a93be8f6e3f7.css')}}" rel="stylesheet" type="text/css">
+
+    <script>
+        //图片上传预览    IE是用了滤镜。
+        function previewImage(file)
+        {
+            var MAXWIDTH  = 80;
+            var MAXHEIGHT = 80;
+            var div = document.getElementById('preview');
+            if (file.files && file.files[0])
+            {
+                div.innerHTML ='<img id=imghead onclick=$("#previewImg").click()>';
+                var img = document.getElementById('imghead');
+                img.onload = function(){
+                    var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+                    img.width  =  rect.width;
+                    img.height =  rect.height;
+                    img.style.marginTop = rect.top+'px';
+                }
+                var reader = new FileReader();
+                reader.onload = function(evt){img.src = evt.target.result;}
+                reader.readAsDataURL(file.files[0]);
+            }
+            else //兼容IE
+            {
+                var sFilter='filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';
+                file.select();
+                var src = document.selection.createRange().text;
+                div.innerHTML = '<img id=imghead>';
+                var img = document.getElementById('imghead');
+                img.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = src;
+                var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+                status =('rect:'+rect.top+','+rect.left+','+rect.width+','+rect.height);
+                div.innerHTML = "<div id=divhead style='width:"+rect.width+"px;height:"+rect.height+"px;margin-top:"+rect.top+"px;"+sFilter+src+"\"'></div>";
+            }
+        }
+        function clacImgZoomParam( maxWidth, maxHeight, width, height ){
+            var param = {top:0, left:0, width:width, height:height};
+            if( width>maxWidth || height>maxHeight ){
+                rateWidth = width / maxWidth;
+                rateHeight = height / maxHeight;
+
+                if( rateWidth > rateHeight ){
+                    param.width =  maxWidth;
+                    param.height = Math.round(height / rateWidth);
+                }else{
+                    param.width = Math.round(width / rateHeight);
+                    param.height = maxHeight;
+                }
+            }
+            param.left = Math.round((maxWidth - param.width) / 2);
+            param.top = Math.round((maxHeight - param.height) / 2);
+            return param;
+        }
+    </script>
+
 
 </head>
 
-<body>
+<body style="height:100%;">
 
 <div class="topbar-outer has-bottom-border">
     <div class="topbar-container">
@@ -64,7 +126,7 @@
                             @else
                                 <div class="user-action">
                                     <div class="user-nav">
-                                        <a class="user-avatar avatar" href="#" data-ga-event="公共页面/导航栏/$text"><img src="{{asset('home/images/face.png')}}" alt="手机用户1903_nqcp的厨房" width="30" height="30"></a>
+                                        <a class="user-avatar avatar" href="#" data-ga-event="公共页面/导航栏/$text"><img src="{{!empty(session()->get('userInfo')->face) ? '/uploads/'.session()->get('userInfo')->face : '/home/images/face.png'}}"  width="30" height="30"></a>
                                         <div class="user-nav-submenu hidden" style="display: none;">
                                             <ul class="plain">
                                                 <li><a href="{{url('/home/chufang')}}" data-ga-event="公共页面/导航栏/$text">我的厨房</a></li>
@@ -75,7 +137,7 @@
                                             </ul>
                                         </div>
                                     </div>
-                                    <a class="user-collect" href="#" title="我的收藏">
+                                    <a class="user-collect" href="/home/dianzan" title="我的收藏">
                                         <i class="icon"></i>
                                     </a>
 
@@ -99,7 +161,6 @@
             @section('content')
 
             @show
-
     </div>
 </div>
 
@@ -115,7 +176,11 @@
     <div class="footer-container">
 
         <div class="pure-g buttons">
-            <a href="http://www.xiachufang.com/page/join_market/" class="button">入驻下厨房市集</a>
+
+
+
+            <a href="#" class="button">入驻下厨房市集</a>
+
             <a href="{{asset('/home/gghz')}}" class="button">广告合作</a>
         </div>
 
@@ -144,9 +209,9 @@
         </div>
         <div class="pure-g">
             <div class="pure-u-3-4">
-                Copyright &copy; xiachufang.com &nbsp;
-                <a href="http://www.miibeian.gov.cn" class="gray-link" target="_blank" rel="nofollow">京ICP备13009078号-1</a> &nbsp;
-                京公网安备11010802022310号
+                Copyright &copy; meishiyuan.com &nbsp;
+                <a href="http://www.miibeian.gov.cn" class="gray-link" target="_blank" rel="nofollow">京ICP备xxxxxxxxx号-1</a> &nbsp;
+                京公网安备xxxxxxxxxxxx号
             </div>
             <div class="pure-u-1-4 align-right">
                 唯有美食与爱不可辜负

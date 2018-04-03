@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Model\Details;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\User;
@@ -132,7 +133,12 @@ class LoginController extends Controller
         $input['status'] = '1';
         $input['password'] = encrypt($input['password']);
         $res = User::create($input);
+
         if ($res){
+
+            //添加数据到关联表
+            Details::create(['uid'=>$res->id,'nickname'=>$res->username]);
+
             //7.注册成功，信息存入session，跳转到首页
             Session::put('user',$res);
             return redirect('/');
@@ -145,6 +151,7 @@ class LoginController extends Controller
     public function outlogin()
     {
         Session::forget('user');
+        Session::forget('userInfo');
         return redirect('/');
     }
 

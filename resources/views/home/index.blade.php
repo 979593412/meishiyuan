@@ -1,7 +1,7 @@
 
 @extends('home.layouts.app')
 
-@section('title','美食源-首页')
+@section('title','首页-美食源')
 @section('content')
 <?php $i = 0;?>
 <ul class="plain homepage-cats">

@@ -14,10 +14,10 @@
     <dl class="am-icon-home" style="float: right;">当前位置： 首页 > <a href="#">商品列表</a></dl>
 
     <dl>
-    <button type="button" class="am-btn am-btn-danger am-round am-btn-xs am-icon-plus" ><a href="{{ url('admin/user/add') }}">手动添加会员</a> </button>
+    <button type="button" class="am-btn am-btn-danger am-round am-btn-xs am-icon-plus" ><a href="{{ url('/user/add') }}">手动添加会员</a> </button>
     </dl>
     <!--这里打开的是新页面-->
-        <form class="am-topbar-form am-topbar-left am-form-inline" role="search" action="/admin/user/list" method="get">
+        <form class="am-topbar-form am-topbar-left am-form-inline" role="search" action="{{url('/user/list')}}" method="get">
             <div class="am-form-group">
 
                 <input type="text" name="username" value="" class="am-form-field am-input-sm" placeholder="搜索">
@@ -78,8 +78,8 @@
     <div class="am-btn-toolbar">
     <div class="am-btn-group am-btn-group-xs">
     <!-- <a href="" class="am-btn am-btn-default am-btn-xs am-text-success am-round"><span class="am-icon-search" title="查看订单详情"></span></a> -->
-    <a href="{{ url('admin/user/edit/'.$v->id) }}" class="am-btn am-btn-default am-btn-xs am-text-secondary am-round"  title="修改用户"><span class="am-icon-pencil-square-o"></span></a>
-    <a href="{{ url('admin/user/delete/'.$v->id)}}" class="am-btn am-btn-default am-btn-xs am-text-danger am-round" title="删除用户"><span class="am-icon-trash-o" ></span></a>
+    <a href="{{ url('/user/edit/'.$v->id) }}" class="am-btn am-btn-default am-btn-xs am-text-secondary am-round"  title="修改用户"><span class="am-icon-pencil-square-o"></span></a>
+    <a href="{{ url('/user/delete/'.$v->id)}}" class="am-btn am-btn-default am-btn-xs am-text-danger am-round" title="删除用户"><span class="am-icon-trash-o" ></span></a>
 
 
     </div>
