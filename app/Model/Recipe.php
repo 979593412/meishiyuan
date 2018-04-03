@@ -21,13 +21,13 @@ class Recipe extends Model
     //关联食材
     public function Book_Food()
     {
-        return $this->hasMany('App\Model\Book_Food','bid','id');
+        return $this->hasOne('App\Model\Book_Food','bid','id');
     }
 
     //关联步骤
     public function Book_Step()
     {
-        return $this->hasMany('App\Model\Book_Step','bid','id');
+        return $this->hasOne('App\Model\Book_Step','bid','id');
     }
 
 }

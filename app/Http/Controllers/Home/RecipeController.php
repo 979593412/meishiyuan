@@ -122,17 +122,9 @@ class RecipeController extends CommonController
     {
         $recipe = Recipe::with('Book_Food')->with('Book_Step')->where('id',$id)->first();
         if($recipe){
-            $food = [];
-            $dosage = [];
-            $step = [];
-            foreach ($recipe->Book_Food as $v){
-                $food = json_decode($v->food);
-                $dosage = json_decode($v->dosage);
-            }
-            foreach ($recipe->Book_Step as $v){
-                $step = json_decode($v->step);
-            }
-
+            $food = json_decode($recipe->Book_Food->food);
+            $dosage = json_decode($recipe->Book_Food->dosage);
+            $step = json_decode($recipe->Book_Step->step);
             $user = User::with('Details')->where('id',$recipe->uid)->first();
             //菜谱详情页面
             return view('home.recipe.show',['recipe'=>$recipe,'user'=>$user,'food'=>$food,'dosage'=>$dosage,'step'=>$step]);
