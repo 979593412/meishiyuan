@@ -71,6 +71,8 @@ Route::post('/register/store','Home\LoginController@store');
 Route::get('home/details','Home\DetailsController@index');
 Route::post('/home/details/update','Home\detailsController@update');
 
+//菜谱列表页
+Route::get('/home/list/{id}','Home\ListController@index');
 
 //菜谱管理
 Route::resource('/recipe','Home\RecipeController')->middleware('isHomelogin');
@@ -89,8 +91,7 @@ Route::get('/home/delete','Home\CollectController@delete');
 //广告位路由设置
 Route::resource('/admin/home_ad','Admin\Home_adController');
 
-//菜谱列表页
-Route::get('/home/list','Home\ListController@index');
+
 
 
 

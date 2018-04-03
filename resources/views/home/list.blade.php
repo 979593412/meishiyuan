@@ -76,37 +76,39 @@
 
                     <div class="normal-recipe-list">
                         <ul class="list">
+                            @foreach($recipe as $v)
                             <li style="display: inline-block;float: left;width:750px">
                                 <a href="#" class="recipe recipe-215-horizontal pure-g image-link display-block"
                                 data-click-tracking-url="" data-expose-tracking-url="" target="_blank">
                                     <div class="cover pure-u">
-                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAA1BMVEXo6Og4/a9sAAAADUlEQVR42gECAP3/AAAAAgABUyucMAAAAABJRU5ErkJggg"
-                                        data-src="http://s2.cdn.xiachufang.com/0682353c8ad911e6a9a10242ac110002_1536w_2048h.jpg?imageView2/1/w/215/h/136/interlace/1/q/90"
-                                        width="215" height="136" alt="草莓奶冻——日本超人气小食（不用琼脂版本）【健康小食】" />
+                                        <img src="/home/recipe/upload/{{$v->pic}}"
+                                        width="215" height="136" alt="无菜谱图片" />
                                     </div>
                                     <div class="info pure-u">
                                         <p class="name">
-                                            草莓奶冻——日本超人气小食（不用琼脂版本）【健康小食】
+                                            {{$v->title}}
                                             <i class="exclusive-icon ml5">
                                             </i>
                                         </p>
                                         <p class="ing ellipsis">
-                                            淡奶油、牛奶、白糖、吉利丁、香草精、草莓
+                                            @if(!empty($v->Book_Food))
+                                            <span class="score bold green-font">
+                                                创建时间:&nbsp;
+                                                {{$v->Book_Food->created_at}}
+                                            </span>
+                                            
+                                            @endif
                                         </p>
                                         <p class="stats">
                                             综合评分&nbsp;
                                             <span class="score bold green-font">
                                                 7.6
                                             </span>
-                                            &nbsp;（七天内
-                                            <span class="bold score">
-                                                3
-                                            </span>
-                                            人做过）
+                                        
                                         </p>
                                         <p class="author">
                                             <span href="/cook/102051900/" class="gray-font">
-                                                一只有猫病的Sunsun
+                                                {{$v->User->username}}
                                             </span>
                                             <span href="/feature/cook/master/" class="icon icon-cooker">
                                             </span>
@@ -114,44 +116,7 @@
                                     </div>
                                 </a>
                             </li>
-                            <li style="margin: 0px; display: inline-block;float: left;width:750px;">
-                                <a href="https://www.xiachufang.com/recipe/100399435/" class="recipe recipe-215-horizontal pure-g image-link display-block"
-                                data-click-tracking-url="" data-expose-tracking-url="" target="_blank">
-                                    <div class="cover pure-u">
-                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAA1BMVEXo6Og4/a9sAAAADUlEQVR42gECAP3/AAAAAgABUyucMAAAAABJRU5ErkJggg"
-                                        data-src="http://s2.cdn.xiachufang.com/42f9b1a2889f11e6a9a10242ac110002_500w_750h.jpg?imageView2/1/w/215/h/136/interlace/1/q/90"
-                                        width="215" height="136" alt="[糯米枣]，好喜欢的小食。" />
-                                    </div>
-                                    <div class="info pure-u">
-                                        <p class="name">
-                                            [糯米枣]，好喜欢的小食。
-                                            <i class="exclusive-icon ml5">
-                                            </i>
-                                        </p>
-                                        <p class="ing ellipsis">
-                                            红枣、糯米粉
-                                        </p>
-                                        <p class="stats">
-                                            综合评分&nbsp;
-                                            <span class="score bold green-font">
-                                                7.7
-                                            </span>
-                                            &nbsp;（七天内
-                                            <span class="bold score">
-                                                7
-                                            </span>
-                                            人做过）
-                                        </p>
-                                        <p class="author">
-                                            <span href="/cook/100248134/" class="gray-font">
-                                                西米SIMY
-                                            </span>
-                                            <span href="/feature/cook/master/" class="icon icon-cooker">
-                                            </span>
-                                        </p>
-                                    </div>
-                                </a>
-                            </li>
+                            @endforeach
 
                         </ul>
                     </div>

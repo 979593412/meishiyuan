@@ -20,11 +20,11 @@
             @foreach($v->sub as $n)
           <div class="submenu-item clearfix pure-g bottom-line">
             <div class="title pure-u-1-4">
-              <a href="#">{{$n->cname}}</a>
+              {{$n->cname}}
             </div>
             <div class="body pure-u-3-4 pure-g">
             @foreach($n->sub as $a)
-                <span class="pure-u-1-4"><a href="#">{{$a->cname}}</a></span>
+                <span class="pure-u-1-4"><a href="/home/list/{{$a->id}}">{{$a->cname}}</a></span>
             @endforeach
             </div>
           </div>
