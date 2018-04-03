@@ -17,6 +17,9 @@ Route::resource('/admin/links','Admin\LinksController');
 Route::resource('/admin/home_ad','Admin\Home_adController');
 
 
+//后台菜谱管理
+Route::get('/admin/recipe','Admin\RecipeController@index');
+
 //login 后台登录
 Route::get('/admin/logins','Admin\LoginController@login');
 
@@ -59,7 +62,7 @@ Route::get('/home/gghz',function (){
 //---------------------------前台
 
 
-//前台页面
+//前台登录
 Route::get('/', 'Home\HomeController@index');
 
 Route::get('/login','Home\LoginController@login');
@@ -68,7 +71,7 @@ Route::post('/login/dologin','Home\LoginController@dologin');
 
 Route::get('/login/outlogin','Home\LoginController@outlogin');
 
-//注册
+//前台注册
 Route::get('/register','Home\LoginController@register');
 
 Route::post('/register/store','Home\LoginController@store');
@@ -78,7 +81,7 @@ Route::get('home/details','Home\DetailsController@index');
 Route::post('/home/details/update','Home\detailsController@update');
 
 
-//菜谱管理
+//前台菜谱管理
 Route::resource('/recipe','Home\RecipeController')->middleware('isHomelogin');
 
 

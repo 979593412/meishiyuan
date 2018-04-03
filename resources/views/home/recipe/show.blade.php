@@ -4,7 +4,9 @@
 
 @section('content')
 
-
+    @if($recipe['status'] !=1  || $warning )
+        该菜谱不存在或因不可描述的原因，已经被禁止显示。
+    @else
     <link href="{{asset('home/recipe/css/a0d38c4e16dbe8c3c784.css')}}" rel="stylesheet" type="text/css">
 
     <link href="{{asset('home/recipe/css/903136eae9bc67d92869.css')}}" rel="stylesheet" type="text/css">
@@ -164,6 +166,6 @@
         </div>
         <!-- end of page-container -->
     </div>
-
+    @endif
 
 @endsection

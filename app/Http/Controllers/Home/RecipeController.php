@@ -127,9 +127,9 @@ class RecipeController extends CommonController
             $step = json_decode($recipe->Book_Step->step);
             $user = User::with('Details')->where('id',$recipe->uid)->first();
             //菜谱详情页面
-            return view('home.recipe.show',['recipe'=>$recipe,'user'=>$user,'food'=>$food,'dosage'=>$dosage,'step'=>$step]);
+            return view('home.recipe.show',['recipe'=>$recipe,'user'=>$user,'food'=>$food,'dosage'=>$dosage,'step'=>$step,'warning'=>false]);
         }
-       return;
+        return view('home.recipe.show',['recipe'=>$recipe,'warning'=>true]);
     }
 
     /**
