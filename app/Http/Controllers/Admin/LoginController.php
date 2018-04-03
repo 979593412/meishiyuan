@@ -108,6 +108,12 @@ class LoginController extends Controller
                 return redirect('admin/logins')->with('errors','密码错误');
             }
 
+            // 判断是否有权限
+
+            $status = $user->status;
+            if ($status == 0){
+                return redirect('admin/logins')->with('errors','用户名被禁');
+            }
 //            7. 保存用户信息到session中（session的操作）
 
 //          session()->put('username',$user->username);
@@ -117,7 +123,7 @@ class LoginController extends Controller
 
 //          session()->get('user')->username;
 //            6. 如果都正确，跳转到后台首页（路由跳转）
-              return redirect('admin/user/list');
+              return redirect('/user/list');
 
         }
 

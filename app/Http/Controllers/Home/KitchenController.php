@@ -14,7 +14,17 @@ class KitchenController extends Controller
     public function index()
     {
 
+
         $all=User::with('cook_book')->get();
+
+//
+//        $user =User::find('1');
+//        $cook=$user->cook_book;
+//        $all=User::with('cook_book')->get();
+//        dd($cook);
+//        dd($all);
+//        $shoucang=DB::table('collection')->first();
+//        $caipu=DB::table('cook_book')->first();
 
         $users = DB::table('home_user')
             ->leftJoin('cook_book', 'home_user.id', '=', 'cook_book.uid')
@@ -24,32 +34,59 @@ class KitchenController extends Controller
     }
     public function caipu()
     {
-        $user = DB::table('home_user')->first();
-        $shoucang=DB::table('collection')->get();
+        $users = DB::table('home_user')
+            ->leftJoin('cook_book', 'home_user.id', '=', 'cook_book.user_id')
+            ->get();
 
         return view('home.kitchen.caipu')->with('user',$user,'shoucang',$shoucang);
+
     }
 
     public function zuopin()
     {
-        $user = DB::table('home_user')->get();
-        $shoucang=DB::table('collection')->get();
+        $users = DB::table('home_user')
+            ->leftJoin('cook_book', 'home_user.id', '=', 'cook_book.user_id')
+            ->get();
 
         return view('home.kitchen.zuopin')->with('user',$user,'shoucang',$shoucang);
+
     }
+    //创建菜单
     public function caidan()
     {
-        $user = DB::table('home_user')->first();
-        $shoucang=DB::table('collection')->get();
+        $users = DB::table('home_user')
+            ->leftJoin('cook_book', 'home_user.id', '=', 'cook_book.user_id')
+            ->get();
 
-        return view('home.kitchen.caidan')->with('user',$user,'shoucang',$shoucang);
+        return view('home.kitchen.caidan')->with('users',$users);
+    }
+    //创建菜单
+    public function createcaidan()
+    {
+        $users = DB::table('home_user')
+            ->leftJoin('cook_book', 'home_user.id', '=', 'cook_book.user_id')
+            ->get();
+
+        return view('home.kitchen.createcaidan')->with('users',$users);
+    }
+
+    //创建菜单
+    public function storecaidan(Request $request)
+    {
+        $input=$request->except('_token');
+        dd($input);
+
+        return view('home.kitchen.createcaidan');
+
     }
     public function liuyanban()
     {
-        $user = DB::table('home_user')->get();
-        $shoucang=DB::table('collection')->get();
+        $users = DB::table('home_user')
+            ->leftJoin('cook_book', 'home_user.id', '=', 'cook_book.user_id')
+            ->get();
 
-        return view('home.kitchen.liuyanban')->with('user',$user,'shoucang',$shoucang);
+
+        return view('home.kitchen.liuyanban')->with('users',$users);
     }
 
 }

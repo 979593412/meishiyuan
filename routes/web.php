@@ -19,10 +19,13 @@ Route::resource('/admin/home_ad','Admin\Home_adController');
 
 //login 后台登录
 Route::get('/admin/logins','Admin\LoginController@login');
+
 //生成路由的验证码
 Route::get('/admin/code','Admin\LoginController@code');
+
 // 第三方验证码生成  gregwar/captcha 插件 Packagist
 //Route::get('/code/captcha/{id}','Admin\LoginController@captcha');
+
 //登录验证
 Route::post('/admin/dologin','Admin\LoginController@dologin');
 
@@ -30,7 +33,8 @@ Route::post('/admin/dologin','Admin\LoginController@dologin');
 
 
 //后台登录验证路由组
-Route::group(['parfix'=>'admin','namespace'=>'Admin','middleware'=>'islogin'],function (){
+//Route::group(['parfix'=>'admin','namespace'=>'Admin','middleware'=>'islogin'],function (){
+Route::group(['parfix'=>'admin','namespace'=>'Admin'],function (){
     // 后台用户列表页面
     Route::get('user/list','UserController@list');
     // 后台用户添加页面
@@ -44,6 +48,8 @@ Route::group(['parfix'=>'admin','namespace'=>'Admin','middleware'=>'islogin'],fu
 // 后台用户删除页面
     Route::get('user/delete/{id}','UserController@delete');
 });
+
+
 //广告合作
 Route::get('/home/gghz',function (){
     return view('home.home_ad.gghz');
@@ -78,6 +84,14 @@ Route::resource('/recipe','Home\RecipeController')->middleware('isHomelogin');
 
 
 
+
+
+// 前台收藏
+Route::get('/home/dianzan','Home\CollectController@index');
+Route::get('/home/add','Home\CollectController@add');
+Route::get('/home/delete','Home\CollectController@delete');
+
+
 //广告位路由设置
 Route::resource('/admin/home_ad','Admin\Home_adController');
 
@@ -100,7 +114,10 @@ Route::get('/home/chufang/zuopin','Home\KitchenController@zuopin');
 
 //菜单
 Route::get('/home/chufang/caidan','Home\KitchenController@caidan');
-
+//创建菜单
+Route::get('/home/chufang/createcaidan','Home\KitchenController@createcaidan');
+//保存菜单
+Route::post('/home/chufang/storecaidan','Home\KitchenController@storecaidan');
 //留言板
 Route::get('/home/chufang/liuyanban','Home\KitchenController@liuyanban');
 
@@ -115,8 +132,8 @@ Route::resource('/admin/cate','Admin\CateController');
 
 
 // 后台修改页面
-Route::get('admin/user/edit/{id}','Admin\UserController@edit');
-Route::post('admin/user/update/{id}','Admin\UserController@update');
-// 后台用户删除页面
-Route::get('admin/user/delete/{id}','Admin\UserController@delete');
+//Route::get('admin/user/edit/{id}','Admin\UserController@edit');
+//Route::post('admin/user/update/{id}','Admin\UserController@update');
+//// 后台用户删除页面
+//Route::get('admin/user/delete/{id}','Admin\UserController@delete');
 

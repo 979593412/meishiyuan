@@ -26,6 +26,12 @@
     <script src="{{asset('layui/layui.js')}}" charset="utf-8"></script>
     <script src="{{asset('home/js/jquery-3.2.1.min.js')}}"></script>
     <link href="{{asset('home/css/f97edcb6e2dbe6a5cca5.css')}}" rel="stylesheet" type="text/css">
+
+    
+    <!-- 点赞 -->
+    <link rel="stylesheet" type="text/css" href="{{asset('home/css/dianzan.css')}}"/>
+
+
     <link href="{{asset('home/css/5b114797a93be8f6e3f7.css')}}" rel="stylesheet" type="text/css">
 
     <script>
@@ -82,6 +88,7 @@
         }
     </script>
 
+
 </head>
 
 <body style="height:100%;">
@@ -130,7 +137,7 @@
                                             </ul>
                                         </div>
                                     </div>
-                                    <a class="user-collect" href="#" title="我的收藏">
+                                    <a class="user-collect" href="/home/dianzan" title="我的收藏">
                                         <i class="icon"></i>
                                     </a>
 
@@ -169,7 +176,11 @@
     <div class="footer-container">
 
         <div class="pure-g buttons">
+
+
+
             <a href="#" class="button">入驻下厨房市集</a>
+
             <a href="{{asset('/home/gghz')}}" class="button">广告合作</a>
         </div>
 
