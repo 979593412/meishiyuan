@@ -8,7 +8,7 @@
         <div class="pure-g pb40">
             <!-- left avatar -->
             <div class="pure-u-5-24 people-base-left avatar">
-                <img src="/home/images/touxiang.png" alt="手机用户_n24q的厨房">
+                <img src="{{!empty(session()->get('userInfo')->face) ? '/uploads/'.session()->get('userInfo')->face : '/home/images/touxiang.png'}}" alt="手机用户_n24q的厨房">
             </div>
             <!-- left avatar -->
 
@@ -22,9 +22,16 @@
                 <div class="gray-font">
                     <div>
 
-                        <span class="mr10 display-inline-block">{{session()->get('userInfo')->sex}}</span>
+                        <span class="mr10 display-inline-block">
+                            @if (session('userInfo')->sex == 'x')
+                                保密
+                            @elseif (session('userInfo')->sex == 'm')
+                                男
+                            @else
+                                女
+                            @endif</span>
 
-                        <span class="mr10 display-inline-block"><i class="icon-profile icon-profile-home"></i>广东,汕头</span>
+                        <span class="mr10 display-inline-block"><i class="icon-profile icon-profile-home"></i>{{session()->get('userInfo')->addr}}</span>
 
                         {{--<span class="mr10 display-inline-block"><i class="icon-profile icon-profile-location"></i>广东,东莞</span>--}}
 
@@ -39,7 +46,7 @@
                 <!-- basic info -->
 
                 <!-- desc -->
-                <div class="people-base-desc dark-gray-font mt10">三生三世</div>
+                <div class="people-base-desc dark-gray-font mt10">{{session()->get('userInfo')->info}}</div>
                 <!-- desc -->
             </div>
             <!-- middle info -->
@@ -47,7 +54,7 @@
             <!-- right extra -->
             <div class="pure-u-1-6 align-center people-base-right pos-r">
                 <div class="people-base-follow">
-                    <a href="http://www.xiachufang.com/account/basic/" class="gray-link font12">设置个人信息</a>
+                    <a href="{{url('home/details')}}" class="gray-link font12">设置个人信息</a>
                 </div>
                 <div class="follow-wrap block-bg p10 pl15 pr15 pure-g w100">
                     <div class="pure-u-1-2 following-num">
