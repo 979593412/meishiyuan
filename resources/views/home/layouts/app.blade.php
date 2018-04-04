@@ -179,21 +179,21 @@
 
 
 
-            <a href="#" class="button">入驻下厨房市集</a>
+            <a href="#" class="button">入驻美食源市集</a>
 
             <a href="{{asset('/home/gghz')}}" class="button">广告合作</a>
         </div>
 
         <div class="pure-g">
             <div class="pure-u-3-4">
-                <a data-ga-event="公共页面/footer/$text" href="http://blog.xiachufang.com" target="_blank" title="美食生活杂志">美食生活杂志</a> &nbsp;
-                <a href="http://www.xiachufang.com/job/" target="_blank" title="厨房工作">厨房工作</a> &nbsp;
-                <a data-ga-event="公共页面/footer/$text" href="http://www.xiachufang.com/principle/" target="_blank" title="社区指导原则">社区指导原则</a> &nbsp;
-                <a data-ga-event="公共页面/footer/$text" href="https://site.douban.com/106718/room/1939571/" target="_blank" title="下厨房出版的书">下厨房出版的书</a> &nbsp;
-                <a data-ga-event="公共页面/footer/$text" href="http://www.xiachufang.com/faq/" target="_blank" title="帮助中心">帮助中心</a> &nbsp;
-                <a data-ga-event="公共页面/footer/$text" href="http://www.xiachufang.com/contact/" target="_blank" title="联系我们">联系我们</a> &nbsp;
+                <a data-ga-event="公共页面/footer/$text" href="#" target="_blank" title="美食生活杂志">美食生活杂志</a> &nbsp;
+                <a href="#" target="_blank" title="厨房工作">厨房工作</a> &nbsp;
+                <a data-ga-event="公共页面/footer/$text" href="#" target="_blank" title="社区指导原则">社区指导原则</a> &nbsp;
+                <a data-ga-event="公共页面/footer/$text" href="#" target="_blank" title="下厨房出版的书">美食源出版的书</a> &nbsp;
+                <a data-ga-event="公共页面/footer/$text" href="#" target="_blank" title="帮助中心">帮助中心</a> &nbsp;
+                <a data-ga-event="公共页面/footer/$text" href="#" target="_blank" title="联系我们">联系我们</a> &nbsp;
                 <a href="http://www.xiachufang.com/auth/login/" title="意见反馈" rel="nofollow">意见反馈</a> &nbsp;
-                <a data-ga-event="公共页面/footer/$text" href="http://www.xiachufang.com/privacy_policy/" target="_blank" title="隐私声明">隐私声明</a>
+                <a data-ga-event="公共页面/footer/$text" href="#" target="_blank" title="隐私声明">隐私声明</a>
             </div>
             <div class="pure-u-1-4 align-right">
                 <div class="social-likes">

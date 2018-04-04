@@ -18,7 +18,9 @@ Route::resource('/admin/home_ad','Admin\Home_adController');
 
 
 //后台菜谱管理
-Route::get('/admin/recipe','Admin\RecipeController@index');
+Route::match(['get', 'post'],'/admin/recipe','Admin\RecipeController@index');
+Route::get('/admin/recipe/delete','Admin\RecipeController@delete');
+Route::get('/admin/recipe/status','Admin\RecipeController@on_off');
 
 //login 后台登录
 Route::get('/admin/logins','Admin\LoginController@login');

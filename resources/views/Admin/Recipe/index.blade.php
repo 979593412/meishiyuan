@@ -1,34 +1,31 @@
 @extends('Admin.layout')
 @section('title','菜谱管理')
 @section('content')
+    <link rel="stylesheet" href="{{asset('layui/css/layui.css')}}"  media="all">
+    <script src="{{asset('layui/layui.js')}}" charset="utf-8"></script>
     <div class="admin-biaogelist">
 
         <div class="listbiaoti am-cf">
-            <ul class="am-icon-flag on"> 栏目名称</ul>
+            <ul class="am-icon-flag on">菜谱管理</ul>
 
-            <dl class="am-icon-home" style="float: right;"> 当前位置： 首页 > <a href="#">商品列表</a></dl>
-
-            <dl>
-                <button type="button" class="am-btn am-btn-danger am-round am-btn-xs am-icon-plus"> 添加产品</button>
-            </dl>
-
+            <dl class="am-icon-home" style="float: right;"> 当前位置： 首页 > <a href="#">菜谱列表</a></dl>
 
         </div>
 
+        <form action="{{url('/admin/recipe')}}" method="post">
+            {{csrf_field()}}
         <div class="am-btn-toolbars am-btn-toolbar am-kg am-cf">
             <ul>
                 <li>
                     <div class="am-btn-group am-btn-group-xs">
-                        <select data-am-selected="{btnWidth: 90, btnSize: 'sm', btnStyle: 'default'}">
-                            <option value="cname">菜谱分类</option>
-                            <option value="bname">菜谱名称</option>
-                        </select>
+                        <label style="height: 30px;font-size: 18px"> 菜谱名称：</label>
                     </div>
                 </li>
-                <li><input type="text" class="am-form-field am-input-sm am-input-xm" placeholder="关键词搜索" /></li>
-                <li><button type="button" class="am-btn am-radius am-btn-xs am-btn-success" style="margin-top: -1px;">搜索</button></li>
+                <li><input type="text" class="am-form-field am-input-lg" placeholder="关键词搜索" style="height: 30px" name="search"/></li>
+                <li><input type="submit" class="am-btn am-radius am-btn-lg am-btn-success" style="height: 30px" value="搜索"/></li>
             </ul>
         </div>
+        </form>
 
         <form class="am-form am-g">
             <table width="100%" class="am-table am-table-bordered am-table-radius am-table-striped">
@@ -44,19 +41,20 @@
                 </thead>
                 <tbody>
                 @foreach($recipe as $v)
-                <tr align="center">
+                <tr align="center" class="content">
                     <td>{{$v->id}}</td>
                     <td><a href="#">{{$v->title}}</a></td>
-                    <td>{{$v->cid}}</td>
+                    <td>
+                        {{$arr[$v->cid]}}
+                    </td>
                     <td class="am-hide-sm-only">{{$v->created_at}}</td>
                     <td class="am-hide-sm-only">
-                        <i class="am-icon-check am-text-warning"></i>
-                        {{--<i class="am-icon-close am-text-primary"></i>--}}
+                        <i id="am-status" class="am-icon-check am-text-primary"></i>
                     </td>
                     <td><div class="am-btn-toolbar">
                             <div class="am-btn-group am-btn-group-xs">
-                                <button class="am-btn am-btn-default am-btn-xs am-text-success am-round"><span class="am-icon-pencil-square-o"></span> </button>
-                                <button class="am-btn am-btn-default am-btn-xs am-text-danger am-round"><span class="am-icon-trash-o"></span></button>
+                                <a class="am-btn am-btn-default am-btn-xs am-text-success am-round am-on-off"><span class="am-icon-pencil-square-o"></span> </a>
+                                <a class="am-btn am-btn-default am-btn-xs am-text-danger am-round am-del"><span class="am-icon-trash-o"></span></a>
                             </div>
                         </div>
                     </td>
@@ -64,30 +62,58 @@
                 @endforeach
                 </tbody>
             </table>
-
-            <div class="am-btn-group am-btn-group-xs">
-                <button type="button" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 删除</button>
-                <button type="button" class="am-btn am-btn-default"><span class="am-icon-save"></span> 上架</button>
-                <button type="button" class="am-btn am-btn-default"><span class="am-icon-save"></span> 下架</button>
-                <button type="button" class="am-btn am-btn-default"><span class="am-icon-save"></span> 移动</button>
-                <button type="button" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 新增</button>
-                <button type="button" class="am-btn am-btn-default"><span class="am-icon-save"></span> 保存</button>
-                <button type="button" class="am-btn am-btn-default"><span class="am-icon-archive"></span> 移动</button>
-                <button type="button" class="am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button>
-            </div>
-
-            <ul class="am-pagination am-fr">
-                <li class="am-disabled"><a href="#">«</a></li>
-                <li class="am-active"><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">»</a></li>
-            </ul>
+            {{$recipe->appends(array('search'=>$search))->render()}}
 
         </form>
 
     </div>
+
+    <script>
+
+        $('.am-del').click(function(){
+            var id = $(this).parents('.content').children().eq(0).html();
+            var tr = $(this).parents('.content');
+            layui.use('layer', function(){
+                var layer = layui.layer;
+
+                var flag = layer.confirm('您确定要删除该菜谱吗？', {
+                    btn: ['确定','点错了'] //按钮
+                }, function(){
+                    $.get('{{url('/admin/recipe/delete')}}',{id:id},function(data){
+                        if(data){
+                            tr.remove();
+                            layer.msg('删除成功', {icon: 1},{time:1000});
+                        }else{
+                            layer.msg('删除失败', {icon: 2},{time:1000});
+                        }
+                    });
+
+
+                }, function(){
+                    layer.msg('取消删除', {icon: 6},{time:1000});
+                });
+            });
+        })
+
+        $('.am-on-off').click(function(){
+            var id = $(this).parents('.content').children().eq(0).html();
+            var status = $(this).parents('.content').children().eq(4).find('i');
+            layui.use('layer', function(){
+                var layer = layui.layer;
+                $.get('{{url('/admin/recipe/status')}}',{id:id},function(data){
+                    if (data == 1){
+                        status.removeAttr('class');
+                        status.addClass('am-icon-check am-text-primary');
+                        layer.msg('菜谱上线', {icon: 1},{time:1000});
+                    }else if(data == 0){
+                        status.removeAttr('class');
+                        status.addClass('am-icon-close am-text-warning');
+                        layer.msg('菜谱下线', {icon: 1},{time:1000});
+                    }
+
+                });
+            });
+        })
+    </script>
 
 @endsection
