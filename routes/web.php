@@ -30,7 +30,9 @@ Route::post('/admin/dologin','Admin\LoginController@dologin');
 
 
 //后台登录验证路由组
-Route::group(['parfix'=>'admin','namespace'=>'Admin','middleware'=>'islogin'],function (){
+// Route::group(['parfix'=>'admin','namespace'=>'Admin','middleware'=>'islogin'],function (){
+ Route::group(['parfix'=>'admin','namespace'=>'Admin'],function (){
+    
     // 后台用户列表页面
     Route::get('user/list','UserController@list');
     // 后台用户添加页面
@@ -39,7 +41,7 @@ Route::group(['parfix'=>'admin','namespace'=>'Admin','middleware'=>'islogin'],fu
     Route::post('user/store','UserController@store');
 
 // 后台修改页面
-    Route::get('user/edit/{id}','UserController@edit');
+    Route::get('user/edit/{id}','UserController@edit'); 
     Route::post('user/update/{id}','UserController@update');
 // 后台用户删除页面
     Route::get('user/delete/{id}','UserController@delete');

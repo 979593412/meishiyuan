@@ -14,7 +14,7 @@ class UserController extends Controller
 {
     //返回添加页面
     public function add(){
-        return view('admin.user.add');
+        return view('Admin.user.add');
     }
 
     // 保存数据页面
@@ -25,13 +25,13 @@ class UserController extends Controller
 
         $pan = Admin_User::where('username',$res['username'])->first();
         if (!empty($pan)){
-            return redirect('admin/user/add')->with('msg','用户名已存在');
+            return redirect('/user/add')->with('msg','用户名已存在');
         }
       
 
         if ($res['password'] !== $res['repass']) {
 
-                return redirect('admin/user/add')->with('msg','两次密码不正确');
+                return redirect('/user/add')->with('msg','两次密码不正确');
             }
 
         // 加密
@@ -43,7 +43,7 @@ class UserController extends Controller
         // 4.根据添加执行结果,执行跳转(成功,列表页,失败添加页)
         if($ress){
             // 添加成功跳转到列表页 
-            return redirect('admin/user/list');
+            return redirect('/user/list');
         } else {
             return back()->with('msg','添加失败');
         }
@@ -71,7 +71,7 @@ class UserController extends Controller
         $user->password = decrypt($user->password);
         // dd( $user['password']);
 
-        return view('admin.user.edit',compact('user'));
+        return view('Admin.user.edit',compact('user'));
     }
 
     public function update(Request $request,$id)
@@ -94,7 +94,7 @@ class UserController extends Controller
         if($ress){
             // 修改成功,跳转到列表页
 
-            return redirect('admin/user/list');
+            return redirect('/user/list');
         } else {
 //            back回到原地
             return back()->with('msg','修改失败');
@@ -114,9 +114,9 @@ class UserController extends Controller
 
         if($ress){
             // 删除成功
-            return redirect('admin/user/list')->with('msg','删除成功');
+            return redirect('/user/list')->with('msg','删除成功');
         } else {
-            return redirect('admin/user/list')->with('msg','删除失败');
+            return redirect('/user/list')->with('msg','删除失败');
         }
 
     }

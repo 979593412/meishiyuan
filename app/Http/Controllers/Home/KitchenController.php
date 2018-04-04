@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Home;
-use App\Model\Cook_book;
+use App\Model\Recipe;
 use DB;
 use App\Model\Collection;
 use App\Model\User;
@@ -28,7 +28,7 @@ class KitchenController extends Controller
 //        $caipu=DB::table('cook_book')->first();
 
         $users = DB::table('home_user')
-            ->leftJoin('cook_book', 'home_user.id', '=', 'cook_book.user_id')
+            ->leftJoin('cook_book', 'home_user.id', '=', 'cook_book.uid')
             ->get();
 //        dd($users);
 
@@ -37,7 +37,7 @@ class KitchenController extends Controller
     public function caipu()
     {
         $users = DB::table('home_user')
-            ->leftJoin('cook_book', 'home_user.id', '=', 'cook_book.user_id')
+            ->leftJoin('cook_book', 'home_user.id', '=', 'cook_book.uid')
             ->get();
 
         return view('home.kitchen.caipu')->with('users',$users);
@@ -46,7 +46,7 @@ class KitchenController extends Controller
     public function zuopin()
     {
         $users = DB::table('home_user')
-            ->leftJoin('cook_book', 'home_user.id', '=', 'cook_book.user_id')
+            ->leftJoin('cook_book', 'home_user.id', '=', 'cook_book.uid')
             ->get();
 
         return view('home.kitchen.zuopin')->with('users',$users);
@@ -55,7 +55,7 @@ class KitchenController extends Controller
     public function caidan()
     {
         $users = DB::table('home_user')
-            ->leftJoin('cook_book', 'home_user.id', '=', 'cook_book.user_id')
+            ->leftJoin('cook_book', 'home_user.id', '=', 'cook_book.uid')
             ->get();
 
         return view('home.kitchen.caidan')->with('users',$users);
@@ -64,7 +64,7 @@ class KitchenController extends Controller
     public function createcaidan()
     {
         $users = DB::table('home_user')
-            ->leftJoin('cook_book', 'home_user.id', '=', 'cook_book.user_id')
+            ->leftJoin('cook_book', 'home_user.id', '=', 'cook_book.uid')
             ->get();
 
         return view('home.kitchen.createcaidan')->with('users',$users);
@@ -81,7 +81,7 @@ class KitchenController extends Controller
     public function liuyanban()
     {
         $users = DB::table('home_user')
-            ->leftJoin('cook_book', 'home_user.id', '=', 'cook_book.user_id')
+            ->leftJoin('cook_book', 'home_user.id', '=', 'cook_book.uid')
             ->get();
 
         return view('home.kitchen.liuyanban')->with('users',$users);

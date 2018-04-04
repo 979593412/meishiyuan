@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Home;
 
 use App\Model\Book_Food;
 use App\Model\Book_Step;
-use App\Model\Cook_book;
-use App\Model\Home\Cate;
 use App\Model\Recipe;
+use App\Model\Home\Cate;
+
 use App\Model\User;
 use Image;
 use Session;
