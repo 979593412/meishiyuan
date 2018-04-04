@@ -29,4 +29,5 @@ class Cook_book extends Model
     {
         return $this->hasMany('App\Model\Book_Step','bid','id');
     }
+
 }

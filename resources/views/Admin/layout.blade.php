@@ -240,6 +240,12 @@
 
             </ul>
 
+            <h3 class="am-icon-book on"><em></em> <a href="#">菜谱管理</a></h3>
+            <ul>
+                <li><a href="{{url('/user/list')}}">菜谱列表</a></li>
+
+            </ul>
+
 
             <h3 class="am-icon-flag"><em></em> <a href="#">菜谱分类管理</a></h3>
             <ul>
