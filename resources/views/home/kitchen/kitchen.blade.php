@@ -8,7 +8,7 @@
         <div class="pure-g pb40">
             <!-- left avatar -->
             <div class="pure-u-5-24 people-base-left avatar">
-                <img src="{{!empty(session()->get('userInfo')->face) ? '/uploads/'.session()->get('userInfo')->face : '/home/images/touxiang.png'}}" alt="" width="100" height="100">
+                <img src="{{!empty(session()->get('userInfo')->face) ? '/uploads/'.session()->get('userInfo')->face : '/home/images/touxiang.png'}}" alt="" width="150" height="150">
             </div>
             <!-- left avatar -->
 
@@ -130,15 +130,15 @@
                 @foreach($users as $v)
                 <li class="pure-u" style="margin: 10px;">
 
-                <div class="recipe-280 white-bg">
-                <div class="cover">
-                <a href="http://www.xiachufang.com/recipe/230868/" title="杂粮面包" class="image-link" target="_blank"><img src="/home/images/touxiang.png" data-src="" alt="" width="280" height="216" class="unveiled"></a>
-                </div>
-                <p class="name ellipsis red-font">
-                <a href="http://www.xiachufang.com/recipe/230868/" target="_blank">{{$v->title}}</a>
-                </p>
-                <div class="stats ellipsis">10 做过 224 收藏 | <a href="http://www.xiachufang.com/cook/10140953/" class="gray-link">苦哥</a></div>
-                </div>
+                    <div class="recipe-280 white-bg">
+                        <div class="cover">
+                            <a href="#" title="" class="image-link" target="_blank"><img src="/home/images/touxiang.png" data-src="" alt="" width="280" height="216" class="unveiled"></a>
+                        </div>
+                        <p class="name ellipsis red-font">
+                            <a href="#" target="_blank">{{$v->title}}</a>
+                        </p>
+                    <div class="stats ellipsis">10 做过 224 收藏 | <a href="http://www.xiachufang.com/cook/10140953/" class="gray-link">苦哥</a></div>
+                    </div>
                 </li>
                 @endforeach
 
