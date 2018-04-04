@@ -56,6 +56,7 @@ class LoginController extends Controller
 
         public function dologin(Request $request)
         {
+
 //            1.获取用户提交过来的信息
             $input=$request->except('_token');
 //            dd($all);
@@ -75,6 +76,8 @@ class LoginController extends Controller
                 'password.between'=>'密码必须在4-18位之间',
             ];
 //        如果要求密码 必须输入、长度在6-18位之间、11位的电话号码
+
+//            'phone'=>'regex:/^1[34578][0-9]{9}$/'
 //        'username'=>'required|between:6,18',
 //        'username'=>array('regex:/^13\d{9}$|^14\d{9}$|^15\d{9}$|^17\d{9}$|^18\d{9}$/i'),
 //        'username'=>email,

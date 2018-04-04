@@ -25,13 +25,13 @@ class UserController extends Controller
 
         $pan = Admin_User::where('username',$res['username'])->first();
         if (!empty($pan)){
-            return redirect('admin/user/add')->with('msg','用户名已存在');
+            return redirect('/user/add')->with('msg','用户名已存在');
         }
       
 
         if ($res['password'] !== $res['repass']) {
 
-                return redirect('admin/user/add')->with('msg','两次密码不正确');
+                return redirect('/user/add')->with('msg','两次密码不正确');
             }
 
         // 加密
@@ -43,7 +43,7 @@ class UserController extends Controller
         // 4.根据添加执行结果,执行跳转(成功,列表页,失败添加页)
         if($ress){
             // 添加成功跳转到列表页 
-            return redirect('admin/user/list');
+            return redirect('/user/list');
         } else {
             return back()->with('msg','添加失败');
         }
@@ -59,7 +59,8 @@ class UserController extends Controller
 //      分页并且单条件搜索搜索条件
         $username = $request->input('username');
         $user = Admin_User::where('username','like','%'.$username.'%')->paginate(5);
-       
+
+
         return view('Admin.user.list',['user'=>$user,'request'=>$request]);
 
     }

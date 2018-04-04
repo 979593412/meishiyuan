@@ -106,45 +106,49 @@
 
 
 
+
             <div class="people-home-main">
                 <!-- collected recipes section -->
                 <div class="block">
-                    {{--<h3>{{session()->get('userInfo')->nickname}}收藏的菜谱</h3>--}}
-
-                    {{--<div class="recipes-280-full-width-list">--}}
-                        {{--<ul class="plain pure-g">--}}
-
-                            {{--@foreach($users as $v)--}}
-                                {{--<li class="pure-u" style="margin: 10px;">--}}
-
-                                    {{--<div class="recipe-280 white-bg">--}}
-                                        {{--<div class="cover">--}}
-                                            {{--<a href="http://www.xiachufang.com/recipe/230868/" title="杂粮面包" class="image-link" target="_blank"><img src="./手机用户_n24q的下厨房个人主页_下厨房_files/29821974872a11e6b87c0242ac110003_459w_690h.jpg" data-src="" alt="" width="280" height="216" class="unveiled"></a>--}}
-                                        {{--</div>--}}
-                                        {{--<p class="name ellipsis red-font">--}}
-                                            {{--<a href="http://www.xiachufang.com/recipe/230868/" target="_blank">{{$v->title}}</a>--}}
-                                        {{--</p>--}}
-                                        {{--<div class="stats ellipsis">10 做过 224 收藏 | <a href="http://www.xiachufang.com/cook/10140953/" class="gray-link">苦哥</a></div>--}}
-                                    {{--</div>--}}
-                                {{--</li>--}}
-                            {{--@endforeach--}}
 
 
+                    <div class="recipes-280-full-width-list">
+                        <ul class="plain pure-g">
+                            @if(!empty($caipu))
+                            @foreach($caipu as $v)
+                                <li class="pure-u" style="margin: 10px;">
 
-                        {{--</ul>--}}
-                    {{--</div>--}}
+                                    <div class="recipe-280 white-bg">
+                                        <div class="cover">
+                                            <a href="/recipe/{{$v->id}}" title="杂粮面包" class="image-link" target="_blank"><img src="/home/recipe/upload/{{$v->pic}}" data-src="" alt="" width="280" height="216" class="unveiled"></a>
+                                        </div>
+                                        <p class="name ellipsis red-font">
+                                            <a href="" target="_blank">{{$v->title}}</a>
+                                        </p>
+                                        <div class="stats ellipsis">{{$v->created_at}}
+                                            <a href="" class="gray-link">修改</a>
+                                            <a href="" class="gray-link">删除</a>
+                                        </div>
+                                    </div>
+                                </li>
+
+                            @endforeach
+                        </ul>
+                    </div>
 
                 </div>
                 <!-- collected recipes section -->
-
             </div>
+            @else
+
 
             <div class="people-created-main">
                 <div class="mb25">
-                    <div class="float-right"><a href="" class="button p15 pt10 pb10">+ 创建菜谱</a></div>
+                    <div class="float-right"><a href="{{url('/recipe/create')}}" class="button p15 pt10 pb10">+ 创建菜谱</a></div>
                     <div class="align-center p40">你还没有创建任何菜谱，快和厨友们分享一下自己的拿手好菜吧</div>
                 </div>
             </div>
+                @endif
 
 
 
