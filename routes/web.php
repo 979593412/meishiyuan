@@ -40,8 +40,8 @@ Route::post('/admin/dologin','Admin\LoginController@dologin');
 
 //后台登录验证路由组
 
-Route::group(['parfix'=>'admin','namespace'=>'Admin','middleware'=>'islogin'],function (){
-// Route::group(['parfix'=>'admin','namespace'=>'Admin'],function (){
+//Route::group(['parfix'=>'admin','namespace'=>'Admin','middleware'=>'islogin'],function (){
+ Route::group(['parfix'=>'admin','namespace'=>'Admin'],function (){
 
     // 后台用户列表页面
     Route::get('user/list','UserController@list');
