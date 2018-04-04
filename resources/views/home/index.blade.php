@@ -8,8 +8,11 @@
 <ul class="plain homepage-cats">
 @foreach($cates as $v)
   <li class="homepage-cat-has-submenu homepage-cat<?php echo $i++?>">
-
+    @if(!empty($v->sub))
     <a data-ga-event="首页/菜谱分类/$text" class="homepage-cat-name" href="/cate/{{$v->id}}">
+    @else
+    <a data-ga-event="首页/菜谱分类/$text" class="homepage-cat-name" href="/list/{{$v->id}}">
+    @endif
       <i class="cat-icon"></i>
       <span class="cat-name">{{$v->cname}}</span>
       @if(!empty($v->sub))
