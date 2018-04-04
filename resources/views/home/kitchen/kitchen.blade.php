@@ -8,7 +8,7 @@
         <div class="pure-g pb40">
             <!-- left avatar -->
             <div class="pure-u-5-24 people-base-left avatar">
-                <img src="{{!empty(session()->get('userInfo')->face) ? '/uploads/'.session()->get('userInfo')->face : '/home/images/touxiang.png'}}" alt="手机用户_n24q的厨房">
+                <img src="{{!empty(session()->get('userInfo')->face) ? '/uploads/'.session()->get('userInfo')->face : '/home/images/touxiang.png'}}" alt="" width="100" height="100">
             </div>
             <!-- left avatar -->
 
