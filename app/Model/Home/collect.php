@@ -12,4 +12,21 @@ use Illuminate\Database\Eloquent\Model;
         public $primaryKey = 'id';
     //    4. 是否允许批量操作字段
         public $guarded = [];
+
+        public function Cook_book()
+        {
+
+            return $this->belongsTo('App\Model\Cook_book','bid','id');
+        }
+
+        public function book_food()
+        {
+            return $this->belongsTo('App\Model\Book_Food','bid','id');
+        }
+
+       // public function cook_book()
+       // {
+       //     return $this->hasOneodel\cook_book','bid','id');
+       // }
+
     }

@@ -9,9 +9,7 @@ use App\Model\Recipe;
 use App\Model\User;
 use Image;
 use Session;
-use DB;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 class RecipeController extends CommonController
 {

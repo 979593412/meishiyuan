@@ -24,9 +24,8 @@ class KitchenController extends Controller
     }
     public function caipu()
     {
-        $caipu = DB::table('home_user')
-            ->leftJoin('cook_book', 'home_user.id', '=', 'cook_book.uid')
-            ->get();
+
+        $caipu = DB::table('home_user')->leftJoin('cook_book', 'home_user.id', '=', 'cook_book.uid')->get();
         return view('home.kitchen.caipu')->with('caipu',$caipu);
 
     }

@@ -7,6 +7,7 @@
 
     "content-hash": "0289101f566744cc832e436ea1c31f97",
 
+
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",

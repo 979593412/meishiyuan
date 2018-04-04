@@ -5,13 +5,13 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Admin_User;
-
+use DB;
 
 class UserController extends Controller
 {
     //返回添加页面
     public function add(){
-        return view('admin.user.add');
+        return view('Admin.user.add');
     }
 
     // 保存数据页面
@@ -69,7 +69,7 @@ class UserController extends Controller
         $user->password = decrypt($user->password);
         // dd( $user['password']);
 
-        return view('admin.user.edit',compact('user'));
+        return view('Admin.user.edit',compact('user'));
     }
 
     public function update(Request $request,$id)
