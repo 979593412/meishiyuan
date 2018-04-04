@@ -18,6 +18,11 @@ class Recipe extends Model
         return $this->belongsTo('App\Model\User', 'uid', 'id');
     }
 
+    public function Cate()
+    {
+        return $this->belongsTo('App\Model\Home\Cate', 'cid', 'id');
+    }
+
     //关联食材
     public function Book_Food()
     {

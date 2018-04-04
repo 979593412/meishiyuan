@@ -16,7 +16,7 @@
 
     <div class="am-g">
     <div class="am-u-md-8 am-u-sm-centered">
-    <form class="am-form" action="{{url('admin/user/update/'.$user->id) }}" method="post">
+    <form class="am-form" action="{{url('/user/update/'.$user->id) }}" method="post">
     {{ csrf_field() }}
     <fieldset class="am-form-set">
     用户名:<input type="text" name="username" value="{{ $user->username }}">

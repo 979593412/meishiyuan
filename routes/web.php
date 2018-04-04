@@ -39,8 +39,8 @@ Route::post('/admin/dologin','Admin\LoginController@dologin');
 
 
 //后台登录验证路由组
-Route::group(['parfix'=>'admin','namespace'=>'Admin','middleware'=>'islogin'],function (){
-//Route::group(['parfix'=>'admin','namespace'=>'Admin'],function (){
+//Route::group(['parfix'=>'admin','namespace'=>'Admin','middleware'=>'islogin'],function (){
+Route::group(['parfix'=>'admin','namespace'=>'Admin'],function (){
     // 后台用户列表页面
     Route::get('user/list','UserController@list');
     // 后台用户添加页面
@@ -85,10 +85,13 @@ Route::post('/home/details/update','Home\detailsController@update');
 
 
 //前台菜谱管理
+
+//菜谱列表页
+Route::get('/list/{id}','Home\ListController@index');
+Route::get('/cate/{id}','Home\CateController@index');
+
+//菜谱管理
 Route::resource('/recipe','Home\RecipeController')->middleware('isHomelogin');
-
-
-
 
 
 
@@ -97,13 +100,8 @@ Route::get('/home/dianzan','Home\CollectController@index');
 Route::get('/home/add','Home\CollectController@add');
 Route::get('/home/delete','Home\CollectController@delete');
 
-
 //广告位路由设置
 Route::resource('/admin/home_ad','Admin\Home_adController');
-
-//菜谱列表页
-Route::get('/home/list','Home\ListController@index');
-
 
 
 //友情链接

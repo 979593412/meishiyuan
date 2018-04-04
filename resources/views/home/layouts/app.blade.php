@@ -26,7 +26,7 @@
     <script src="{{asset('layui/layui.js')}}" charset="utf-8"></script>
     <script src="{{asset('home/js/jquery-3.2.1.min.js')}}"></script>
     <link href="{{asset('home/css/f97edcb6e2dbe6a5cca5.css')}}" rel="stylesheet" type="text/css">
-
+    <link href="{{asset('home/css/ae9cadb6e529cf2e052d.css')}}" rel="stylesheet" type="text/css">
     
     <!-- 点赞 -->
     <link rel="stylesheet" type="text/css" href="{{asset('home/css/dianzan.css')}}"/>

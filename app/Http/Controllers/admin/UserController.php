@@ -1,14 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Model\Admin_User; 
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Crypt;  
+use App\Model\Admin_User;
 
-use DB;
 
 class UserController extends Controller
 {
@@ -95,7 +92,7 @@ class UserController extends Controller
         if($ress){
             // 修改成功,跳转到列表页
 
-            return redirect('admin/user/list');
+            return redirect('/user/list');
         } else {
 //            back回到原地
             return back()->with('msg','修改失败');
@@ -115,9 +112,9 @@ class UserController extends Controller
 
         if($ress){
             // 删除成功
-            return redirect('admin/user/list')->with('msg','删除成功');
+            return redirect('/user/list')->with('msg','删除成功');
         } else {
-            return redirect('admin/user/list')->with('msg','删除失败');
+            return redirect('/user/list')->with('msg','删除失败');
         }
 
     }

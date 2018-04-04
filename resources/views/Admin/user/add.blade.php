@@ -24,7 +24,7 @@
     <div class="am-panel-hd">添加用户</div>
     <div class="am-panel-bd">
     <!-- 表单界面 -->
-    <form  class="am-form" data-am-validator action="{{url('/user/store') }}" method="post">
+    <form  class="am-form" data-am-validator action="{{url('/user/update') }}" method="post">
     {{ csrf_field() }}
     <fieldset>
 
