@@ -45,9 +45,9 @@
 
 
                             <div class="author mt30">
-                                <a href="{{url('home/chufang')}}" title="{{$user->Details->nickname}}的厨房" class="avatar-link avatar" tabindex="-1" target="_blank">
+                                <a href="{{url('home/chufang')}}" class="avatar-link avatar" tabindex="-1" target="_blank">
                                     <img src="{{!empty(session()->get('userInfo')->face) ? '/uploads/'.session()->get('userInfo')->face : '/home/images/face.png'}}" alt="{{$user->nickname}}" width="60" height="60">
-                                    &nbsp;{{$user->Details->nickname}}
+                                    &nbsp;{{ empty(session()->get('userInfo')->nickname) ? session()->get('user')->username :session()->get('userInfo')->nickname}}
                                 </a>
                             </div>
                             @if (count($errors) > 0)
