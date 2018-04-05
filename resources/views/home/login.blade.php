@@ -45,7 +45,7 @@
     <div class="page-container">
 
         <div class="login-box-container has-bottom-border">
-            <div class="page-title align-center">经常来玩呦</div>
+            <div class="page-title align-center">经常登录的同志是好同志</div>
             <div class="login-box pure-g">
                 <div class="social-login-box font14">
                     <a href="JavaScript:void(0);" class="mb15 social-login-icon social-login-icon-qq" data-ga-event="social/login/qq">QQ账号登录</a>
