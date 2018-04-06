@@ -17,14 +17,15 @@
                     <!-- begin of main-panel -->
                     <div class="pure-u-2-3 main-panel">
 
-                        <form action="{{url('/recipe')}}" method="post" enctype="multipart/form-data" class="layui-form">
+                        <form action="/recipe/{{$recipe->id}}" method="post" enctype="multipart/form-data" class="layui-form">
 
                             {{--token--}}
                             {{csrf_field()}}
+                            {{method_field('PUT')}}
 
                             <input type="hidden" id="cid" name="cid" class="layui-input" lay-verify="required">
                             <h1 class="page-title">
-                                <input name="title" class="input text hint layui-input" placeholder="添加菜谱名称" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 62px;background-color: #fffce9;" type="text" lay-verify="required" value="{{old('title')}}">
+                                <input name="title" class="input text hint layui-input" placeholder="添加菜谱名称" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 62px;background-color: #fffce9;" type="text" lay-verify="required" value="{{$recipe->title}}">
                             </h1>
 
                         <div class="block recipe-edit">
@@ -45,9 +46,9 @@
 
 
                             <div class="author mt30">
-                                <a href="{{url('home/chufang')}}" class="avatar-link avatar" tabindex="-1" target="_blank">
+                                <a href="{{url('home/chufang')}}" title="{{$user->Details->nickname}}的厨房" class="avatar-link avatar" tabindex="-1" target="_blank">
                                     <img src="{{!empty(session()->get('userInfo')->face) ? '/uploads/'.session()->get('userInfo')->face : '/home/images/face.png'}}" alt="{{$user->nickname}}" width="60" height="60">
-                                    &nbsp;{{ empty(session()->get('userInfo')->nickname) ? session()->get('user')->username :session()->get('userInfo')->nickname}}
+                                    &nbsp;{{$user->Details->nickname}}
                                 </a>
                             </div>
                             @if (count($errors) > 0)
@@ -66,7 +67,7 @@
                             {{--描述--}}
                             <div class="desc mt30">
                                 <div class="placeholder" ng-placeholder="点击添加菜谱描述" type="textarea">
-                                    <textarea lay-verify="required" value="{{old('content')}}" name="content" class="input text layui-input" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 100px;" placeholder="点击添加菜谱描述"></textarea>
+                                    <textarea lay-verify="required" value="{{old('content')}}" name="content" class="input text layui-input" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 100px;" placeholder="点击添加菜谱描述">{{$recipe->content}}</textarea>
                                 </div>
                             </div>
 
@@ -75,18 +76,22 @@
                             <div class="ings">
                                 <table>
                                     <tbody>
+                                    @for($i = 0; $i < count($food); $i++)
+                                        @if(!empty($dosage[$i]))
                                         <tr class="ng-scope">
                                             <td class="unit has-border">
                                                 <div class="placeholder ng-isolate-scope ng-pristine ng-valid">
-                                                    <input lay-verify="required"  name="food[]" class="input text layui-input" placeholder="食材：如鸡蛋" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 50px;" type="text">
+                                                    <input lay-verify="required" value="{{$food[$i]}}"  name="food[]" class="input text layui-input" placeholder="食材：如鸡蛋" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 50px;" type="text">
                                                 </div>
                                             </td>
                                             <td class="unit has-border">
                                                 <div class="placeholder ng-isolate-scope ng-pristine ng-valid">
-                                                    <input lay-verify="required" name="dosage[]" class="input text layui-input" placeholder="用量：如1只" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 50px;" type="text">
+                                                    <input lay-verify="required" value="{{$dosage[$i]}}" name="dosage[]" class="input text layui-input" placeholder="用量：如1只" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 50px;" type="text">
                                                 </div>
                                             </td>
                                         </tr>
+                                        @endif
+                                    @endfor
                                     </tbody>
                                 </table>
                                 <div class="clearfix">
@@ -99,13 +104,17 @@
                             <div class="steps">
                                 <ol class="ng-isolate-scope ng-pristine ng-valid">
                                     <!-- ngRepeat: step in recipe.steps -->
-                                    <li class="step container ng-scope">
-                                        <div class="text ml0" style="width: 90%;height: 100px">
-                                            <div class="placeholder ng-isolate-scope ng-pristine ng-valid" style="height: 100%;">
-                                                <textarea lay-verify="required" class="input text layui-input" placeholder="点击添加菜谱步骤" style="overflow: hidden; overflow-wrap: break-word; resize: none;width: 90%;height: 100%;"  name="step[]"></textarea>
+                                    @for($i = 0; $i < count($step); $i++)
+                                        @if(!empty($step[$i]))
+                                        <li class="step container ng-scope">
+                                            <div class="text ml0" style="width: 90%;height: 100px">
+                                                <div class="placeholder ng-isolate-scope ng-pristine ng-valid" style="height: 100%;">
+                                                    <textarea lay-verify="required" class="input text layui-input" placeholder="点击添加菜谱步骤" style="overflow: hidden; overflow-wrap: break-word; resize: none;width: 90%;height: 100%;"  name="step[]">{{$step[$i]}}</textarea>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </li>
+                                        </li>
+                                        @endif
+                                    @endfor
                                     <!-- end ngRepeat: step in recipe.steps -->
                                 </ol>
                                 <button type="button" class="button gray-button2 small-button" id="add-Step">追加一个步骤</button>
@@ -116,7 +125,7 @@
                                 <h2>小贴士</h2>
                                 <div class="tip">
                                     <div class="placeholder ng-isolate-scope ng-pristine ng-valid" type="textarea">
-                                        <textarea class="input text" value="{{old('tip')}}" name="tip" placeholder="点击添加小贴士" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 83px;"></textarea>
+                                        <textarea class="input text" value="{{old('tip')}}" name="tip" placeholder="点击添加小贴士" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 83px;">{{$recipe->tip}}</textarea>
                                     </div>
                                 </div>
                             </div>

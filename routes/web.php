@@ -93,6 +93,7 @@ Route::get('/list/{id}','Home\ListController@index');
 Route::get('/cate/{id}','Home\CateController@index');
 
 //菜谱管理
+Route::get('/recipe/delete','Home\RecipeController@destroy')->middleware('isHomelogin');
 Route::resource('/recipe','Home\RecipeController')->middleware('isHomelogin');
 
 
