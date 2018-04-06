@@ -12,6 +12,9 @@ class Details extends Model
     public $primaryKey = 'id';
     public $guarded = [];
 
+
+
+
     public function User()
     {
         return $this->belongsTo('App\Model\User', 'uid', 'id');

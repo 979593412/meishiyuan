@@ -4,7 +4,9 @@
 
 @section('content')
 
-
+    @if($recipe['status'] !=1  || $warning )
+        该菜谱不存在或因不可描述的原因，已经被禁止显示。
+    @else
     <link href="{{asset('home/recipe/css/a0d38c4e16dbe8c3c784.css')}}" rel="stylesheet" type="text/css">
 
     <link href="{{asset('home/recipe/css/903136eae9bc67d92869.css')}}" rel="stylesheet" type="text/css">
@@ -70,12 +72,13 @@
 									</span>
                                     </div>
                                 </div>
-                                <div class="collect pure-g align-right">
-                                    <a href="#" class="button large-button collect-button"
-                                       rel="nofollow">
-                                        收藏
-                                    </a>
+                        
+                                <div class="collect pure-g align-right " style="margin-top: -28px;">
+
+                                   <div class="heart" id="like2" rel="like"></div> <div class="likeCount" id="likeCount2">收藏</div>
                                 </div>
+                
+
                             </div>
                             <div class="rate-dialog block-negative-margin">
                             </div>
@@ -98,16 +101,18 @@
                                 <table>
                                     <tbody>
                                     @for($i = 0; $i < count($food); $i++)
-                                    <tr itemprop="recipeIngredient">
-                                        <td class="name">
-                                            <a href="http://www.xiachufang.com/category/227/">
-                                                {{$food[$i]}}
-                                            </a>
-                                        </td>
-                                        <td class="unit">
-                                            {{$dosage[$i]}}
-                                        </td>
-                                    </tr>
+                                        @if(!empty($dosage[$i]))
+                                            <tr itemprop="recipeIngredient">
+                                                <td class="name">
+                                                    <a href="http://www.xiachufang.com/category/227/">
+                                                        {{$food[$i]}}
+                                                    </a>
+                                                </td>
+                                                <td class="unit">
+                                                    {{$dosage[$i]}}
+                                                </td>
+                                            </tr>
+                                        @endif
                                     @endfor
                                     </tbody>
                                 </table>
@@ -118,11 +123,13 @@
                             <div class="steps">
                                 <ol>
                                     @for($i = 0; $i < count($step); $i++)
-                                    <li class="container" itemprop="recipeInstructions">
-                                        <p class="text" style="width: 100%;">
-                                            {{$step[$i]}}
-                                        </p>
-                                    </li>
+                                        @if(!empty($step[$i]))
+                                            <li class="container" itemprop="recipeInstructions">
+                                                <p class="text" style="width: 100%;">
+                                                    {{$step[$i]}}
+                                                </p>
+                                            </li>
+                                        @endif
                                     @endfor
                                 </ol>
                             </div>
@@ -132,7 +139,16 @@
                                 </h2>
                                 <div class="tip">
                                     {{$recipe->tip}}
+
                                 </div>
+                                <!-- <div class="tip" id="bid">
+                                    {{$recipe->id}}
+
+                                </div> 
+                                <div class="tip" id="uid">
+                                    {{$user->id}}
+
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -141,6 +157,8 @@
                 <!-- end of main-panel -->
             </div>
             <!-- begin of recipe-stats -->
+            <input type="hidden" value="{{$recipe->id}}" name="" id="bid">
+            <input type="hidden" value="{{session()->get('user')->id}}" name="" id="uid">
             <div class="recipe-stats block normal-font gray-font">
                 <div class="time">
                     该菜谱创建于
@@ -161,5 +179,50 @@
         <!-- end of page-container -->
     </div>
 
+    @endif
 
+    <script>
+  
+
+    var bid  = $('#bid').val();
+    var uid  = $('#uid').val();
+    
+
+    $(document).ready(function()
+    {
+    
+    $('body').on("click",'.heart',function()
+    {
+        
+        var A=$(this).attr("id");
+        var B=A.split("like");
+        var messageID=B[1];
+        var C=parseInt($("#likeCount"+messageID).html());
+        $(this).css("background-position","")
+        var D=$(this).attr("rel");
+
+        if(D === 'like'){  
+            $.get('/home/add',{'bid':bid,'uid':uid},function(data){
+                console.log(data);
+            })
+            $("#likeCount"+messageID).html('取消收藏');
+            $(this).addClass("heartAnimation").attr("rel","unlike");
+        
+        }
+        else{
+             $.get('/home/delete',{'bid':bid,'uid':uid},function(data){
+                console.log(data);
+            })
+            $("#likeCount"+messageID).html('收藏');
+            $(this).removeClass("heartAnimation").attr("rel","like");
+            $(this).css("background-position","left");
+        }
+
+
+    });
+
+
+    });
+
+    </script>
 @endsection

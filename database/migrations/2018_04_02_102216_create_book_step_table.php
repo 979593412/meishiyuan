@@ -16,7 +16,7 @@ class CreateBookStepTable extends Migration
         Schema::create('book_step', function (Blueprint $table) {
             $table->increments('id')->comment('步骤ID');;
             $table->integer('bid')->comment('菜谱ID');;
-            $table->string('step')->comment('步骤');
+            $table->text('step')->comment('步骤');
             $table->timestamps();
         });
     }

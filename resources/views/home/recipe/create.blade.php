@@ -7,7 +7,7 @@
         <link href="{{asset('home/recipe/css/6b39c3c35dfaf507842e.css')}}" rel="stylesheet" type="text/css">
         <link href="{{asset('home/recipe/css/be3cb642cde281b5785d.css')}}" rel="stylesheet" type="text/css">
         <link href="{{asset('home/recipe/css/f780e7ce0c554aea0d40.css')}}" rel="stylesheet" type="text/css">
-
+ 
 
         <div class="page-outer">
             <!--begin of page-container-->
@@ -45,9 +45,9 @@
 
 
                             <div class="author mt30">
-                                <a href="{{url('home/chufang')}}" title="{{$user->Details->nickname}}的厨房" class="avatar-link avatar" tabindex="-1" target="_blank">
+                                <a href="{{url('home/chufang')}}" class="avatar-link avatar" tabindex="-1" target="_blank">
                                     <img src="{{!empty(session()->get('userInfo')->face) ? '/uploads/'.session()->get('userInfo')->face : '/home/images/face.png'}}" alt="{{$user->nickname}}" width="60" height="60">
-                                    &nbsp;{{$user->Details->nickname}}
+                                    &nbsp;{{ empty(session()->get('userInfo')->nickname) ? session()->get('user')->username :session()->get('userInfo')->nickname}}
                                 </a>
                             </div>
                             @if (count($errors) > 0)
@@ -94,7 +94,7 @@
                                 </div>
                             </div>
 
-                            {{--做法  start--}}
+                            {{--做法  start--}} 
                             <h2>做法</h2>
                             <div class="steps">
                                 <ol class="ng-isolate-scope ng-pristine ng-valid">
@@ -149,15 +149,23 @@
                         <div>
                             <div class="block">
                                 <div class="title-bar">
-                                    <div class="title">推荐至分类</div>
+                                    <div class="title">推荐至分类(必选一个)</div>
                                 </div>
                                 <div class="layui-btn-container">
                                     @foreach($cates as $v)
-                                        @foreach($v->sub as $n)
-                                            @foreach($n->sub as $a)
-                                                <button value="{{$a->id}}" class="cate-btn layui-btn layui-btn-primary layui-btn-radius layui-btn-xs">{{$a->cname}}</button>
-                                            @endforeach
-                                        @endforeach
+                                        @if(empty($v->sub))
+                                            <button value="{{$v->id}}" class="cate-btn layui-btn layui-btn-primary layui-btn-radius layui-btn-xs">{{$v->cname}}</button>
+                                            @else
+                                                @foreach($v->sub as $n)
+                                                    @if(empty($n->sub))
+                                                        <button value="{{$n->id}}" class="cate-btn layui-btn layui-btn-primary layui-btn-radius layui-btn-xs">{{$n->cname}}</button>
+                                                    @else
+                                                        @foreach($n->sub as $a)
+                                                            <button value="{{$a->id}}" class="cate-btn layui-btn layui-btn-primary layui-btn-radius layui-btn-xs">{{$a->cname}}</button>
+                                                        @endforeach
+                                                    @endif
+                                                @endforeach
+                                        @endif
                                     @endforeach
                                 </div>
                             </div>
