@@ -104,9 +104,9 @@
                 </div>
                 <div class="pure-u-5-6">
                     <div class="float-left">
-                        <form class="search" action="http://www.xiachufang.com/search/">
-                            <input type="text" name="keyword" class="typeahead float-left" value="" placeholder="搜索菜谱、食材">
-                            <input type="hidden" name="cat" value="1001">
+                        <form class="search" action="/search/" method="get">
+                            <input type="text" name="title" class="typeahead float-left" value="" placeholder="搜索菜谱">
+ <!--                            <input type="hidden" name="cat" value="1001"> -->
                             <input type="submit" value="搜菜谱" class="button float-left">
                         </form>
                     </div>
