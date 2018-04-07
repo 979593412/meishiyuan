@@ -28,6 +28,7 @@
 
                     <th class="table-id">ID</th>
                     <th class="table-title">URL</th>
+                    <th class="table-title">显示位置</th>
                     <th class="table-type">广告图片</th>
                     <th class="table-author am-hide-sm-only">添加时间</th>
                     <th class="table-author am-hide-sm-only">修改时间</th>
@@ -42,6 +43,7 @@
 
                         <td>{{$v->id}}</td>
                         <td>{{$v->url}}</td>
+                        <td>{{$v->position}}</td>
                         <td class="am-hide-sm-only"><img src="/uploads/{{$v->pic}}" width="30px"></td>
                         <td class="am-hide-sm-only">{{$v->created_at}}</td>
                         <td class="am-hide-sm-only">{{$v->updated_at}}</td>

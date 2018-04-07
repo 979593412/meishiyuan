@@ -144,3 +144,5 @@ Route::resource('/admin/cate','Admin\CateController');
 //// 后台用户删除页面
 //Route::get('admin/user/delete/{id}','Admin\UserController@delete');
 
+
+

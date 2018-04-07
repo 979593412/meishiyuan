@@ -4,11 +4,14 @@
 @section('title','首页-美食源')
 
 @section('topAd')
+
     <div class="page-top-ad">
         <!-- 广告位：PC-首页-顶通 -->
-        <a href="#" alt="广告标题">
-            <img src="holder.js/980x90?text=首页顶部广告" alt="广告标题">
+        @if(!empty($gg_t))
+        <a href="{{$gg_t->url}}" alt="广告标题">
+            <img src="/uploads/{{$gg_t->pic}}" alt="广告标题" style="width: 980px;height: 90px;">
         </a>
+        @endif
     </div>
 @endsection
 
@@ -56,10 +59,12 @@
                 {{--@show--}}
 
                 <div class="mt30">
+                    @if(!empty($gg_l))
                     <!-- 广告位：PC-首页-左侧 -->
-                    <a href="#" alt="广告标题">
-                        <img src="holder.js/120x600?text=广告" alt="广告标题">
+                    <a href="{{$gg_l->url}}" alt="广告标题">
+                        <img src="/uploads/{{$gg_l->pic}}" alt="广告标题" style="width: 120px; height: 600px;">
                     </a>
+                        @endif
                 </div>
             </div>
             <!-- end of left panel -->
@@ -410,32 +415,19 @@
         <!-- end of pop keywords -->
 
         <!-- homepage ad -->
-        <div class="homepage-right-ad">
+        @if(!empty($gg_r))
+        @foreach($gg_r as $v)
+        <div class="homepage-right-ad" style="position: relative">
             <div class="block right-ad" data-ga-event="首页/广告/右侧1">
                 <!-- 广告位：首页右侧 -->
-                <a href="#" alt="广告标题">
-                    <img src="holder.js/300x250?text=首页右侧广告1" alt="广告标题">
+                <a href="{{$v->url}}" alt="广告标题">
+                    <img src="/uploads/{{$v->pic}}" alt="广告标题" style="width: 300px;">
                 </a>
             </div>
+            <div style="background-color:rgba(0,0,0,0.5); width: 40px; height: 30px; position: absolute; bottom: 0px; color: red; "  >广告</div>
         </div>
-
-        <div class="homepage-right-ad">
-            <div class="block right-ad" data-ga-event="首页/广告/右侧2">
-                <!-- 广告位：首页右侧 -->
-                <a href="#" alt="广告标题">
-                    <img src="holder.js/300x250?text=首页右侧广告2" alt="广告标题">
-                </a>
-            </div>
-        </div>
-
-        <div class="homepage-right-ad">
-            <div class="block right-ad" data-ga-event="首页/广告/右侧1">
-                <!-- 广告位：首页右侧 -->
-                <a href="#" alt="广告标题">
-                    <img src="holder.js/300x250?text=首页右侧广告3" alt="广告标题">
-                </a>
-            </div>
-        </div>
+        @endforeach
+        @endif
         <!-- end of homepage ad -->
 
     </div>

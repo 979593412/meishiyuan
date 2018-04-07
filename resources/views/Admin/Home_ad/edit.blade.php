@@ -23,6 +23,16 @@
                         <input type="text" class="am-input-sm" id="doc-ipt-pwd-1" value="{{$data->url}}" name="url">
                     </div>
                 </div>
+                <div class="am-form-group am-cf">
+                    <div class="zuo">广告位置：</div>
+                    <div class="you">
+                        <select name="position" id="">
+                            <option value="top" {{($data->position == 'top')? 'selected' : ''}}>头部</option>
+                            <option value="right" {{($data->position == 'right')? 'selected' : ''}}>右侧</option>
+                            <option value="left" {{($data->position == 'left')? 'selected' : ''}}>左侧</option>
+                        </select>
+                    </div>
+                </div>
 
                 {{method_field('PUT')}}
 

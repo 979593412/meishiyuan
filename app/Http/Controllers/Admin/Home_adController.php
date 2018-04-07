@@ -64,6 +64,7 @@ class Home_adController extends Controller
             $data = new Home_ad;
             $data->url = $request->url;
             $data->pic = $fileName;
+            $data->position = $request->position;
             $tf = $data->save();
 
             if ($tf) {
@@ -150,6 +151,7 @@ class Home_adController extends Controller
         }
         //添加到数据库
         $data->url = $request->url;
+        $data->position = $request->position;
         $tf = $data->save();
 
         if ($tf) {

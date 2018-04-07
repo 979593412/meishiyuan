@@ -20,7 +20,17 @@
                 <div class="am-form-group am-cf">
                     <div class="zuo">广告url：</div>
                     <div class="you">
-                        <input type="text" class="am-input-sm" id="doc-ipt-pwd-1" placeholder="请输入url" name="url">
+                        <input type="text" class="am-input-sm" id="doc-ipt-pwd-1" placeholder="请输入url" name="url" value="http://">
+                    </div>
+                </div>
+                <div class="am-form-group am-cf">
+                    <div class="zuo">广告位置：</div>
+                    <div class="you">
+                        <select name="position" id="">
+                            <option value="top">头部</option>
+                            <option value="right" selected>右侧</option>
+                            <option value="left">左侧</option>
+                        </select>
                     </div>
                 </div>
 
@@ -33,7 +43,7 @@
                 {{--</div>--}}
 
                 <div class="am-form-group am-cf">
-                <div class="zuo">产品图片：</div>
+                <div class="zuo">广告图片：</div>
                 <div class="you" style="height: 45px;">
                     <div class="col-sm-9 big-photo" style="margin-left: auto">
                         <div id="preview">
