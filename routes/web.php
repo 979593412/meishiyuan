@@ -45,6 +45,14 @@ Route::post('/admin/dologin','Admin\LoginController@dologin');
 
     // 后台用户列表页面
     Route::get('user/list','UserController@list');
+
+    // 前台用户列表
+    Route::get('quser/list','UserController@qlist');
+    // 前台用户禁用
+    Route::get('quser/jinyong/{id}','UserController@jinyong');
+    // 前台用户开通
+    Route::get('quser/kaitong/{id}','UserController@kaitong');
+
     // 后台用户添加页面
     Route::get('user/add','UserController@add');
 // 后台保存页面

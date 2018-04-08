@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Model\Admin_User; 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Crypt;  
+use App\Model\Home_User;
 
 use DB;
 
@@ -53,7 +54,7 @@ class UserController extends Controller
 
 
 
-    //列表页
+    // 后台用户列表页
     public function list(Request $request){
 
 //      分页并且单条件搜索搜索条件
@@ -63,6 +64,60 @@ class UserController extends Controller
         return view('Admin.user.list',['user'=>$user,'request'=>$request]);
 
     }
+    // 前台用户列表页
+    public function qlist(Request $request){
+
+        $username = $request->input('username');
+        $quser = Home_User::where('username','like','%'.$username.'%')->paginate(5);
+        return view('Admin.user.qlist',['quser'=>$quser,'request'=>$request]);
+   
+
+    }
+
+
+    public function jinyong($id)
+    {
+       
+      // dd($id);
+       $ress = DB::table('home_user')->where('id',$id)->update(['status' => '0']);
+      
+
+        if($ress){
+            // 修改成功,跳转到列表页
+
+            return redirect('/quser/list');
+        } else {
+//            back回到原地
+            return back()->with('msg','修改失败');
+        }
+
+
+
+    }
+
+    public function kaitong($id)
+    {
+       
+      // dd($id);
+       $ress = DB::table('home_user')->where('id',$id)->update(['status' => '1']);
+      
+
+        if($ress){
+            // 修改成功,跳转到列表页
+
+            return redirect('/quser/list');
+        } else {
+//            back回到原地
+            return back()->with('msg','修改失败');
+        }
+
+
+
+    }
+
+
+
+
 
     // 修改
     public function edit($id){

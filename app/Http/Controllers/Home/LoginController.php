@@ -44,7 +44,7 @@ class LoginController extends Controller
 
         if ($validator->fails()) {
             return redirect('/login')
-                ->withErrors($validator)
+                ->withErrors($validator) 
                 ->withInput();
         }
 
@@ -60,8 +60,15 @@ class LoginController extends Controller
             return redirect('/login')->with('errors','密码错误');
         }
 
+         // 判断是否有权限
+         $status = $user->status;
+            if ($status == 0){
+                return redirect('/login')->with('errors','用户名被禁');
+            }
+
         //5. 保存用户信息到session中（session的操作）
         Session::put('user',$user);
+
 
         //6. 如果都正确，跳转到前台首页（路由跳转）
         return redirect('/');
