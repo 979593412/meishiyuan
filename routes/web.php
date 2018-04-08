@@ -23,7 +23,7 @@ Route::get('/admin/recipe/delete','Admin\RecipeController@delete');
 Route::get('/admin/recipe/status','Admin\RecipeController@on_off');
 
 //login 后台登录
-Route::get('/admin/logins','Admin\LoginController@login');
+Route::get('/admin/logins','Admin\LoginController@login'); 
 
 //生成路由的验证码
 Route::get('/admin/code','Admin\LoginController@code');

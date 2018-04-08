@@ -14,7 +14,7 @@ class RecipeController extends Controller
     //后台菜谱列表
     public function index(Request $request)
     {
-        if (isset($request->search)){
+        if (isset($request->search)){ 
             $search = $request->search;
             //按照标题查询菜谱
             $recipe = Recipe::where('title','like','%'.$search.'%')->paginate(5);

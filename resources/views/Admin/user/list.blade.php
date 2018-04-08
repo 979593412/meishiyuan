@@ -11,7 +11,7 @@
     <div class="listbiaoti am-cf">
     <ul class="am-icon-users"> 会员管理</ul>
 
-    <dl class="am-icon-home" style="float: right;">当前位置： 首页 > <a href="#">商品列表</a></dl>
+    <dl class="am-icon-home" style="float: right;">当前位置： 首页 > <a href="#">用户列表</a></dl>
 
     <dl>
      <a href="{{ url('/user/add') }}" class="am-btn am-btn-danger am-round am-btn-xs am-icon-plus">手动添加会员</a>

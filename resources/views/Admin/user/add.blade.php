@@ -7,7 +7,7 @@
 @section('content')
 
     <div class="admin-biaogelist">
-        <div>
+        <div> 
             @if(session('msg'))
                 {{ session('msg') }}
             @endif
@@ -22,7 +22,7 @@
                         </div>
                         <div class="am-panel-bd">
                             <!-- 表单界面 -->
-                            <form class="am-form" data-am-validator action="{{url('/user/update') }}"
+                            <form class="am-form" data-am-validator action="{{url('/user/store') }}"
                                   method="post">
                                 {{ csrf_field() }}
                                 <fieldset>
