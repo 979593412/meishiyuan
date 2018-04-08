@@ -424,7 +424,8 @@
                     <img src="/uploads/{{$v->pic}}" alt="广告标题" style="width: 300px;">
                 </a>
             </div>
-            <div style="background-color:rgba(0,0,0,0.5); width: 40px; height: 30px; position: absolute; bottom: 0px; color: red; "  >广告</div>
+            <div style="background-color:rgba(0,0,0,0.5); width: 30px; height: 16px;font-size: 10px; position: absolute; bottom: 0px; color: #fefdff; "  >广告</div>
+
         </div>
         @endforeach
         @endif

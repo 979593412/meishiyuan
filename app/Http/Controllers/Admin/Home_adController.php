@@ -21,7 +21,7 @@ class Home_adController extends Controller
     {
         //获取数据
 
-        $gg = Home_ad::paginate(3);
+        $gg = Home_ad::paginate(5);
 
 
 //        print_r($gg);

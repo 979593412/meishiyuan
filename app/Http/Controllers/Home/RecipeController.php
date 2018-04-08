@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Home;
 use App\Model\Book_Food;
 use App\Model\Book_Step;
 use App\Model\Home\Cate;
+use App\Model\Home_ad;
 use App\Model\Recipe;
 use App\Model\User;
 use Image;
@@ -144,11 +145,19 @@ class RecipeController extends CommonController
                 $randArr[] = $arr[$v];
             }
             $randRecipe = Recipe::select('id','title')->find($randArr)->toArray();
+            //广告
+            $gg_b = Home_ad::where('position','recipe_b')->inRandomOrder()->first();
+            $gg_t = Home_ad::where('position','recipe_t')->inRandomOrder()->take(2)->get();
+
 
             //菜谱详情页面
-            return view('home.recipe.show',['recipe'=>$recipe,'user'=>$user,'food'=>$food,'dosage'=>$dosage,'step'=>$step,'cname'=>$cname,'randRecipe'=>$randRecipe,'warning'=>false]);
+            return view('home.recipe.show',['gg_b'=>$gg_b,'gg_t'=>$gg_t,'recipe'=>$recipe,'user'=>$user,'food'=>$food,'dosage'=>$dosage,'step'=>$step,'cname'=>$cname,'randRecipe'=>$randRecipe,'warning'=>false]);
         }
-        return view('home.recipe.show',['recipe'=>$recipe,'warning'=>true]);
+        $gg_t = Home_ad::where('position','recipe_t')->inRandomOrder()->take(2)->get();
+        $gg_b = Home_ad::where('position','recipe_b')->inRandomOrder()->first();
+
+
+        return view('home.recipe.show',['recipe'=>$recipe,'warning'=>true,'gg_t'=>$gg_t,'gg_b'=>$gg_b]);
     }
 
     /**

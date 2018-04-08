@@ -7,9 +7,9 @@
     <div class="admin-biaogelist">
 
         <div class="listbiaoti am-cf">
-            <ul class="am-icon-flag on"> 栏目名称</ul>
+            <ul class="am-icon-flag on"> 添加广告</ul>
 
-            <dl class="am-icon-home" style="float: right;"> 当前位置： <a href="{{url('Admin')}}">广告首页</a> > <a href="{{url('Admin')}}">添加页面</a></dl>
+            <dl class="am-icon-home" style="float: right;"> 当前位置： <a href="{{url('admin/home_ad')}}">广告首页</a> > <a href="{{url('admin/home_ad/create')}}">添加页面</a></dl>
 
 
 
@@ -28,8 +28,11 @@
                     <div class="you">
                         <select name="position" id="">
                             <option value="top">头部</option>
-                            <option value="right" selected>右侧</option>
-                            <option value="left">左侧</option>
+                            <option value="right" selected>主页右侧</option>
+                            <option value="left">主页左侧</option>
+                            <option value="list_right">列表右侧</option>
+                            <option value="recipe_t">详情上2</option>
+                            <option value="recipe_b">详情下1</option>
                         </select>
                     </div>
                 </div>
