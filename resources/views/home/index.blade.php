@@ -71,48 +71,21 @@
                 <div class="headline">
                     <div class="unslider headline-slider">
                         <ul>
-                            {{--轮播图--}}
+                            {{-------------------------------轮播图-----------------}}
+                            @foreach($lunbo as $v)
                             <li class="headline-recipe">
                                 <a class="cover-image display-block" href="#" data-ga-event="首页/头条/第0个" title="菜谱标题" alt="菜谱标题">
-                                    <img src="holder.js/490x260?text=轮播图1" alt="菜谱标题" width="490" height="260">
-                                </a>
-                                <a href="#" class="name">图片上的菜谱标题</a>
-                                <div class="stats">
-                                    <a class="num" href="#">505 人收藏过这道菜</a>
-                                    <a class="author" href="#">by 我这里是作者名字</a>
-                                </div>
+                                    <img src="/uploads/{{$v->pic}}" alt="菜谱标题" width="490" height="260">
+                            </a>
+                            <a href="#" class="name">图片上的菜谱标题</a>
+                            <div class="stats">
+                                <a class="num" href="#">505 人收藏过这道菜</a>
+                                <a class="author" href="#">by 我这里是作者名字</a>
+                            </div>
                             </li>
-                            <li class="headline-recipe">
-                                <a class="cover-image display-block" href="#" data-ga-event="首页/头条/第0个" title="菜谱标题" alt="菜谱标题">
-                                    <img src="holder.js/490x260?text=轮播图2" alt="菜谱标题" width="490" height="260">
-                                </a>
-                                <a href="#" class="name">图片上的菜谱标题</a>
-                                <div class="stats">
-                                    <a class="num" href="#">505 人收藏过这道菜</a>
-                                    <a class="author" href="#">by 我这里是作者名字</a>
-                                </div>
-                            </li>
-                            <li class="headline-recipe">
-                                <a class="cover-image display-block" href="#" data-ga-event="首页/头条/第0个" title="菜谱标题" alt="菜谱标题">
-                                    <img src="holder.js/490x260?text=轮播图3" alt="菜谱标题" width="490" height="260">
-                                </a>
-                                <a href="#" class="name">图片上的菜谱标题</a>
-                                <div class="stats">
-                                    <a class="num" href="#">505 人收藏过这道菜</a>
-                                    <a class="author" href="#">by 我这里是作者名字</a>
-                                </div>
-                            </li>
-                            <li class="headline-recipe">
-                                <a class="cover-image display-block" href="#" data-ga-event="首页/头条/第0个" title="菜谱标题" alt="菜谱标题">
-                                    <img src="holder.js/490x260?text=轮播图4" alt="菜谱标题" width="490" height="260">
-                                </a>
-                                <a href="#" class="name">图片上的菜谱标题</a>
-                                <div class="stats">
-                                    <a class="num" href="#">505 人收藏过这道菜</a>
-                                    <a class="author" href="#">by 我这里是作者名字</a>
-                                </div>
-                            </li>
-                            {{--end of 轮播图--}}
+                            @endforeach
+
+                            {{----------------------------end of 轮播图----------------------------------}}
                         </ul>
                         <a class="history-headline-link icon" href="#"></a>
                     </div>
