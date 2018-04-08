@@ -33,7 +33,7 @@
                                 <div class="upload-box">
                                     <div class="upload-widget">
                                         <div class="upload" id="preview">
-
+                                                 <img id=imghead onclick=$("#previewImg").click() src="{{url('/home/recipe/upload/'.$recipe->pic)}}">
                                                  <span class="upload-text" onclick="$('#previewImg').click();">
                                                     <span class="main-title">+ 菜谱封面</span><br>
                                                     <span class="sub-title">最佳尺寸：1280 × 1024</span>
