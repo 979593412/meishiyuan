@@ -28,8 +28,11 @@
                     <div class="you">
                         <select name="position" id="">
                             <option value="top">头部</option>
-                            <option value="right" selected>右侧</option>
-                            <option value="left">左侧</option>
+                            <option value="right" selected>主页右侧</option>
+                            <option value="left">主页左侧</option>
+                            <option value="list_right">列表右侧</option>
+                            <option value="recipe_t">详情上2</option>
+                            <option value="recipe_b">详情下1</option>
                         </select>
                     </div>
                 </div>

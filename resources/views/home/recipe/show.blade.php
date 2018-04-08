@@ -163,29 +163,24 @@
 
                     <div class="page-title">&nbsp;</div>
 
+                    @if(!empty($gg_t))
+                        @foreach($gg_t as $v)
 
                     <div class="right-ad block mb50">
                         <div class="homepage-right-ad">
                             <div class="block right-ad" data-ga-event="首页/广告/右侧1">
                                 <!-- 广告位：菜谱详情右侧 -->
-                                <a href="#" alt="广告标题">
-                                    <img src="holder.js/300x250?text=菜谱详情页右侧广告1" alt="广告标题">
+                                <a href="{{$v->url}}" alt="广告标题">
+                                    <img src="/uploads/{{$v->pic}}" alt="广告标题" style="width: 300px;">
+
                                 </a>
                             </div>
                         </div>
                     </div>
 
 
-                    <div class="right-ad block mb50">
-                        <div class="homepage-right-ad">
-                            <div class="block right-ad" data-ga-event="首页/广告/右侧2">
-                                <!-- 广告位：菜谱详情右侧 -->
-                                <a href="#" alt="广告标题">
-                                    <img src="holder.js/300x250?text=菜谱详情页右侧广告2" alt="广告标题">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+                @endif
 
 
 
@@ -230,18 +225,18 @@
                         </div>
                     </div>
                     <!-- end of pop subjects -->
-
+                    @if(!empty($gg_b))
                     <div class="right-ad block mb50">
                         <div class="homepage-right-ad">
                             <div class="block right-ad" data-ga-event="首页/广告/右侧2">
                                 <!-- 广告位：菜谱详情右侧 -->
-                                <a href="#" alt="广告标题">
-                                    <img src="holder.js/300x250?text=菜谱详情页右侧广告2" alt="广告标题">
+                                <a href="{{$gg_b->url}}" alt="广告标题">
+                                    <img src="/uploads/{{$gg_b->pic}}" alt="广告标题" width="300px">
                                 </a>
                             </div>
                         </div>
                     </div>
-
+                    @endif
                     <div id="PdFP74wV" style="height: 0px; width: 300px;"></div><div class="fixed-scroller" data-interval="1000" style="z-index: 2; width: 300px;">
 
                         <!-- begin of recipe-stats -->

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Model\Home_ad;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Home\Cate;
@@ -19,6 +20,11 @@ class ListController extends CommonController
         $cate = Cate::find($id);
         //获取分类下左右菜谱
         $recipe = Recipe::with('User')->where("cid",$id)->paginate(3);
-        return view('home.list',['cates'=>$cates,'cate'=>$cate,'recipe'=>$recipe]);
+
+        //广告
+        $gg_t = Home_ad::where('position','top')->inRandomOrder()->first();
+        $gg_r = Home_ad::where('position','list_right')->inRandomOrder()->take(4)->get();
+
+        return view('home.list',['cates'=>$cates,'cate'=>$cate,'recipe'=>$recipe,'gg_t'=>$gg_t,'gg_r'=>$gg_r]);
     }
 }

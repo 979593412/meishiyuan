@@ -28,8 +28,11 @@
                     <div class="you">
                         <select name="position" id="">
                             <option value="top" {{($data->position == 'top')? 'selected' : ''}}>头部</option>
-                            <option value="right" {{($data->position == 'right')? 'selected' : ''}}>右侧</option>
-                            <option value="left" {{($data->position == 'left')? 'selected' : ''}}>左侧</option>
+                            <option value="right" {{($data->position == 'right')? 'selected' : ''}}>主页右侧</option>
+                            <option value="left" {{($data->position == 'left')? 'selected' : ''}}>主页左侧</option>
+                            <option value="list_right" {{($data->position == 'list_right')? 'selected' : ''}}>列表右侧</option>
+                            <option value="recipe_t" {{($data->position == 'left')? 'recipe_t' : ''}}>详情上2</option>
+                            <option value="recipe_b" {{($data->position == 'recipe_b')? 'selected' : ''}}>详情下1</option>
                         </select>
                     </div>
                 </div>
