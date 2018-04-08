@@ -18,22 +18,22 @@
             <ol class="breadcrumb plain pl10" itemscope="" itemtype="http://schema.org/BreadcrumbList">
                 <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"
                     class="">
-                    <a href="http://www.xiachufang.com/" title="首页">
+                    <a href="/" title="首页">
                         首页
                     </a>
                     <meta itemprop="position" content="1">
                 </li>
                 <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"
                     class="">
-                    <a href="http://www.xiachufang.com/category/40076/" title="家常菜">
-                        家常菜
+                    <a href="/list/{{$cate->id}}" title="菜">
+                        {{$cate->cname}}
                     </a>
                     <meta itemprop="position" content="2">
                 </li>
                 <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"
                     class="active">
 				<span>
-					红烧排骨
+					{{$recipe->title}}
 				</span>
                     <meta itemprop="position" content="3">
                 </li>

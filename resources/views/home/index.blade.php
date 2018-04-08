@@ -102,59 +102,33 @@
                         <ul class="plain">
                             <li>
                                 <ul class="page-of-recipes">
+                                    @foreach($three as $v)
                                     <li class="align-center white-bg">
-                                        <a href="#" title="菜谱名称" class="recipe recipe-vertical recipe-150-vertical image-link plain display-block" data-log="">
+                                        <a href="/recipe/{{$v->id}}" title="菜谱名称" class="recipe recipe-vertical recipe-150-vertical image-link plain display-block" data-log="">
                                             <div class="cover">
-                                                <img src="holder.js/150x90?text=新秀菜谱1" alt="菜谱名称" width="150" height="90">
+                                                <img src="/home/recipe/upload/{{$v->pic}}" alt="菜谱名称" width="150" height="90">
                                             </div>
-                                            <div class="name ellipsis">菜谱名称1</div>
+                                            <div class="name ellipsis">{{$v->title}}</div>
                                         </a>
                                     </li>
-                                    <li class="align-center white-bg">
-                                        <a href="#" title="菜谱名称" class="recipe recipe-vertical recipe-150-vertical image-link plain display-block" data-log="">
-                                            <div class="cover">
-                                                <img src="holder.js/150x90?text=新秀菜谱2" alt="菜谱名称" width="150" height="90">
-                                            </div>
-                                            <div class="name ellipsis">菜谱名称2</div>
-                                        </a>
-                                    </li>
-                                    <li class="align-center white-bg">
-                                        <a href="#" title="菜谱名称" class="recipe recipe-vertical recipe-150-vertical image-link plain display-block" data-log="">
-                                            <div class="cover">
-                                                <img src="holder.js/150x90?text=新秀菜谱3" alt="菜谱名称" width="150" height="90">
-                                            </div>
-                                            <div class="name ellipsis">菜谱名称3</div>
-                                        </a>
-                                    </li>
+                                    @endforeach
                                 </ul>
                             </li>
 
                             <li>
                                 <ul class="page-of-recipes">
+
+                                    @foreach($six as $v)
                                     <li class="align-center white-bg">
-                                        <a href="#" title="菜谱名称" class="recipe recipe-vertical recipe-150-vertical image-link plain display-block" data-log="">
+                                        <a href="/recipe/{{$v->id}}" title="菜谱名称" class="recipe recipe-vertical recipe-150-vertical image-link plain display-block" data-log="">
                                             <div class="cover">
-                                                <img src="holder.js/150x90?text=新秀菜谱4" alt="菜谱名称" width="150" height="90">
+                                                <img src="/home/recipe/upload/{{$v->pic}}" alt="菜谱名称" width="150" height="90">
                                             </div>
-                                            <div class="name ellipsis">菜谱名称4</div>
+                                            <div class="name ellipsis">{{$v->title}}</div>
                                         </a>
                                     </li>
-                                    <li class="align-center white-bg">
-                                        <a href="#" title="菜谱名称" class="recipe recipe-vertical recipe-150-vertical image-link plain display-block" data-log="">
-                                            <div class="cover">
-                                                <img src="holder.js/150x90?text=新秀菜谱5" alt="菜谱名称" width="150" height="90">
-                                            </div>
-                                            <div class="name ellipsis">菜谱名称5</div>
-                                        </a>
-                                    </li>
-                                    <li class="align-center white-bg">
-                                        <a href="#" title="菜谱名称" class="recipe recipe-vertical recipe-150-vertical image-link plain display-block" data-log="">
-                                            <div class="cover">
-                                                <img src="holder.js/150x90?text=新秀菜谱6" alt="菜谱名称" width="150" height="90">
-                                            </div>
-                                            <div class="name ellipsis">菜谱名称6</div>
-                                        </a>
-                                    </li>
+                                    @endforeach
+                                  
                                 </ul>
                             </li>
 
@@ -170,126 +144,22 @@
                     </div>
                     <ul class="plain">
 
+                            @foreach($populer as $v)
                         <li>
-
-                            <a href="#" title="菜谱标题" class="recipe image-link align-center has-border display-block"
+                            <a href="/recipe/{{$v->id}}" title="菜谱标题" class="recipe image-link align-center has-border display-block"
                                data-ga-event="首页/流行菜谱/第0个" data-click-tracking-url="">
                                 <div class="cover">
-                                    <img src="holder.js/235x138?text=最近流行1" alt="菜谱标题" width="235" height="138">
+                                    <img src="/home/recipe/upload/{{$v->pic}}" alt="菜谱标题" width="235" height="138">
                                 </div>
                                 <div class="name font18">
-                                    <span class="ellipsis">菜谱标题</span>
+                                    <span class="ellipsis">{{$v->title}}</span>
                                 </div>
                                 <div class="stats">
-                                    <span class="ellipsis">菜谱创建者</span> &nbsp;&nbsp;&nbsp;&nbsp;<span>69&nbsp;人收藏</span>
-                                </div>
-                            </a>
-
-                        <li>
-
-                            <a href="#" title="菜谱标题" class="recipe image-link align-center has-border display-block"
-                               data-ga-event="首页/流行菜谱/第0个" data-click-tracking-url="">
-                                <div class="cover">
-                                    <img src="holder.js/235x138?text=最近流行1" alt="菜谱标题" width="235" height="138">
-                                </div>
-                                <div class="name font18">
-                                    <span class="ellipsis">菜谱标题</span>
-                                </div>
-                                <div class="stats">
-                                    <span class="ellipsis">菜谱创建者</span> &nbsp;&nbsp;&nbsp;&nbsp;<span>69&nbsp;人收藏</span>
+                                    <span class="ellipsis">{{$v->User->username}}</span> &nbsp;&nbsp;&nbsp;&nbsp;<span>{{$v->collect}}&nbsp;人收藏</span>
                                 </div>
                             </a>
                         </li>
-                        <li>
-
-                            <a href="#" title="菜谱标题" class="recipe image-link align-center has-border display-block"
-                               data-ga-event="首页/流行菜谱/第0个" data-click-tracking-url="">
-                                <div class="cover">
-                                    <img src="holder.js/235x138?text=最近流行1" alt="菜谱标题" width="235" height="138">
-                                </div>
-                                <div class="name font18">
-                                    <span class="ellipsis">菜谱标题</span>
-                                </div>
-                                <div class="stats">
-                                    <span class="ellipsis">菜谱创建者</span> &nbsp;&nbsp;&nbsp;&nbsp;<span>69&nbsp;人收藏</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-
-                            <a href="#" title="菜谱标题" class="recipe image-link align-center has-border display-block"
-                               data-ga-event="首页/流行菜谱/第0个" data-click-tracking-url="">
-                                <div class="cover">
-                                    <img src="holder.js/235x138?text=最近流行1" alt="菜谱标题" width="235" height="138">
-                                </div>
-                                <div class="name font18">
-                                    <span class="ellipsis">菜谱标题</span>
-                                </div>
-                                <div class="stats">
-                                    <span class="ellipsis">菜谱创建者</span> &nbsp;&nbsp;&nbsp;&nbsp;<span>69&nbsp;人收藏</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-
-                            <a href="#" title="菜谱标题" class="recipe image-link align-center has-border display-block"
-                               data-ga-event="首页/流行菜谱/第0个" data-click-tracking-url="">
-                                <div class="cover">
-                                    <img src="holder.js/235x138?text=最近流行1" alt="菜谱标题" width="235" height="138">
-                                </div>
-                                <div class="name font18">
-                                    <span class="ellipsis">菜谱标题</span>
-                                </div>
-                                <div class="stats">
-                                    <span class="ellipsis">菜谱创建者</span> &nbsp;&nbsp;&nbsp;&nbsp;<span>69&nbsp;人收藏</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-
-                            <a href="#" title="菜谱标题" class="recipe image-link align-center has-border display-block"
-                               data-ga-event="首页/流行菜谱/第0个" data-click-tracking-url="">
-                                <div class="cover">
-                                    <img src="holder.js/235x138?text=最近流行1" alt="菜谱标题" width="235" height="138">
-                                </div>
-                                <div class="name font18">
-                                    <span class="ellipsis">菜谱标题</span>
-                                </div>
-                                <div class="stats">
-                                    <span class="ellipsis">菜谱创建者</span> &nbsp;&nbsp;&nbsp;&nbsp;<span>69&nbsp;人收藏</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-
-                            <a href="#" title="菜谱标题" class="recipe image-link align-center has-border display-block"
-                               data-ga-event="首页/流行菜谱/第0个" data-click-tracking-url="">
-                                <div class="cover">
-                                    <img src="holder.js/235x138?text=最近流行1" alt="菜谱标题" width="235" height="138">
-                                </div>
-                                <div class="name font18">
-                                    <span class="ellipsis">菜谱标题</span>
-                                </div>
-                                <div class="stats">
-                                    <span class="ellipsis">菜谱创建者</span> &nbsp;&nbsp;&nbsp;&nbsp;<span>69&nbsp;人收藏</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-
-                            <a href="#" title="菜谱标题" class="recipe image-link align-center has-border display-block"
-                               data-ga-event="首页/流行菜谱/第0个" data-click-tracking-url="">
-                                <div class="cover">
-                                    <img src="holder.js/235x138?text=最近流行1" alt="菜谱标题" width="235" height="138">
-                                </div>
-                                <div class="name font18">
-                                    <span class="ellipsis">菜谱标题</span>
-                                </div>
-                                <div class="stats">
-                                    <span class="ellipsis">菜谱创建者</span> &nbsp;&nbsp;&nbsp;&nbsp;<span>69&nbsp;人收藏</span>
-                                </div>
-                            </a>
-                        </li>
+                            @endforeach
 
                     </ul>
                 </div>
@@ -352,29 +222,29 @@
 
                         <ol class="plain">
 
-                            <li><span class="num">1</span><a href="#"><span class="ellipsis">早餐</span></a><i class="icon icon-keyword-equal"></i></li>
+                            <li><span class="num">1</span><a href="/recipe/197"><span class="ellipsis">红烧排骨</span></a><i class="icon icon-keyword-equal"></i></li>
 
-                            <li><span class="num">2</span><a href="#"><span class="ellipsis">面包</span></a><i class="icon icon-keyword-equal"></i></li>
+                            <li><span class="num">2</span><a href="/recipe/212"><span class="ellipsis">糖醋里脊</span></a><i class="icon icon-keyword-equal"></i></li>
 
-                            <li><span class="num">3</span><a href="#"><span class="ellipsis">鸡蛋饼</span></a><i class="icon icon-keyword-equal"></i></li>
+                            <li><span class="num">3</span><a href="/recipe/202"><span class="ellipsis">红烧茄子</span></a><i class="icon icon-keyword-equal"></i></li>
 
-                            <li><span class="num">4</span><a href="#"><span class="ellipsis">汤</span></a><i class="icon icon-keyword-up"></i></li>
+                            <li><span class="num">4</span><a href="/recipe/213"><span class="ellipsis">蒜蓉丝瓜</span></a><i class="icon icon-keyword-up"></i></li>
 
-                            <li><span class="num">5</span><a href="#"><span class="ellipsis">青团</span></a><i class="icon icon-keyword-up"></i></li>
+                            <li><span class="num">5</span><a href="/recipe/197"><span class="ellipsis">排骨</span></a><i class="icon icon-keyword-up"></i></li>
                         </ol>
                     </div>
                     <div class="pure-u-1-2 second-group">
                         <ol class="plain">
 
-                            <li><span class="num">6</span><a href="#"><span class="ellipsis">蛋糕</span></a><i class="icon icon-keyword-down"></i></li>
+                            <li><span class="num">6</span><a href="/recipe/211"><span class="ellipsis">宫保鸡丁</span></a><i class="icon icon-keyword-down"></i></li>
 
-                            <li><span class="num">7</span><a href="#"><span class="ellipsis">面条</span></a><i class="icon icon-keyword-up"></i></li>
+                            <li><span class="num">7</span><a href="/recipe/214"><span class="ellipsis">面条</span></a><i class="icon icon-keyword-up"></i></li>
 
-                            <li><span class="num">8</span><a href="#"><span class="ellipsis">三明治</span></a><i class="icon icon-keyword-up"></i></li>
+                            <li><span class="num">8</span><a href="/recipe/215"><span class="ellipsis">三明治</span></a><i class="icon icon-keyword-up"></i></li>
 
-                            <li><span class="num">9</span><a href="#"><span class="ellipsis">包子</span></a><i class="icon icon-keyword-up"></i></li>
+                            <li><span class="num">9</span><a href="/recipe/216"><span class="ellipsis">包子</span></a><i class="icon icon-keyword-up"></i></li>
 
-                            <li><span class="num">10</span><a href="#"><span class="ellipsis">鱼香肉丝</span></a><i class="icon icon-keyword-down"></i></li>
+                            <li><span class="num">10</span><a href="/recipe/210"><span class="ellipsis">鱼香肉丝</span></a><i class="icon icon-keyword-down"></i></li>
                         </ol>
                     </div>
                 </div>

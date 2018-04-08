@@ -4,17 +4,12 @@
 @section('content')
 <ol class="breadcrumb plain pl10">
     <li>
-        <a href="#" title="首页">
+        <a href="/" title="首页">
             首页
         </a>
     </li>
-    <li>
-        <a href="#" title="全部分类">
-            全部分类
-        </a>
-    </li>
     <li class="active">
-        小吃
+        菜谱列表
     </li>
 </ol>
 <div class="pure-g" style="width:1150px">
@@ -60,7 +55,7 @@
 
                 <div class="pure-u-3-4 category-recipe-list" >
                     <h1 class="page-title">
-                        {{$cate->cname}}
+                        {{$cate}}
                     </h1>
                     <ul class="ing-tab tab plain">
                         <li class="active">相关菜谱</li>   
@@ -128,7 +123,7 @@
                       
                     </div>
                     <div class="pagination" >
-                        {{ $recipe->links() }}
+                        {{ $recipe->appends($request->all())->links() }}
                     </div>
                     <style type="text/css">        #pull_right {
                             text-align: center;

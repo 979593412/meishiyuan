@@ -90,6 +90,8 @@ Route::post('/home/details/update','Home\detailsController@update');
 
 //菜谱列表页
 Route::get('/list/{id}','Home\ListController@index');
+Route::post('/list/{id}','Home\ListController@index');
+Route::get('/search/','Home\ListController@search');
 Route::get('/cate/{id}','Home\CateController@index');
 
 //菜谱管理
