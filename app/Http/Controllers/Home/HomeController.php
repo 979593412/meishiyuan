@@ -29,4 +29,5 @@ class HomeController extends CommonController
         return view('home.index',['cates'=>$cates]);
 
     }
+
 }

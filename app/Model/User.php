@@ -27,4 +27,8 @@ class User extends Model
         return $this->hasOne('App\Model\Details', 'uid', 'id');
     }
 
+    public function Collection()
+    {
+        return $this->hasMany('App\Model\Collection','uid','id');
+    }
 }

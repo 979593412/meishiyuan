@@ -116,7 +116,7 @@ class Home_adController extends Controller
         //
 
         $data = Home_ad::find($id);
-//        print_r($data);
+        print_r($data);
 
         return view('Admin.Home_ad.edit', ['data' => $data]);
     }

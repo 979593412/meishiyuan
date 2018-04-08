@@ -110,7 +110,7 @@ Route::resource('/admin/home_ad','Admin\Home_adController');
 //友情链接
 Route::resource('/admin/links','Admin\LinksController');
 
-// 我的厨房模块
+//-----------------------我的厨房模块---------------------
 Route::get('/home/chufang','Home\KitchenController@index');
 
 //菜谱
@@ -121,15 +121,12 @@ Route::get('/home/chufang/zuopin','Home\KitchenController@zuopin');
 
 //菜单
 Route::get('/home/chufang/caidan','Home\KitchenController@caidan');
-//创建菜单
-Route::get('/home/chufang/createcaidan','Home\KitchenController@createcaidan');
-//保存菜单
-Route::post('/home/chufang/storecaidan','Home\KitchenController@storecaidan');
-//留言板
-Route::get('/home/chufang/liuyanban','Home\KitchenController@liuyanban');
+
+
 
 
 //-----------------------我的厨房模块结束---------------------
+
 
 
 //分类路由
