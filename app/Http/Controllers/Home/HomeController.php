@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Home;
 use App\Model\Carousel;
 use App\Model\Details;
 use Illuminate\Http\Request;
+use PhpParser\Node\Expr\Cast\Object_;
 use Session;
 use App\Http\Controllers\Controller;
 use App\Model\Home\Cate;
@@ -51,7 +52,6 @@ class HomeController extends CommonController
 
         //最近流行
         $popular = Recipe::with('User')->OrderBy('collect','desc')->take(8)->get();
-
         $gg_r = Home_ad::where('position','right')->inRandomOrder()->take(4)->get();
         $gg_t = Home_ad::where('position','top')->inRandomOrder()->first();
         $gg_l = Home_ad::where('position','left')->inRandomOrder()->first();
