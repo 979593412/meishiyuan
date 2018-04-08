@@ -236,8 +236,8 @@
         <div class="sideMenu">
             <h3 class="am-icon-users on"><em></em> <a href="#">用户管理</a></h3>
             <ul>
-                <li><a href="{{url('/user/list')}}">用户列表</a></li>
-
+                <li><a href="{{url('/user/list')}}">后台用户列表</a></li>
+                <li><a href="{{url('/quser/list')}}">前台用户列表</a></li>
             </ul>
 
             <h3 class="am-icon-book on"><em></em> <a href="#">菜谱管理</a></h3>

@@ -55,6 +55,12 @@ class LoginController extends Controller
             return redirect('/login')->with('errors','用户不存在');
         }
 
+        // 判断是否有权限
+        $status = $user->status;
+        if ($status == 0){
+            return redirect('/login')->with('errors','用户被禁');
+        }
+
         //4.判断密码是否正确（加密方式）
         if($input['password'] != decrypt($user->password)) {
             return redirect('/login')->with('errors','密码错误');

@@ -55,6 +55,14 @@ Route::post('/admin/dologin','Admin\LoginController@dologin');
     Route::post('user/update/{id}','UserController@update');
 // 后台用户删除页面
     Route::get('user/delete/{id}','UserController@delete');
+
+// 前台用户禁用
+     Route::get('quser/jinyong/{id}','UserController@jinyong');
+// 前台用户开通
+     Route::get('quser/kaitong/{id}','UserController@kaitong');
+// 前台用户列表
+     Route::get('quser/list','UserController@qlist');
+
 });
 
 
@@ -75,6 +83,10 @@ Route::get('/login','Home\LoginController@login');
 Route::post('/login/dologin','Home\LoginController@dologin');
 
 Route::get('/login/outlogin','Home\LoginController@outlogin');
+
+
+
+
 
 //前台注册
 Route::get('/register','Home\LoginController@register');
@@ -104,6 +116,7 @@ Route::resource('/recipe','Home\RecipeController')->middleware('isHomelogin');
 Route::get('/home/dianzan','Home\CollectController@index');
 Route::get('/home/add','Home\CollectController@add');
 Route::get('/home/delete','Home\CollectController@delete');
+Route::get('/home/shoucang','Home\CollectController@shoucang');
 
 //广告位路由设置
 Route::resource('/admin/home_ad','Admin\Home_adController');

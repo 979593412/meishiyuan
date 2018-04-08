@@ -64,18 +64,22 @@
 									</span>
                                     </div>
                                     <div class="cooked float-left">
-									<span class="number">
-										7659
+									<span class="number" id="aa">
+
 									</span>
-                                        <span class="title">
-										人做过这道菜
+                                    <span class="title">
+										人收藏
 									</span>
                                     </div>
                                 </div>
 
-                                <div class="collect pure-g align-right " style="margin-top: -28px;">
 
-                                   <div class="heart" id="like2" rel="like"></div> <div class="likeCount" id="likeCount2">收藏</div>
+                                <div class="collect pure-g align-right " style="margin-top: -28px;">
+                                    @if(empty($collect))
+                                        <div class="heart" id="like2" rel="like"></div> <div class="likeCount" id="likeCount2">收藏</div>
+                                    @else
+                                        <div class="heart" id="like2" rel="unlike"></div> <div class="likeCount" id="likeCount2">取消收藏</div>
+                                    @endif
                                 </div>
 
 
@@ -254,9 +258,6 @@
 					{{$recipe->created_at}}
 				</span>
                             </div>
-                            <div class="pv">
-                                319997 收藏
-                            </div>
                             <div class="copyright">
                                 版权归作者所有，没有作者本人的书面许可任何人不得转载或使用整体或任何部分的内容。
                             </div>
@@ -280,45 +281,60 @@
     <script>
 
 
-    var bid  = $('#bid').val();
-    var uid  = $('#uid').val();
+
+        var bid  = $('#bid').val();
+        var uid  = $('#uid').val();
+        var aa   = $('#aa');
 
 
-    $(document).ready(function()
-    {
 
-    $('body').on("click",'.heart',function()
-    {
-
-        var A=$(this).attr("id");
-        var B=A.split("like");
-        var messageID=B[1];
-        var C=parseInt($("#likeCount"+messageID).html());
-        $(this).css("background-position","")
-        var D=$(this).attr("rel");
-
-        if(D === 'like'){
-            $.get('/home/add',{'bid':bid,'uid':uid},function(data){
-                console.log(data);
-            })
-            $("#likeCount"+messageID).html('取消收藏');
-            $(this).addClass("heartAnimation").attr("rel","unlike");
-
-        }
-        else{
-             $.get('/home/delete',{'bid':bid,'uid':uid},function(data){
-                console.log(data);
-            })
-            $("#likeCount"+messageID).html('收藏');
-            $(this).removeClass("heartAnimation").attr("rel","like");
-            $(this).css("background-position","left");
-        }
+        $.get('/home/shoucang',{'bid':bid},function(data){
 
 
-    });
+            aa.html(data);
+
+        });
 
 
-    });
+
+        $(document).ready(function()
+        {
+
+            $('body').on("click",'.heart',function()
+            {
+
+                var A=$(this).attr("id");
+                var B=A.split("like");
+                // console.log(B);
+                var messageID=B[1];
+                var C=parseInt($("#likeCount"+messageID).html());
+                $(this).css("background-position","")
+                var D=$(this).attr("rel");
+
+                if(D === 'like'){
+                    $.get('/home/add',{'bid':bid,'uid':uid},function(data){
+                        console.log(data);
+                    })
+                    $("#likeCount"+messageID).html('取消收藏');
+                    $(this).addClass("heartAnimation").attr("rel","unlike");
+
+                }
+                else{
+                    $.get('/home/delete',{'bid':bid,'uid':uid},function(data){
+                        console.log(data);
+                    })
+                    $("#likeCount"+messageID).html('收藏');
+                    $(this).removeClass("heartAnimation").attr("rel","like");
+                    $(this).css("background-position","left");
+                }
+
+
+
+            });
+
+
+
+        });
 
     </script>
 @endsection

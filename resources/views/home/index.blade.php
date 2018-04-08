@@ -160,7 +160,8 @@
                                     <span class="ellipsis">{{$v->title}}</span>
                                 </div>
                                 <div class="stats">
-                                    <span class="ellipsis">{{$v->User->username}}</span> &nbsp;&nbsp;&nbsp;&nbsp;<span>{{$v->collect}}&nbsp;人收藏</span>
+                                    <span class="ellipsis">{{$v->User->username}}</span> &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <span>{{$v->collect}}&nbsp;人收藏</span>
                                 </div>
                             </a>
                         </li>
