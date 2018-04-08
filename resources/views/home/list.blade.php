@@ -2,6 +2,7 @@
 @section('title','美食源-菜谱列表')
 
 @section('topAd')
+
     <div class="page-top-ad">
         @if(!empty($gg_t))
         <!-- 广告位：PC-首页-顶通 -->
@@ -235,7 +236,7 @@
         <!-- homepage ad -->
         @if(!empty($gg_r))
             @foreach($gg_r as $v)
-        <div class="homepage-right-ad">
+        <div class="homepage-right-ad" style="position: relative">
             <div class="block right-ad" data-ga-event="首页/广告/右侧1">
                 <!-- 广告位：首页右侧 -->
                 <a href="{{$v->url}}" alt="广告标题">
@@ -243,6 +244,8 @@
 
                 </a>
             </div>
+            <div style="background-color:rgba(0,0,0,0.5); width: 30px; height: 16px;font-size: 10px; position: absolute; bottom: 0px; color: #fefdff; "  >广告</div>
+
         </div>
         @endforeach
     @endif

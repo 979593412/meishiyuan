@@ -167,7 +167,7 @@
                         @foreach($gg_t as $v)
 
                     <div class="right-ad block mb50">
-                        <div class="homepage-right-ad">
+                        <div class="homepage-right-ad" style="position: relative">
                             <div class="block right-ad" data-ga-event="首页/广告/右侧1">
                                 <!-- 广告位：菜谱详情右侧 -->
                                 <a href="{{$v->url}}" alt="广告标题">
@@ -175,6 +175,9 @@
 
                                 </a>
                             </div>
+                            <div style="background-color:rgba(0,0,0,0.5); width: 30px; height: 16px;font-size: 10px; position: absolute; bottom: 0px; color: #fefdff; "  >广告</div>
+
+
                         </div>
                     </div>
 
@@ -227,13 +230,15 @@
                     <!-- end of pop subjects -->
                     @if(!empty($gg_b))
                     <div class="right-ad block mb50">
-                        <div class="homepage-right-ad">
+                        <div class="homepage-right-ad" style="position: relative">
                             <div class="block right-ad" data-ga-event="首页/广告/右侧2">
                                 <!-- 广告位：菜谱详情右侧 -->
                                 <a href="{{$gg_b->url}}" alt="广告标题">
                                     <img src="/uploads/{{$gg_b->pic}}" alt="广告标题" width="300px">
                                 </a>
                             </div>
+                            <div style="background-color:rgba(0,0,0,0.5); width: 30px; height: 16px;font-size: 10px; position: absolute; bottom: 0px; color: #fefdff; "  >广告</div>
+
                         </div>
                     </div>
                     @endif

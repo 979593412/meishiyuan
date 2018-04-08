@@ -7,9 +7,9 @@
     <div class="admin-biaogelist">
 
         <div class="listbiaoti am-cf">
-            <ul class="am-icon-flag on"> 栏目名称</ul>
+            <ul class="am-icon-flag on"> 修改广告</ul>
 
-            <dl class="am-icon-home" style="float: right;"> 当前位置： <a href="{{url('Admin')}}">广告页</a> > <a href="#">修改</a></dl>
+            <dl class="am-icon-home" style="float: right;"> 当前位置： <a href="{{url('admin/home_ad')}}">广告页</a> > <a href="#">修改</a></dl>
 
 
 

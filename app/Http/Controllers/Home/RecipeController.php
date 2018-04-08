@@ -156,7 +156,7 @@ class RecipeController extends CommonController
         $gg_t = Home_ad::where('position','recipe_t')->inRandomOrder()->take(2)->get();
         $gg_b = Home_ad::where('position','recipe_b')->inRandomOrder()->first();
 
-        dd();
+
         return view('home.recipe.show',['recipe'=>$recipe,'warning'=>true,'gg_t'=>$gg_t,'gg_b'=>$gg_b]);
     }
 
