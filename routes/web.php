@@ -82,8 +82,8 @@ Route::get('/register','Home\LoginController@register');
 Route::post('/register/store','Home\LoginController@store');
 
 //设置个人信息页
-Route::get('home/details','Home\DetailsController@index');
-Route::post('/home/details/update','Home\detailsController@update');
+Route::get('home/details','Home\DetailsController@index')->middleware('isHomelogin');
+Route::post('/home/details/update','Home\detailsController@update')->middleware('isHomelogin');
 
 
 //前台菜谱管理
@@ -142,4 +142,6 @@ Route::resource('/admin/cate','Admin\CateController');
 //Route::post('admin/user/update/{id}','Admin\UserController@update');
 //// 后台用户删除页面
 //Route::get('admin/user/delete/{id}','Admin\UserController@delete');
+
+
 

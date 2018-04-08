@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Model\Home\Cate;
 use DB;
 use App\Model\Recipe;
+use App\Model\Home_ad;
 
 class HomeController extends CommonController
 {
@@ -50,8 +51,12 @@ class HomeController extends CommonController
 
         //最近流行
         $popular = Recipe::with('User')->OrderBy('collect','desc')->take(8)->get();
-        return view('home.index',['cates'=>$cates,'three'=>$three,'six'=>$six,'populer'=>$popular])->with('lunbo',$lunbo);
 
+        $gg_r = Home_ad::where('position','right')->inRandomOrder()->take(4)->get();
+        $gg_t = Home_ad::where('position','top')->inRandomOrder()->first();
+        $gg_l = Home_ad::where('position','left')->inRandomOrder()->first();
+
+        return view('home.index',['cates'=>$cates,'gg_r'=>$gg_r,'gg_t'=>$gg_t,'gg_l'=>$gg_l,'three'=>$three,'six'=>$six,'populer'=>$popular])->with('lunbo',$lunbo);
 
     }
 
