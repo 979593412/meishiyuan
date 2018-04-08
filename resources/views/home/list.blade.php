@@ -1,6 +1,15 @@
 @extends('home.layouts.app')
 @section('title','美食源-菜谱列表')
 
+@section('topAd')
+    <div class="page-top-ad">
+        <!-- 广告位：PC-首页-顶通 -->
+        <a href="#" alt="广告标题">
+            <img src="holder.js/980x90?text=列表页顶部广告" alt="广告标题">
+        </a>
+    </div>
+@endsection
+
 @section('content')
 <ol class="breadcrumb plain pl10">
     <li>
@@ -213,6 +222,40 @@
         </div>
     </div>
     <!-- end of main-panel -->
+
+    <!-- begin of right-panel -->
+    <div class="pure-u-1-3 right-panel">
+        <!-- homepage ad -->
+        <div class="homepage-right-ad">
+            <div class="block right-ad" data-ga-event="首页/广告/右侧1">
+                <!-- 广告位：首页右侧 -->
+                <a href="#" alt="广告标题">
+                    <img src="holder.js/200x150?text=首页右侧广告1" alt="广告标题">
+                </a>
+            </div>
+        </div>
+
+        <div class="homepage-right-ad">
+            <div class="block right-ad" data-ga-event="首页/广告/右侧2">
+                <!-- 广告位：首页右侧 -->
+                <a href="#" alt="广告标题">
+                    <img src="holder.js/200x150?text=首页右侧广告2" alt="广告标题">
+                </a>
+            </div>
+        </div>
+
+        <div class="homepage-right-ad">
+            <div class="block right-ad" data-ga-event="首页/广告/右侧1">
+                <!-- 广告位：首页右侧 -->
+                <a href="#" alt="广告标题">
+                    <img src="holder.js/200x150?text=首页右侧广告3" alt="广告标题">
+                </a>
+            </div>
+        </div>
+        <!-- end of homepage ad -->
+    </div>
+    <!-- end of right-panel -->
+
 </div>
 <!-- end of page-container -->
 @endsection

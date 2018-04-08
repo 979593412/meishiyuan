@@ -123,12 +123,35 @@ class RecipeController extends CommonController
         $cid = $recipe->cid;
         $cate = Cate::where('id',$cid)->first();
         if($recipe){
+            //转换
             $food = json_decode($recipe->Book_Food->food);
             $dosage = json_decode($recipe->Book_Food->dosage);
             $step = json_decode($recipe->Book_Step->step);
+
+            //获取用户信息
             $user = User::with('Details')->where('id',$recipe->uid)->first();
+
+            //获取所在分类
+            $cname = Cate::select('cname')->where('id',$recipe->cid)->first();
+
+            //随便看看功能
+            $recipeAll = Recipe::select('id')->get()->toArray();
+            $arr = [];
+            foreach ($recipeAll as $v){
+                $arr[] = $v['id'];
+            }
+            $randArr = [];
+            $arrid = array_rand($arr,5);
+            foreach ($arrid as $v){
+                $randArr[] = $arr[$v];
+            }
+            $randRecipe = Recipe::select('id','title')->find($randArr)->toArray();
+
             //菜谱详情页面
-            return view('home.recipe.show',['recipe'=>$recipe,'user'=>$user,'food'=>$food,'dosage'=>$dosage,'step'=>$step,'warning'=>false,'cate'=>$cate]);
+
+
+            return view('home.recipe.show',['recipe'=>$recipe,'user'=>$user,'food'=>$food,'dosage'=>$dosage,'step'=>$step,'cname'=>$cname,'randRecipe'=>$randRecipe,'warning'=>false]);
+
         }
         return view('home.recipe.show',['recipe'=>$recipe,'warning'=>true]);
     }
