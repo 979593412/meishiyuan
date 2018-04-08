@@ -72,19 +72,19 @@
 									</span>
                                     </div>
                                 </div>
-                        
+
                                 <div class="collect pure-g align-right " style="margin-top: -28px;">
 
                                    <div class="heart" id="like2" rel="like"></div> <div class="likeCount" id="likeCount2">收藏</div>
                                 </div>
-                
+
 
                             </div>
                             <div class="rate-dialog block-negative-margin">
                             </div>
                             <div class="author" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-                                <a href="{{url('home/chufang')}}" title="{{$user->Details->nickname}}的厨房" class="avatar-link avatar">
-                                    <img src="{{!empty(session()->get('userInfo')->face) ? '/uploads/'.session()->get('userInfo')->face : '/home/images/face.png'}}" alt="{{$user->nickname}}" width="60" height="60">
+                                <a href="{{url('home/chufang')}}"  class="avatar-link avatar">
+                                    <img src="{{!empty($user->Details->face) ? '/uploads/'.$user->Details->face : '/home/images/face.png'}}" width="60" height="60">
                                     &nbsp;
                                     <span itemprop="name">
 									{{$user->Details->nickname}}
@@ -144,7 +144,7 @@
                                 <!-- <div class="tip" id="bid">
                                     {{$recipe->id}}
 
-                                </div> 
+                                </div>
                                 <div class="tip" id="uid">
                                     {{$user->id}}
 
@@ -155,26 +155,122 @@
                     <!-- end of recipe -->
                 </div>
                 <!-- end of main-panel -->
-            </div>
-            <!-- begin of recipe-stats -->
-            <input type="hidden" value="{{$recipe->id}}" name="" id="bid">
-            <input type="hidden" value="{{session()->get('user')->id}}" name="" id="uid">
-            <div class="recipe-stats block normal-font gray-font">
-                <div class="time">
-                    该菜谱创建于
-                    <span itemprop="datePublished">
+
+                <!-- begin of right-panel -->
+                <div class="pure-u-1-3 right-panel">
+
+
+
+                    <div class="page-title">&nbsp;</div>
+
+
+                    <div class="right-ad block mb50">
+                        <div class="homepage-right-ad">
+                            <div class="block right-ad" data-ga-event="首页/广告/右侧1">
+                                <!-- 广告位：菜谱详情右侧 -->
+                                <a href="#" alt="广告标题">
+                                    <img src="holder.js/300x250?text=菜谱详情页右侧广告1" alt="广告标题">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="right-ad block mb50">
+                        <div class="homepage-right-ad">
+                            <div class="block right-ad" data-ga-event="首页/广告/右侧2">
+                                <!-- 广告位：菜谱详情右侧 -->
+                                <a href="#" alt="广告标题">
+                                    <img src="holder.js/300x250?text=菜谱详情页右侧广告2" alt="广告标题">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <!-- begin of recipe-tags -->
+                    <div class="recipe-tags block mb50">
+                        <div class="title-bar">
+                            <h3 class="title">{{$recipe->title}}所在分类</h3>
+                        </div>
+                        <div class="content plain">
+                            <div class="recipe-cats">
+                                <a href="javascript:void(0);">{{$cname['cname']}}</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end of recipe-tags -->
+
+
+                    <!-- begin of pop subjects -->
+
+                    <div class="block mb50">
+                        <div class="title-bar">
+                            <div class="title">随便看看</div>
+                        </div>
+                        <div class="pure-g content">
+                            <div class="pure-u-1-2 first-group">
+                                <ul class="list">
+                                    @foreach($randRecipe as $v)
+                                    <li><a href="/recipe/{{$v['id']}}" title="{{$v['title']}}的做法"><span class="ellipsis">{{$v['title']}}</span></a></li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            {{--<div class="pure-u-1-2 second-group">--}}
+                                {{--<ul class="list">--}}
+                                    {{--<li><a href="javascript:void(0);" target="_blank"><span class="ellipsis">羊肉汤面</span></a></li>--}}
+                                    {{--<li><a href="javascript:void(0);" target="_blank"><span class="ellipsis">香菇瘦肉粥</span></a></li>--}}
+                                    {{--<li><a href="javascript:void(0);" target="_blank"><span class="ellipsis">萝卜条</span></a></li>--}}
+                                    {{--<li><a href="javascript:void(0);" target="_blank"><span class="ellipsis">秋刀鱼</span></a></li>--}}
+                                    {{--<li><a href="javascript:void(0);" target="_blank"><span class="ellipsis">芹菜炒鸡蛋</span></a></li>--}}
+                                {{--</ul>--}}
+                            {{--</div>--}}
+                        </div>
+                    </div>
+                    <!-- end of pop subjects -->
+
+                    <div class="right-ad block mb50">
+                        <div class="homepage-right-ad">
+                            <div class="block right-ad" data-ga-event="首页/广告/右侧2">
+                                <!-- 广告位：菜谱详情右侧 -->
+                                <a href="#" alt="广告标题">
+                                    <img src="holder.js/300x250?text=菜谱详情页右侧广告2" alt="广告标题">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="PdFP74wV" style="height: 0px; width: 300px;"></div><div class="fixed-scroller" data-interval="1000" style="z-index: 2; width: 300px;">
+
+                        <!-- begin of recipe-stats -->
+                        <input type="hidden" value="{{$recipe->id}}" name="" id="bid">
+                        <input type="hidden" value="{{session()->get('user')->id}}" name="" id="uid">
+                        <div class="recipe-stats block normal-font gray-font">
+                            <div class="time">
+                                该菜谱创建于
+                                <span itemprop="datePublished">
 					{{$recipe->created_at}}
 				</span>
+                            </div>
+                            <div class="pv">
+                                319997 收藏
+                            </div>
+                            <div class="copyright">
+                                版权归作者所有，没有作者本人的书面许可任何人不得转载或使用整体或任何部分的内容。
+                            </div>
+                            <br>
+                        </div>
+                        <!-- end of recipe-stats -->
+
+                    </div>
+
                 </div>
-                <div class="pv">
-                    319997 收藏
-                </div>
-                <div class="copyright">
-                    版权归作者所有，没有作者本人的书面许可任何人不得转载或使用整体或任何部分的内容。
-                </div>
-                <br>
+                <!-- end of right-panel -->
+
             </div>
-            <!-- end of recipe-stats -->
+
         </div>
         <!-- end of page-container -->
     </div>
@@ -182,18 +278,18 @@
     @endif
 
     <script>
-  
+
 
     var bid  = $('#bid').val();
     var uid  = $('#uid').val();
-    
+
 
     $(document).ready(function()
     {
-    
+
     $('body').on("click",'.heart',function()
     {
-        
+
         var A=$(this).attr("id");
         var B=A.split("like");
         var messageID=B[1];
@@ -201,13 +297,13 @@
         $(this).css("background-position","")
         var D=$(this).attr("rel");
 
-        if(D === 'like'){  
+        if(D === 'like'){
             $.get('/home/add',{'bid':bid,'uid':uid},function(data){
                 console.log(data);
             })
             $("#likeCount"+messageID).html('取消收藏');
             $(this).addClass("heartAnimation").attr("rel","unlike");
-        
+
         }
         else{
              $.get('/home/delete',{'bid':bid,'uid':uid},function(data){
