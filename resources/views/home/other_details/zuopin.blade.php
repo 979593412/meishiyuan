@@ -45,7 +45,7 @@
             <div class="people-home-main">
                 <!-- collected recipes section -->
                 <div class="block">
-                    <h3>{{session()->get('userInfo')->nickname}}的作品</h3>
+                    <h3>{{$details->nickname}}的作品</h3>
 
                     <div class="recipes-280-full-width-list">
                         <ul class="plain pure-g">
@@ -57,10 +57,10 @@
 
                                     <div class="recipe-280 white-bg">
                                         <div class="cover">
-                                            <a href="http://www.xiachufang.com/recipe/230868/" title="杂粮面包" class="image-link" target="_blank"><img src="/home/recipe/upload/{{$vv->pic}}" data-src="" alt="" width="280" height="216" class="unveiled"></a>
+                                            <a href="/recipe/{{$vv->id}}" title="杂粮面包" class="image-link" target="_blank"><img src="/home/recipe/upload/{{$vv->pic}}" data-src="" alt="" width="280" height="216" class="unveiled"></a>
                                         </div>
                                         <p class="name ellipsis red-font">
-                                            <a href="http://www.xiachufang.com/recipe/230868/" target="_blank">{{$vv->title}}</a>
+                                            <a href="/recipe/{{$vv->id}}" target="_blank">{{$vv->title}}</a>
                                         </p>
                                     </div>
                                 </li>
