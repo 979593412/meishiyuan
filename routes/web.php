@@ -61,7 +61,8 @@ Route::group(['parfix'=>'admin','namespace'=>'Admin','middleware'=>'islogin'],fu
 // 前台用户列表
      Route::get('quser/list','UserController@qlist');
 
-
+//广告位路由设置
+    Route::resource('home_ad','Home_adController');
 
 });
 
@@ -117,8 +118,7 @@ Route::get('/home/add','Home\CollectController@add')->middleware('isHomelogin');
 Route::get('/home/delete','Home\CollectController@delete')->middleware('isHomelogin');
 Route::get('/home/shoucang','Home\CollectController@shoucang')->middleware('isHomelogin');
 
-//广告位路由设置
-Route::resource('/admin/home_ad','Admin\Home_adController');
+
 
 
 
@@ -153,6 +153,11 @@ Route::resource('/admin/cate','Admin\CateController');
 //Route::post('admin/user/update/{id}','Admin\UserController@update');
 //// 后台用户删除页面
 //Route::get('admin/user/delete/{id}','Admin\UserController@delete');
+
+Route::get('home/other_details/{id}','Home\other_detailsController@index');
+Route::get('home/other_details/caipu/{id}','Home\other_detailsController@caipu');
+Route::get('home/other_details/zuopin/{id}','Home\other_detailsController@zuopin');
+
 
 
 
