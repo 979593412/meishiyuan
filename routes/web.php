@@ -61,7 +61,8 @@ Route::group(['parfix'=>'admin','namespace'=>'Admin','middleware'=>'islogin'],fu
 // 前台用户列表
      Route::get('quser/list','UserController@qlist');
 
-
+//广告位路由设置
+    Route::resource('home_ad','Home_adController');
 
 });
 
@@ -117,8 +118,7 @@ Route::get('/home/add','Home\CollectController@add')->middleware('isHomelogin');
 Route::get('/home/delete','Home\CollectController@delete')->middleware('isHomelogin');
 Route::get('/home/shoucang','Home\CollectController@shoucang')->middleware('isHomelogin');
 
-//广告位路由设置
-Route::resource('/admin/home_ad','Admin\Home_adController');
+
 
 
 
