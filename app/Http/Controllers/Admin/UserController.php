@@ -140,6 +140,7 @@ class UserController extends Controller
 
         // 1.根据id获取要修改的用户
         $user = Admin_User::find($id);
+
         if($user->auth == 1){
             $user->password = decrypt($user->password);
             $res = $request->except('_token');
@@ -163,6 +164,8 @@ class UserController extends Controller
             }die;
         } else {
 
+            // 2.获取要修改的值,更新user模型
+
             $user->password = decrypt($user->password);
             $res = $request->except('_token');
             if($res['repass'] != $user->password)
@@ -178,30 +181,7 @@ class UserController extends Controller
             }
 
         }
-//        $user->password = decrypt($user->password);
-//        // 2.获取要修改的值,更新user模型
-//        $res = $request->except('_token');
-////        dd($res);
-//        if($res['repass'] != $user->password)
-//        {
-//            return redirect('/admin/recipe')->with('msg','原密码不正确');
-//        }
-//
-//        $mi = encrypt($res['password']);
-//        $user->password = $mi;
-//        $user->auth = $res['auth'];
-//        $user->status = $res['status'];
-//
-//        $ress = $user->save();
 
-//        if($ress){
-//            // 修改成功,跳转到列表页
-//
-//            return redirect('/user/list');
-//        } else {
-////            back回到原地
-//            return back()->with('msg','修改失败');
-//        }
 
 
 
@@ -210,8 +190,7 @@ class UserController extends Controller
     public function delete($id)
     {
         // 获取id
-//        如果你希望在找不到模型时抛出异常，可以使用 findOrFail 以及 firstOrFail
-//        方法。这些方法会检索查询的第一个结果。如果没有找到相应结果，就会抛出一个
+
         $user = Admin_User::findOrFail($id);
 
         $ress = $user->delete();

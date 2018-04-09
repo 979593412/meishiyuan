@@ -7,7 +7,7 @@
         <link href="{{asset('home/recipe/css/6b39c3c35dfaf507842e.css')}}" rel="stylesheet" type="text/css">
         <link href="{{asset('home/recipe/css/be3cb642cde281b5785d.css')}}" rel="stylesheet" type="text/css">
         <link href="{{asset('home/recipe/css/f780e7ce0c554aea0d40.css')}}" rel="stylesheet" type="text/css">
- 
+   
 
         <div class="page-outer">
             <!--begin of page-container-->

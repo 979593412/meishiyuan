@@ -17,9 +17,10 @@
             <div class="am-u-md-8 am-u-sm-centered">
                 <form class="am-form" action="{{url('/user/update/'.$user->id) }}" method="post">
                     {{ csrf_field() }}
-                    <fieldset class="am-form-set">
+
                         原密码:<input type="text" name="repass" value="">
                         密码:<input type="text" name="password" value="">
+
                         <tr>
                             <td>后台权限</td>
                             <td> <select name="auth">
