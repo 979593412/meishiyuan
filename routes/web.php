@@ -154,5 +154,10 @@ Route::resource('/admin/cate','Admin\CateController');
 //// 后台用户删除页面
 //Route::get('admin/user/delete/{id}','Admin\UserController@delete');
 
+Route::get('home/other_details/{id}','Home\other_detailsController@index');
+Route::get('home/other_details/caipu/{id}','Home\other_detailsController@caipu');
+Route::get('home/other_details/zuopin/{id}','Home\other_detailsController@zuopin');
+
+
 
 
