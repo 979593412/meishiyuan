@@ -27,7 +27,7 @@ class KitchenController extends Controller
             $data[] = $value['bid'];
         }
         // dd($data);
-            
+
         $res =  Cook_book::whereIn('id',$data)->get();
 
 
