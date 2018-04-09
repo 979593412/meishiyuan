@@ -91,16 +91,7 @@
                             <span>作品</span>
                         </a>
                     </li>
-                    <li class="">
-                        <a href="{{url('/home/chufang/caidan')}}">
-                            <span>菜单</span>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="{{url('/home/chufang/liuyanban')}}">
-                            <span>留言板</span>
-                        </a>
-                    </li>
+
                 </ul>
             </div>
 
@@ -126,21 +117,29 @@
 
                 <div class="recipes-280-full-width-list">
                 <ul class="plain pure-g">
+                @if(!empty($res))
 
-                @foreach($users as $v)
-                <li class="pure-u" style="margin: 10px;">
+                    @foreach($res as $v)
 
-                    <div class="recipe-280 white-bg">
-                        <div class="cover">
-                            <a href="#" title="" class="image-link" target="_blank"><img src="/home/images/touxiang.png" data-src="" alt="" width="280" height="216" class="unveiled"></a>
+                    <li class="pure-u" style="margin: 10px;">
+
+                        <div class="recipe-280 white-bg">
+                            <div class="cover">
+                                <a href="#" title="" class="image-link" target="_blank"><img src="/home/recipe/upload/{{$v->cook_book->pic}}" data-src="" alt="" width="280" height="216" class="unveiled"></a>
+                            </div>
+                            <p class="name ellipsis red-font">
+                                <a href="#" target="_blank">{{$v->cook_book->title}}</a>
+                            </p>
+                        <div class="stats ellipsis">10 做过 224 收藏 | <a href="http://www.xiachufang.com/cook/10140953/" class="gray-link">苦哥</a></div>
                         </div>
-                        <p class="name ellipsis red-font">
-                            <a href="#" target="_blank">{{$v->title}}</a>
-                        </p>
-                    <div class="stats ellipsis">10 做过 224 收藏 | <a href="http://www.xiachufang.com/cook/10140953/" class="gray-link">苦哥</a></div>
-                    </div>
-                </li>
-                @endforeach
+                    </li>
+
+                    @endforeach
+
+                @else
+                快去收藏吧
+                @endif
+
 
 
 

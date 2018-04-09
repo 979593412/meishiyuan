@@ -1,6 +1,18 @@
 @extends('home.layouts.app')
 @section('title','美食源-菜谱列表')
 
+@section('topAd')
+
+    <div class="page-top-ad">
+        @if(!empty($gg_t))
+        <!-- 广告位：PC-首页-顶通 -->
+        <a href="#" alt="广告标题">
+            <img src="/uploads/{{$gg_t->pic}}" alt="广告标题" width="980" height="90">
+        </a>
+            @endif
+    </div>
+@endsection
+
 @section('content')
 <ol class="breadcrumb plain pl10">
     <li>
@@ -109,7 +121,7 @@
                                         
                                         </p>
                                         <p class="author">
-                                            <span href="/cook/102051900/" class="gray-font">
+                                            <span class="gray-font">
                                                {{$k->User->username}}
                                             </span>
                                             <span href="/feature/cook/master/" class="icon icon-cooker">
@@ -213,6 +225,30 @@
         </div>
     </div>
     <!-- end of main-panel -->
+
+    <!-- begin of right-panel -->
+    <div class="pure-u-1-3 right-panel">
+        <!-- homepage ad -->
+        @if(!empty($gg_r))
+            @foreach($gg_r as $v)
+        <div class="homepage-right-ad" style="position: relative">
+            <div class="block right-ad" data-ga-event="首页/广告/右侧1">
+                <!-- 广告位：首页右侧 -->
+                <a href="{{$v->url}}" alt="广告标题">
+                    <img src="/uploads/{{$v->pic}}" alt="广告标题" style="width: 200px;">
+
+                </a>
+            </div>
+            <div style="background-color:rgba(0,0,0,0.5); width: 30px; height: 16px;font-size: 10px; position: absolute; bottom: 0px; color: #fefdff; "  >广告</div>
+
+        </div>
+        @endforeach
+    @endif
+
+        <!-- end of homepage ad -->
+    </div>
+    <!-- end of right-panel -->
+
 </div>
 <!-- end of page-container -->
 @endsection

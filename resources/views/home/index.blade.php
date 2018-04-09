@@ -4,11 +4,14 @@
 @section('title','首页-美食源')
 
 @section('topAd')
+
     <div class="page-top-ad">
         <!-- 广告位：PC-首页-顶通 -->
-        <a href="#" alt="广告标题">
-            <img src="holder.js/980x90?text=首页顶部广告" alt="广告标题">
+        @if(!empty($gg_t))
+        <a href="{{$gg_t->url}}" alt="广告标题">
+            <img src="/uploads/{{$gg_t->pic}}" alt="广告标题" style="width: 980px;height: 90px;">
         </a>
+        @endif
     </div>
 @endsection
 
@@ -56,10 +59,12 @@
                 {{--@show--}}
 
                 <div class="mt30">
+                    @if(!empty($gg_l))
                     <!-- 广告位：PC-首页-左侧 -->
-                    <a href="#" alt="广告标题">
-                        <img src="holder.js/120x600?text=广告" alt="广告标题">
+                    <a href="{{$gg_l->url}}" alt="广告标题">
+                        <img src="/uploads/{{$gg_l->pic}}" alt="广告标题" style="width: 120px; height: 600px;">
                     </a>
+                        @endif
                 </div>
             </div>
             <!-- end of left panel -->
@@ -71,48 +76,21 @@
                 <div class="headline">
                     <div class="unslider headline-slider">
                         <ul>
-                            {{--轮播图--}}
+                            {{-------------------------------轮播图-----------------}}
+                            @foreach($lunbo as $v)
                             <li class="headline-recipe">
                                 <a class="cover-image display-block" href="#" data-ga-event="首页/头条/第0个" title="菜谱标题" alt="菜谱标题">
-                                    <img src="holder.js/490x260?text=轮播图1" alt="菜谱标题" width="490" height="260">
-                                </a>
-                                <a href="#" class="name">图片上的菜谱标题</a>
-                                <div class="stats">
-                                    <a class="num" href="#">505 人收藏过这道菜</a>
-                                    <a class="author" href="#">by 我这里是作者名字</a>
-                                </div>
+                                    <img src="/uploads/{{$v->pic}}" alt="菜谱标题" width="490" height="260">
+                            </a>
+                            {{--<a href="#" class="name">图片上的菜谱标题</a>--}}
+                            {{--<div class="stats">--}}
+                                {{--<a class="num" href="#">505 人收藏过这道菜</a>--}}
+                                {{--<a class="author" href="#">by 我这里是作者名字</a>--}}
+                            {{--</div>--}}
                             </li>
-                            <li class="headline-recipe">
-                                <a class="cover-image display-block" href="#" data-ga-event="首页/头条/第0个" title="菜谱标题" alt="菜谱标题">
-                                    <img src="holder.js/490x260?text=轮播图2" alt="菜谱标题" width="490" height="260">
-                                </a>
-                                <a href="#" class="name">图片上的菜谱标题</a>
-                                <div class="stats">
-                                    <a class="num" href="#">505 人收藏过这道菜</a>
-                                    <a class="author" href="#">by 我这里是作者名字</a>
-                                </div>
-                            </li>
-                            <li class="headline-recipe">
-                                <a class="cover-image display-block" href="#" data-ga-event="首页/头条/第0个" title="菜谱标题" alt="菜谱标题">
-                                    <img src="holder.js/490x260?text=轮播图3" alt="菜谱标题" width="490" height="260">
-                                </a>
-                                <a href="#" class="name">图片上的菜谱标题</a>
-                                <div class="stats">
-                                    <a class="num" href="#">505 人收藏过这道菜</a>
-                                    <a class="author" href="#">by 我这里是作者名字</a>
-                                </div>
-                            </li>
-                            <li class="headline-recipe">
-                                <a class="cover-image display-block" href="#" data-ga-event="首页/头条/第0个" title="菜谱标题" alt="菜谱标题">
-                                    <img src="holder.js/490x260?text=轮播图4" alt="菜谱标题" width="490" height="260">
-                                </a>
-                                <a href="#" class="name">图片上的菜谱标题</a>
-                                <div class="stats">
-                                    <a class="num" href="#">505 人收藏过这道菜</a>
-                                    <a class="author" href="#">by 我这里是作者名字</a>
-                                </div>
-                            </li>
-                            {{--end of 轮播图--}}
+                            @endforeach
+
+                            {{----------------------------end of 轮播图----------------------------------}}
                         </ul>
                         <a class="history-headline-link icon" href="#"></a>
                     </div>
@@ -182,7 +160,8 @@
                                     <span class="ellipsis">{{$v->title}}</span>
                                 </div>
                                 <div class="stats">
-                                    <span class="ellipsis">{{$v->User->username}}</span> &nbsp;&nbsp;&nbsp;&nbsp;<span>{{$v->collect}}&nbsp;人收藏</span>
+                                    <span class="ellipsis">{{$v->User->username}}</span> &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <span>{{$v->collect}}&nbsp;人收藏</span>
                                 </div>
                             </a>
                         </li>
@@ -249,15 +228,15 @@
 
                         <ol class="plain">
 
-                            <li><span class="num">1</span><a href="/recipe/197"><span class="ellipsis">红烧排骨</span></a><i class="icon icon-keyword-equal"></i></li>
+                            <li><span class="num">1</span><a href="/recipe/3"><span class="ellipsis">红烧排骨</span></a><i class="icon icon-keyword-equal"></i></li>
 
-                            <li><span class="num">2</span><a href="/recipe/212"><span class="ellipsis">糖醋里脊</span></a><i class="icon icon-keyword-equal"></i></li>
+                            <li><span class="num">2</span><a href="/recipe/4"><span class="ellipsis">糖醋里脊</span></a><i class="icon icon-keyword-equal"></i></li>
 
-                            <li><span class="num">3</span><a href="/recipe/202"><span class="ellipsis">红烧茄子</span></a><i class="icon icon-keyword-equal"></i></li>
+                            <li><span class="num">3</span><a href="/recipe/5"><span class="ellipsis">红烧茄子</span></a><i class="icon icon-keyword-equal"></i></li>
 
-                            <li><span class="num">4</span><a href="/recipe/213"><span class="ellipsis">蒜蓉丝瓜</span></a><i class="icon icon-keyword-up"></i></li>
+                            <li><span class="num">4</span><a href="/recipe/6"><span class="ellipsis">蒜蓉丝瓜</span></a><i class="icon icon-keyword-up"></i></li>
 
-                            <li><span class="num">5</span><a href="/recipe/197"><span class="ellipsis">排骨</span></a><i class="icon icon-keyword-up"></i></li>
+                            <li><span class="num">5</span><a href="/recipe/7"><span class="ellipsis">糖醋小排</span></a><i class="icon icon-keyword-up"></i></li>
                         </ol>
                     </div>
                     <div class="pure-u-1-2 second-group">
@@ -280,32 +259,20 @@
         <!-- end of pop keywords -->
 
         <!-- homepage ad -->
-        <div class="homepage-right-ad">
+        @if(!empty($gg_r))
+        @foreach($gg_r as $v)
+        <div class="homepage-right-ad" style="position: relative">
             <div class="block right-ad" data-ga-event="首页/广告/右侧1">
                 <!-- 广告位：首页右侧 -->
-                <a href="#" alt="广告标题">
-                    <img src="holder.js/300x250?text=首页右侧广告1" alt="广告标题">
+                <a href="{{$v->url}}" alt="广告标题">
+                    <img src="/uploads/{{$v->pic}}" alt="广告标题" style="width: 300px;">
                 </a>
             </div>
-        </div>
+            <div style="background-color:rgba(0,0,0,0.5); width: 30px; height: 16px;font-size: 10px; position: absolute; bottom: 0px; color: #fefdff; "  >广告</div>
 
-        <div class="homepage-right-ad">
-            <div class="block right-ad" data-ga-event="首页/广告/右侧2">
-                <!-- 广告位：首页右侧 -->
-                <a href="#" alt="广告标题">
-                    <img src="holder.js/300x250?text=首页右侧广告2" alt="广告标题">
-                </a>
-            </div>
         </div>
-
-        <div class="homepage-right-ad">
-            <div class="block right-ad" data-ga-event="首页/广告/右侧1">
-                <!-- 广告位：首页右侧 -->
-                <a href="#" alt="广告标题">
-                    <img src="holder.js/300x250?text=首页右侧广告3" alt="广告标题">
-                </a>
-            </div>
-        </div>
+        @endforeach
+        @endif
         <!-- end of homepage ad -->
 
     </div>

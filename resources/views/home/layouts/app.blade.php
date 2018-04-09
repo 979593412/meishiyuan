@@ -29,6 +29,8 @@
     <link href="{{asset('home/css/f97edcb6e2dbe6a5cca5.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('home/css/ae9cadb6e529cf2e052d.css')}}" rel="stylesheet" type="text/css">
 
+
+
     <!-- 点赞 -->
     <link rel="stylesheet" type="text/css" href="{{asset('home/css/dianzan.css')}}"/>
 
@@ -105,19 +107,12 @@
                 <div class="pure-u-5-6">
                     <div class="float-left">
                         <form class="search" action="/search/" method="get">
-                            <input type="text" name="title" class="typeahead float-left" value="" placeholder="搜索菜谱">
+                            <input type="text" name="title" class="typeahead float-left" value="" placeholder="搜索菜谱" style="width: 500px;">
  <!--                            <input type="hidden" name="cat" value="1001"> -->
                             <input type="submit" value="搜菜谱" class="button float-left">
                         </form>
                     </div>
-                    <div class="float-left">
-                        <ul class="site-nav plain pure-g">
-                            <li class="pure-u"><a href="http://www.xiachufang.com/feature/vip/" rel="nofollow">会员专区</a></li>
 
-                            <li class="pure-u"><a href="http://www.xiachufang.com/explore/menu/collect/" data-ga-event="公共页面/导航栏/$text">菜单</a></li>
-                            <li class="pure-u"><a href="http://www.xiachufang.com/activity/" data-ga-event="公共页面/导航栏/$text">作品动态</a></li>
-                        </ul>
-                    </div>
                     <div class="float-right clearfix">
 
                         <div class="user-action">
@@ -185,34 +180,30 @@
 
 
 
-            <a href="#" class="button">入驻美食源市集</a>
+            <a href="javascript:void(0);" class="button">入驻美食源市集</a>
 
             <a href="{{asset('/home/gghz')}}" class="button">广告合作</a>
         </div>
 
         <div class="pure-g">
             <div class="pure-u-3-4">
-                <a data-ga-event="公共页面/footer/$text" href="#" target="_blank" title="美食生活杂志">美食生活杂志</a> &nbsp;
-                <a href="#" target="_blank" title="厨房工作">厨房工作</a> &nbsp;
-                <a data-ga-event="公共页面/footer/$text" href="#" target="_blank" title="社区指导原则">社区指导原则</a> &nbsp;
-                <a data-ga-event="公共页面/footer/$text" href="#" target="_blank" title="下厨房出版的书">美食源出版的书</a> &nbsp;
-                <a data-ga-event="公共页面/footer/$text" href="#" target="_blank" title="帮助中心">帮助中心</a> &nbsp;
-                <a data-ga-event="公共页面/footer/$text" href="#" target="_blank" title="联系我们">联系我们</a> &nbsp;
-                <a href="http://www.xiachufang.com/auth/login/" title="意见反馈" rel="nofollow">意见反馈</a> &nbsp;
-                <a data-ga-event="公共页面/footer/$text" href="#" target="_blank" title="隐私声明">隐私声明</a>
+                @foreach( Session::get('links') as $v)
+                    &nbsp;&nbsp;<a href="{{$v['url']}}">{{$v['title']}}</a>&nbsp;&nbsp;|
+                @endforeach
             </div>
             <div class="pure-u-1-4 align-right">
                 <div class="social-likes">
-                    <a href="https://weibo.com/xiachufang" target="_blank" rel="nofollow">
+                    <a href="javascript:void(0);" target="_blank" rel="nofollow">
                         <img src="https://ohfnc0uzy.qnssl.com/simpleicons/sinaweibo.svg" alt="微博" title="微博">
                     </a>
                     &nbsp;
-                    <a href="https://twitter.com/xiachufang" target="_blank" rel="nofollow">
+                    <a href="javascript:void(0);" target="_blank" rel="nofollow">
                         <img src="https://ohfnc0uzy.qnssl.com/simpleicons/twitter.svg" alt="Twitter" title="Twitter">
                     </a>
                 </div>
             </div>
         </div>
+
         <div class="pure-g">
             <div class="pure-u-3-4">
                 Copyright &copy; meishiyuan.com &nbsp;

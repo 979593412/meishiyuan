@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\Home;
-
+use App\Model\Home\collect;
 use App\Model\Book_Food;
 use App\Model\Book_Step;
 use App\Model\Home\Cate;
+use App\Model\Home_ad;
 use App\Model\Recipe;
 use App\Model\User;
 use Image;
@@ -123,14 +124,48 @@ class RecipeController extends CommonController
         $cid = $recipe->cid;
         $cate = Cate::where('id',$cid)->first();
         if($recipe){
+            //转换
             $food = json_decode($recipe->Book_Food->food);
             $dosage = json_decode($recipe->Book_Food->dosage);
             $step = json_decode($recipe->Book_Step->step);
+
+            //获取用户信息
             $user = User::with('Details')->where('id',$recipe->uid)->first();
+
+            //获取所在分类
+            $cname = Cate::select('cname')->where('id',$recipe->cid)->first();
+
+            //随便看看功能
+            $recipeAll = Recipe::select('id')->get()->toArray();
+            $arr = [];
+            foreach ($recipeAll as $v){
+                $arr[] = $v['id'];
+            }
+            $randArr = [];
+
+            $arrid = array_rand($arr,5);
+            foreach ($arrid as $v){
+                $randArr[] = $arr[$v];
+            }
+            $randRecipe = Recipe::select('id','title')->find($randArr)->toArray();
+
+
+            //广告
+            $gg_b = Home_ad::where('position','recipe_b')->inRandomOrder()->first();
+            $gg_t = Home_ad::where('position','recipe_t')->inRandomOrder()->take(2)->get();
+
+            //收藏
+            $collect = collect::where(['bid'=>$id,'uid'=>session('user')->id])->first();
+
             //菜谱详情页面
-            return view('home.recipe.show',['recipe'=>$recipe,'user'=>$user,'food'=>$food,'dosage'=>$dosage,'step'=>$step,'warning'=>false,'cate'=>$cate]);
+
+            return view('home.recipe.show',['gg_b'=>$gg_b,'gg_t'=>$gg_t,'recipe'=>$recipe,'user'=>$user,'food'=>$food,'dosage'=>$dosage,'step'=>$step,'cate'=>$cate,'cname'=>$cname,'collect'=>$collect,'randRecipe'=>$randRecipe,'warning'=>false]);
+
         }
-        return view('home.recipe.show',['recipe'=>$recipe,'warning'=>true]);
+        $gg_t = Home_ad::where('position','recipe_t')->inRandomOrder()->take(2)->get();
+        $gg_b = Home_ad::where('position','recipe_b')->inRandomOrder()->first();
+
+        return view('home.recipe.show',['recipe'=>$recipe,'warning'=>true,'gg_t'=>$gg_t,'gg_b'=>$gg_b]);
     }
 
     /**
