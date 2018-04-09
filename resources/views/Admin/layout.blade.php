@@ -235,7 +235,7 @@
 
         <div class="sideMenu am-icon-dashboard" style="color:#aeb2b7; margin: 10px 0 0 0;"> 欢迎系统管理员： {{ session()->get('admin_user')->username }}</div>
         <br>
-        <div class="sideMenu am-icon-dashboard" style="color:#aeb2b7; margin: 10px 0 0 0;"><a href="/admin/logins"> 退出</a></div>
+        {{--<div class="sideMenu am-icon-dashboard" style="color:#aeb2b7; margin: 10px 0 0 0;"><a href="/admin/logins"> 退出</a></div>--}}
 
         <div class="sideMenu">
             @if (session()->get('admin_user')->auth == 1)
