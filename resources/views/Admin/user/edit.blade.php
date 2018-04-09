@@ -18,13 +18,13 @@
                 <form class="am-form" action="{{url('/user/update/'.$user->id) }}" method="post">
                     {{ csrf_field() }}
                     <fieldset class="am-form-set">
-                        用户名:<input type="text" name="username" value="{{ $user->username }}">
+
                         密码:<input type="text" name="password" value="{{ $user->password }}">
                         <tr>
                             <td>后台权限</td>
                             <td> <select name="auth">
                                     <option {{ ($user->auth==1)? 'selected' : '' }} value="1">超级管理员</option>
-                                    <option {{ ($user->auth==2)? 'selected' : '' }} value="2">会员</option>
+                                    <option {{ ($user->auth==2)? 'selected' : '' }} value="2">管理员</option>
 
                                 </select>
                             </td>

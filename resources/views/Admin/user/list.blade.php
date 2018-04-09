@@ -67,7 +67,7 @@
                         <td><a href="#">{{ $v->username }}</a></td>
                     <!-- <td>{{ $v->password }}</td> -->
                         <td class="am-hide-sm-only">
-                            @if($v->auth == 2)   会员  @else 超级管理员
+                            @if($v->auth == 2)   管理员  @else 超级管理员
                             @endif
                         </td>
                         <td class="am-hide-sm-only">

@@ -232,12 +232,19 @@
     <div class="nav-navicon admin-main admin-sidebar">
 
 
-        <div class="sideMenu am-icon-dashboard" style="color:#aeb2b7; margin: 10px 0 0 0;"> 欢迎系统管理员：清风抚雪</div>
+        <div class="sideMenu am-icon-dashboard" style="color:#aeb2b7; margin: 10px 0 0 0;"> 欢迎系统管理员： {{ session()->get('admin_user')->username }}</div>
+        <br>
+        <div class="sideMenu am-icon-dashboard" style="color:#aeb2b7; margin: 10px 0 0 0;"><a href="/admin/logins"> 退出</a></div>
+
         <div class="sideMenu">
             <h3 class="am-icon-users on"><em></em> <a href="#">用户管理</a></h3>
             <ul>
+                @if (session()->get('admin_user')->auth == 1)
                 <li><a href="{{url('/user/list')}}">后台用户列表</a></li>
                 <li><a href="{{url('/quser/list')}}">前台用户列表</a></li>
+                @else
+                    <li><a href="{{url('/user/list')}}">后台用户列表</a></li>
+                @endif
             </ul>
 
             <h3 class="am-icon-book on"><em></em> <a href="#">菜谱管理</a></h3>

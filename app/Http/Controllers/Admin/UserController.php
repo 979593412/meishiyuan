@@ -149,7 +149,7 @@ class UserController extends Controller
         // 2.获取要修改的值,更新user模型
         $res = $request->all();
 
-        $user->username = $res['username'];
+
         $mi = encrypt($res['password']);
         $user->password = $mi;
         $user->auth = $res['auth'];
@@ -183,9 +183,9 @@ class UserController extends Controller
 
         if($ress){
             // 删除成功
-            return redirect('admin/user/list')->with('msg','删除成功');
+            return redirect('/user/list')->with('msg','删除成功');
         } else {
-            return redirect('admin/user/list')->with('msg','删除失败');
+            return redirect('/user/list')->with('msg','删除失败');
         }
 
     }
