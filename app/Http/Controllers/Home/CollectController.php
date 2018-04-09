@@ -28,8 +28,7 @@ class CollectController extends Controller
 
         $res =  collect::with('Cook_book')->whereIn('bid',$data)->get();
         $ress = collect::where('uid',$uid)->count();
-  
-       
+
         return view('home.collect.collect',['res'=>$res,'ress'=>$ress]);
     }
     // 添加收藏

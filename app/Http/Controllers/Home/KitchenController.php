@@ -13,34 +13,21 @@ class KitchenController extends Controller
     //我的厨房首页
     public function index()
     {
-//
-//        $user =User::find('1');
-//        $cook=$user->cook_book;
-
-
-//        $all=User::with('cook_book')->get();
-//        dd($cook);
 
         $all=User::with('cook_book')->get();
-//        dd($all);
-
-//        $shoucang=DB::table('collection')->first();
-//        $caipu=DB::table('cook_book')->first();
 
         $users = DB::table('home_user')
             ->leftJoin('cook_book', 'home_user.id', '=', 'cook_book.uid')
             ->get();
-//        dd($users);
 
         return view('home.kitchen.kitchen')->with('users',$users);
     }
     public function caipu()
     {
-        $users = DB::table('home_user')
-            ->leftJoin('cook_book', 'home_user.id', '=', 'cook_book.uid')
-            ->get();
 
-        return view('home.kitchen.caipu')->with('users',$users);
+        $caipu = DB::table('home_user')->leftJoin('cook_book', 'home_user.id', '=', 'cook_book.uid')->get();
+        return view('home.kitchen.caipu')->with('caipu',$caipu);
+
     }
 
     public function zuopin()
@@ -49,7 +36,8 @@ class KitchenController extends Controller
             ->leftJoin('cook_book', 'home_user.id', '=', 'cook_book.uid')
             ->get();
 
-        return view('home.kitchen.zuopin')->with('users',$users);
+        return view('home.kitchen.zuopin')->with('user',$user,'shoucang',$shoucang);
+
     }
     //创建菜单
     public function caidan()
@@ -77,12 +65,14 @@ class KitchenController extends Controller
         dd($input);
 
         return view('home.kitchen.createcaidan');
+
     }
     public function liuyanban()
     {
         $users = DB::table('home_user')
             ->leftJoin('cook_book', 'home_user.id', '=', 'cook_book.uid')
             ->get();
+
 
         return view('home.kitchen.liuyanban')->with('users',$users);
     }

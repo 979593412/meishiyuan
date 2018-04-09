@@ -17,4 +17,9 @@ class Cate extends Model
 
 //    4. 是否允许批量操作字段
     public $guarded = [];
+
+    public function cook_book()
+    {
+        return $this->hasMany('App\Model\Recipe','cid','id');
+    }
 }

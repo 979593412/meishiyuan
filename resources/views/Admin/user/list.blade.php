@@ -14,7 +14,7 @@
     <dl class="am-icon-home" style="float: right;">当前位置： 首页 > <a href="#">商品列表</a></dl>
 
     <dl>
-    <button type="button" class="am-btn am-btn-danger am-round am-btn-xs am-icon-plus" ><a href="{{ url('/user/add') }}">手动添加会员</a> </button>
+     <a href="{{ url('/user/add') }}" class="am-btn am-btn-danger am-round am-btn-xs am-icon-plus">手动添加会员</a>
     </dl>
     <!--这里打开的是新页面-->
         <form class="am-topbar-form am-topbar-left am-form-inline" role="search" action="{{url('/user/list')}}" method="get">

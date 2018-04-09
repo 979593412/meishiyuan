@@ -8,7 +8,9 @@
             <div class="pure-g pb40">
                 <!-- left avatar -->
                 <div class="pure-u-5-24 people-base-left avatar">
-                    <img src="/home/images/touxiang.png" alt="手机用户_n24q的厨房">
+                    {{--<img src="/home/images/touxiang.png" alt="">--}}
+                    <img src="{{!empty(session()->get('userInfo')->face) ? '/uploads/'.session()->get('userInfo')->face : '/home/images/touxiang.png'}}" alt="" width="150" height="150">
+
                 </div>
                 <!-- left avatar -->
 
@@ -106,45 +108,51 @@
 
 
 
+
             <div class="people-home-main">
                 <!-- collected recipes section -->
                 <div class="block">
-                    {{--<h3>{{session()->get('userInfo')->nickname}}收藏的菜谱</h3>--}}
-
-                    {{--<div class="recipes-280-full-width-list">--}}
-                        {{--<ul class="plain pure-g">--}}
-
-                            {{--@foreach($users as $v)--}}
-                                {{--<li class="pure-u" style="margin: 10px;">--}}
-
-                                    {{--<div class="recipe-280 white-bg">--}}
-                                        {{--<div class="cover">--}}
-                                            {{--<a href="http://www.xiachufang.com/recipe/230868/" title="杂粮面包" class="image-link" target="_blank"><img src="./手机用户_n24q的下厨房个人主页_下厨房_files/29821974872a11e6b87c0242ac110003_459w_690h.jpg" data-src="" alt="" width="280" height="216" class="unveiled"></a>--}}
-                                        {{--</div>--}}
-                                        {{--<p class="name ellipsis red-font">--}}
-                                            {{--<a href="http://www.xiachufang.com/recipe/230868/" target="_blank">{{$v->title}}</a>--}}
-                                        {{--</p>--}}
-                                        {{--<div class="stats ellipsis">10 做过 224 收藏 | <a href="http://www.xiachufang.com/cook/10140953/" class="gray-link">苦哥</a></div>--}}
-                                    {{--</div>--}}
-                                {{--</li>--}}
-                            {{--@endforeach--}}
 
 
+                    <div class="recipes-280-full-width-list">
+                        <ul class="plain pure-g">
+                            @if(!empty($caipu))
+                            @foreach($caipu as $v)
+                                <li class="pure-u" style="margin: 10px;">
+                                    <input type="hidden" value="{{$v->id}}">
+                                    <div class="recipe-280 white-bg">
+                                        <div class="cover">
+                                            <a href="/recipe/{{$v->id}}" title="" class="image-link" target="_blank"><img src="/home/recipe/upload/{{$v->pic}}" data-src="" alt="" width="280" height="216" class="unveiled"></a>
+                                        </div>
+                                        <p class="name ellipsis red-font">
+                                            <a href="" target="_blank">{{$v->title}}</a>
+                                        </p>
+                                        <div class="stats ellipsis">
+                                            {{$v->created_at}}
+                                            <a href="/recipe/{{$v->id}}/edit" class="layui-btn-primary layui-btn-xm"><i class="layui-icon">&#xe642;</i></a>
+                                            <a href="/recipe/{{$v->id}}/delete" class="layui-btn-primary layui-btn-xm am-del"><i class="layui-icon">&#xe640;</i></a>
 
-                        {{--</ul>--}}
-                    {{--</div>--}}
+                                        </div>
+                                    </div>
+                                </li>
+
+                            @endforeach
+                        </ul>
+                    </div>
 
                 </div>
                 <!-- collected recipes section -->
-
             </div>
+            @else
+
 
             <div class="people-created-main">
                 <div class="mb25">
-                    <div class="float-right"><a href="" class="button p15 pt10 pb10">+ 创建菜谱</a></div>
+                    <div class="float-right"><a href="{{url('/recipe/create')}}" class="button p15 pt10 pb10">+ 创建菜谱</a></div>
                     <div class="align-center p40">你还没有创建任何菜谱，快和厨友们分享一下自己的拿手好菜吧</div>
                 </div>
             </div>
+                @endif
 
 
 
@@ -202,7 +210,35 @@
 
             </div>
 
+            <script>
 
+                $('.am-del').click(function(){
+                    var id = $(this).parents('.pure-u').children().eq(0).val();
+                    var li = $(this).parents('.pure-u');
+                    layui.use('layer', function(){
+                        var layer = layui.layer;
+
+                        var flag = layer.confirm('您确定要删除该菜谱吗？', {
+                            btn: ['确定','点错了'] //按钮
+                        }, function(){
+                            $.get('{{url('/recipe/delete')}}',{id:id},function(data){
+                                if(data){
+                                    li.remove();
+                                    layer.msg('删除成功', {icon: 1},{time:1000});
+                                }else{
+                                    layer.msg('删除失败', {icon: 2},{time:1000});
+                                }
+                            });
+
+
+                        }, function(){
+                            layer.msg('取消删除', {icon: 6},{time:1000});
+                        });
+                    });
+                    return false;
+                })
+
+            </script>
 
 
 

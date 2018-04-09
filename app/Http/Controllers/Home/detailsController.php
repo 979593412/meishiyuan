@@ -10,7 +10,7 @@ use Session;
 
 class detailsController extends Controller
 {
-    //用户详情页
+    //用户详情页设置页
     public function index()
     {
         return view('home.details.details');

@@ -93,6 +93,11 @@ class CarouselController extends Controller
     public function show($id)
     {
         //
+
+//        $data = Home_ad::find($id);
+////        print_r($data);
+//
+//        return view('Admin.Home_ad.edit', ['data' => $data]);
     }
 
     /**

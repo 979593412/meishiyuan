@@ -4,7 +4,9 @@
 
 @section('content')
 
-
+    @if($recipe['status'] !=1  || $warning )
+        该菜谱不存在或因不可描述的原因，已经被禁止显示。
+    @else
     <link href="{{asset('home/recipe/css/a0d38c4e16dbe8c3c784.css')}}" rel="stylesheet" type="text/css">
 
     <link href="{{asset('home/recipe/css/903136eae9bc67d92869.css')}}" rel="stylesheet" type="text/css">
@@ -16,22 +18,22 @@
             <ol class="breadcrumb plain pl10" itemscope="" itemtype="http://schema.org/BreadcrumbList">
                 <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"
                     class="">
-                    <a href="http://www.xiachufang.com/" title="首页">
+                    <a href="/" title="首页">
                         首页
                     </a>
                     <meta itemprop="position" content="1">
                 </li>
                 <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"
                     class="">
-                    <a href="http://www.xiachufang.com/category/40076/" title="家常菜">
-                        家常菜
+                    <a href="/list/{{$cate->id}}" title="菜">
+                        {{$cate->cname}}
                     </a>
                     <meta itemprop="position" content="2">
                 </li>
                 <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"
                     class="active">
 				<span>
-					红烧排骨
+					{{$recipe->title}}
 				</span>
                     <meta itemprop="position" content="3">
                 </li>
@@ -99,16 +101,18 @@
                                 <table>
                                     <tbody>
                                     @for($i = 0; $i < count($food); $i++)
-                                    <tr itemprop="recipeIngredient">
-                                        <td class="name">
-                                            <a href="http://www.xiachufang.com/category/227/">
-                                                {{$food[$i]}}
-                                            </a>
-                                        </td>
-                                        <td class="unit">
-                                            {{$dosage[$i]}}
-                                        </td>
-                                    </tr>
+                                        @if(!empty($dosage[$i]))
+                                            <tr itemprop="recipeIngredient">
+                                                <td class="name">
+                                                    <a href="http://www.xiachufang.com/category/227/">
+                                                        {{$food[$i]}}
+                                                    </a>
+                                                </td>
+                                                <td class="unit">
+                                                    {{$dosage[$i]}}
+                                                </td>
+                                            </tr>
+                                        @endif
                                     @endfor
                                     </tbody>
                                 </table>
@@ -119,11 +123,13 @@
                             <div class="steps">
                                 <ol>
                                     @for($i = 0; $i < count($step); $i++)
-                                    <li class="container" itemprop="recipeInstructions">
-                                        <p class="text" style="width: 100%;">
-                                            {{$step[$i]}}
-                                        </p>
-                                    </li>
+                                        @if(!empty($step[$i]))
+                                            <li class="container" itemprop="recipeInstructions">
+                                                <p class="text" style="width: 100%;">
+                                                    {{$step[$i]}}
+                                                </p>
+                                            </li>
+                                        @endif
                                     @endfor
                                 </ol>
                             </div>
@@ -152,7 +158,7 @@
             </div>
             <!-- begin of recipe-stats -->
             <input type="hidden" value="{{$recipe->id}}" name="" id="bid">
-            <input type="hidden" value="{{$user->id}}" name="" id="uid">
+            <input type="hidden" value="{{session()->get('user')->id}}" name="" id="uid">
             <div class="recipe-stats block normal-font gray-font">
                 <div class="time">
                     该菜谱创建于
@@ -173,9 +179,9 @@
         <!-- end of page-container -->
     </div>
 
-    
+    @endif
 
-      <script>
+    <script>
   
 
     var bid  = $('#bid').val();
@@ -219,5 +225,4 @@
     });
 
     </script>
-
 @endsection
