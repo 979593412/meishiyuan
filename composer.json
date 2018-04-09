@@ -10,11 +10,8 @@
         "darryldecode/cart": "~3.0",
         "fideloper/proxy": "~4.0",
         "germey/geetest": "~3.0",
-
         "gloudemans/shoppingcart": "^2.5",
-
         "intervention/image": "^2.4",
-
         "laravel/framework": "5.6.*",
         "laravel/tinker": "~1.0"
     },
@@ -31,7 +28,7 @@
         "classmap": [
             "database/seeds",
             "database/factories",
-            "App/Org/code"
+            "app/Org/code"
         ],
         "psr-4": {
             "App\\": "app/"
