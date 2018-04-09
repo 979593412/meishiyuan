@@ -9,8 +9,6 @@
 Route::resource('/admin/fenlei','admin\CarouselController');
 
 
-//友情链接
-Route::resource('/admin/links','Admin\LinksController');
 
 
 //后台广告
@@ -40,8 +38,8 @@ Route::post('/admin/dologin','Admin\LoginController@dologin');
 
 //后台登录验证路由组
 
-//Route::group(['parfix'=>'admin','namespace'=>'Admin','middleware'=>'islogin'],function (){
- Route::group(['parfix'=>'admin','namespace'=>'Admin'],function (){
+Route::group(['parfix'=>'admin','namespace'=>'Admin','middleware'=>'islogin'],function (){
+// Route::group(['parfix'=>'admin','namespace'=>'Admin'],function (){
 
     // 后台用户列表页面
     Route::get('user/list','UserController@list');
@@ -63,8 +61,12 @@ Route::post('/admin/dologin','Admin\LoginController@dologin');
 // 前台用户列表
      Route::get('quser/list','UserController@qlist');
 
+
+
 });
 
+//友情链接
+Route::resource('/admin/links','Admin\LinksController');
 
 //广告合作
 Route::get('/home/gghz',function (){
@@ -83,9 +85,6 @@ Route::get('/login','Home\LoginController@login');
 Route::post('/login/dologin','Home\LoginController@dologin');
 
 Route::get('/login/outlogin','Home\LoginController@outlogin');
-
-
-
 
 
 //前台注册
@@ -113,17 +112,16 @@ Route::resource('/recipe','Home\RecipeController')->middleware('isHomelogin');
 
 
 // 前台收藏
-Route::get('/home/dianzan','Home\CollectController@index');
-Route::get('/home/add','Home\CollectController@add');
-Route::get('/home/delete','Home\CollectController@delete');
-Route::get('/home/shoucang','Home\CollectController@shoucang');
+Route::get('/home/dianzan','Home\CollectController@index')->middleware('isHomelogin');
+Route::get('/home/add','Home\CollectController@add')->middleware('isHomelogin');
+Route::get('/home/delete','Home\CollectController@delete')->middleware('isHomelogin');
+Route::get('/home/shoucang','Home\CollectController@shoucang')->middleware('isHomelogin');
 
 //广告位路由设置
 Route::resource('/admin/home_ad','Admin\Home_adController');
 
 
-//友情链接
-Route::resource('/admin/links','Admin\LinksController');
+
 
 //-----------------------我的厨房模块---------------------
 Route::get('/home/chufang','Home\KitchenController@index');

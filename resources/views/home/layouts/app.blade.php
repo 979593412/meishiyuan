@@ -107,19 +107,12 @@
                 <div class="pure-u-5-6">
                     <div class="float-left">
                         <form class="search" action="/search/" method="get">
-                            <input type="text" name="title" class="typeahead float-left" value="" placeholder="搜索菜谱">
+                            <input type="text" name="title" class="typeahead float-left" value="" placeholder="搜索菜谱" style="width: 500px;">
  <!--                            <input type="hidden" name="cat" value="1001"> -->
                             <input type="submit" value="搜菜谱" class="button float-left">
                         </form>
                     </div>
-                    <div class="float-left">
-                        <ul class="site-nav plain pure-g">
-                            <li class="pure-u"><a href="http://www.xiachufang.com/feature/vip/" rel="nofollow">会员专区</a></li>
 
-                            <li class="pure-u"><a href="http://www.xiachufang.com/explore/menu/collect/" data-ga-event="公共页面/导航栏/$text">菜单</a></li>
-                            <li class="pure-u"><a href="http://www.xiachufang.com/activity/" data-ga-event="公共页面/导航栏/$text">作品动态</a></li>
-                        </ul>
-                    </div>
                     <div class="float-right clearfix">
 
                         <div class="user-action">
@@ -194,14 +187,9 @@
 
         <div class="pure-g">
             <div class="pure-u-3-4">
-                <a data-ga-event="公共页面/footer/$text" href="javascript:void(0);" title="美食生活杂志">美食生活杂志</a> &nbsp;
-                <a href="javascript:void(0);" title="厨房工作">厨房工作</a> &nbsp;
-                <a data-ga-event="公共页面/footer/$text" href="javascript:void(0);"  title="社区指导原则">社区指导原则</a> &nbsp;
-                <a data-ga-event="公共页面/footer/$text" href="javascript:void(0);"  title="美食源出版的书">美食源出版的书</a> &nbsp;
-                <a data-ga-event="公共页面/footer/$text" href="javascript:void(0);"  title="帮助中心">帮助中心</a> &nbsp;
-                <a data-ga-event="公共页面/footer/$text" href="javascript:void(0);"  title="联系我们">联系我们</a> &nbsp;
-                <a href="javascript:void(0);" title="意见反馈" rel="nofollow">意见反馈</a> &nbsp;
-                <a data-ga-event="公共页面/footer/$text" href="javascript:void(0);"  title="隐私声明">隐私声明</a>
+                @foreach( Session::get('links') as $v)
+                    &nbsp;&nbsp;<a href="{{$v['url']}}">{{$v['title']}}</a>&nbsp;&nbsp;|
+                @endforeach
             </div>
             <div class="pure-u-1-4 align-right">
                 <div class="social-likes">
@@ -215,6 +203,7 @@
                 </div>
             </div>
         </div>
+
         <div class="pure-g">
             <div class="pure-u-3-4">
                 Copyright &copy; meishiyuan.com &nbsp;

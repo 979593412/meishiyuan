@@ -136,19 +136,18 @@ class RecipeController extends CommonController
             $cname = Cate::select('cname')->where('id',$recipe->cid)->first();
 
             //随便看看功能
-//            $recipeAll = Recipe::select('id')->get()->toArray();
-//            $arr = [];
-//            foreach ($recipeAll as $v){
-//                $arr[] = $v['id'];
-//            }
-//            $randArr = [];
-//
-//                $arrid = array_rand($arr,5);
-//                foreach ($arrid as $v){
-//                    $randArr[] = $arr[$v];
-//                }
-//                $randRecipe = Recipe::select('id','title')->find($randArr)->toArray();
-//            }
+            $recipeAll = Recipe::select('id')->get()->toArray();
+            $arr = [];
+            foreach ($recipeAll as $v){
+                $arr[] = $v['id'];
+            }
+            $randArr = [];
+
+            $arrid = array_rand($arr,5);
+            foreach ($arrid as $v){
+                $randArr[] = $arr[$v];
+            }
+            $randRecipe = Recipe::select('id','title')->find($randArr)->toArray();
 
 
             //广告
@@ -160,12 +159,11 @@ class RecipeController extends CommonController
 
             //菜谱详情页面
 
-            return view('home.recipe.show',['gg_b'=>$gg_b,'gg_t'=>$gg_t,'recipe'=>$recipe,'user'=>$user,'food'=>$food,'dosage'=>$dosage,'step'=>$step,'cate'=>$cate,'cname'=>$cname,'collect'=>$collect,'randRecipe'=>[],'warning'=>false]);
+            return view('home.recipe.show',['gg_b'=>$gg_b,'gg_t'=>$gg_t,'recipe'=>$recipe,'user'=>$user,'food'=>$food,'dosage'=>$dosage,'step'=>$step,'cate'=>$cate,'cname'=>$cname,'collect'=>$collect,'randRecipe'=>$randRecipe,'warning'=>false]);
 
         }
         $gg_t = Home_ad::where('position','recipe_t')->inRandomOrder()->take(2)->get();
         $gg_b = Home_ad::where('position','recipe_b')->inRandomOrder()->first();
-
 
         return view('home.recipe.show',['recipe'=>$recipe,'warning'=>true,'gg_t'=>$gg_t,'gg_b'=>$gg_b]);
     }

@@ -121,7 +121,7 @@
                                         
                                         </p>
                                         <p class="author">
-                                            <span href="/cook/102051900/" class="gray-font">
+                                            <span class="gray-font">
                                                {{$k->User->username}}
                                             </span>
                                             <span href="/feature/cook/master/" class="icon icon-cooker">

@@ -12,6 +12,7 @@ use App\Model\Home\Cate;
 use DB;
 use App\Model\Recipe;
 use App\Model\Home_ad;
+use App\Model\Admin\Links;
 
 class HomeController extends CommonController
 {
@@ -55,6 +56,10 @@ class HomeController extends CommonController
         $gg_r = Home_ad::where('position','right')->inRandomOrder()->take(4)->get();
         $gg_t = Home_ad::where('position','top')->inRandomOrder()->first();
         $gg_l = Home_ad::where('position','left')->inRandomOrder()->first();
+
+        //友情链接
+        $links = Links::get()->toArray();
+        Session::put('links',$links);
 
         return view('home.index',['cates'=>$cates,'gg_r'=>$gg_r,'gg_t'=>$gg_t,'gg_l'=>$gg_l,'three'=>$three,'six'=>$six,'populer'=>$popular])->with('lunbo',$lunbo);
 

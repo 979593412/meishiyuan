@@ -82,11 +82,11 @@
                                 <a class="cover-image display-block" href="#" data-ga-event="首页/头条/第0个" title="菜谱标题" alt="菜谱标题">
                                     <img src="/uploads/{{$v->pic}}" alt="菜谱标题" width="490" height="260">
                             </a>
-                            <a href="#" class="name">图片上的菜谱标题</a>
-                            <div class="stats">
-                                <a class="num" href="#">505 人收藏过这道菜</a>
-                                <a class="author" href="#">by 我这里是作者名字</a>
-                            </div>
+                            {{--<a href="#" class="name">图片上的菜谱标题</a>--}}
+                            {{--<div class="stats">--}}
+                                {{--<a class="num" href="#">505 人收藏过这道菜</a>--}}
+                                {{--<a class="author" href="#">by 我这里是作者名字</a>--}}
+                            {{--</div>--}}
                             </li>
                             @endforeach
 
@@ -228,15 +228,15 @@
 
                         <ol class="plain">
 
-                            <li><span class="num">1</span><a href="/recipe/197"><span class="ellipsis">红烧排骨</span></a><i class="icon icon-keyword-equal"></i></li>
+                            <li><span class="num">1</span><a href="/recipe/3"><span class="ellipsis">红烧排骨</span></a><i class="icon icon-keyword-equal"></i></li>
 
-                            <li><span class="num">2</span><a href="/recipe/212"><span class="ellipsis">糖醋里脊</span></a><i class="icon icon-keyword-equal"></i></li>
+                            <li><span class="num">2</span><a href="/recipe/4"><span class="ellipsis">糖醋里脊</span></a><i class="icon icon-keyword-equal"></i></li>
 
-                            <li><span class="num">3</span><a href="/recipe/202"><span class="ellipsis">红烧茄子</span></a><i class="icon icon-keyword-equal"></i></li>
+                            <li><span class="num">3</span><a href="/recipe/5"><span class="ellipsis">红烧茄子</span></a><i class="icon icon-keyword-equal"></i></li>
 
-                            <li><span class="num">4</span><a href="/recipe/213"><span class="ellipsis">蒜蓉丝瓜</span></a><i class="icon icon-keyword-up"></i></li>
+                            <li><span class="num">4</span><a href="/recipe/6"><span class="ellipsis">蒜蓉丝瓜</span></a><i class="icon icon-keyword-up"></i></li>
 
-                            <li><span class="num">5</span><a href="/recipe/197"><span class="ellipsis">排骨</span></a><i class="icon icon-keyword-up"></i></li>
+                            <li><span class="num">5</span><a href="/recipe/7"><span class="ellipsis">糖醋小排</span></a><i class="icon icon-keyword-up"></i></li>
                         </ol>
                     </div>
                     <div class="pure-u-1-2 second-group">
