@@ -130,4 +130,11 @@ class LoginController extends Controller
 
         }
 
+
+        public function logout()
+        {
+            Session::forget('admin_user');
+            return redirect('/admin/logins');
+        }
+
 }

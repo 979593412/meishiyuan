@@ -2,7 +2,7 @@
 
 //admin后台主页面;
 
-//-----------------------------------后台
+//-----------------------------------后台 Z1HOTFiIP7dL0Iqfre5nNEd9j1lzB4xOW4ITynXPMZA=
 
 
 //轮播图----------------------------------------------------
@@ -32,6 +32,8 @@ Route::get('/admin/code','Admin\LoginController@code');
 //登录验证
 Route::post('/admin/dologin','Admin\LoginController@dologin');
 
+//退出登录
+Route::get('/admin/logout','Admin\LoginController@logout');
 
 
 
