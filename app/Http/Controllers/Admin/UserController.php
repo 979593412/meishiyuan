@@ -126,18 +126,12 @@ class UserController extends Controller
 
 
 
-
-
-
-
-
     // 修改
     public function edit($id){
         // 获取id
         $user = Admin_User::find($id);
-        $user->password = decrypt($user->password);
+//        $user->password = decrypt($user->password);
         // dd( $user['password']);
-
         return view('admin.user.edit',compact('user'));
     }
 
@@ -146,27 +140,68 @@ class UserController extends Controller
 
         // 1.根据id获取要修改的用户
         $user = Admin_User::find($id);
-        // 2.获取要修改的值,更新user模型
-        $res = $request->all();
+        if($user->auth == 1){
+            $user->password = decrypt($user->password);
+            $res = $request->except('_token');
+            if($res['repass'] != $user->password)
+            {
+                return redirect('/admin/edit')->with('msg','原密码不正确');
+            }
+            $mi = encrypt($res['password']);
+            $user->password = $mi;
+            $user->auth = $res['auth'];
+            $user->status = $res['status'];
 
-        $user->username = $res['username'];
-        $mi = encrypt($res['password']);
-        $user->password = $mi;
-        $user->auth = $res['auth'];
-        $user->status = $res['status'];
+            $ress = $user->save();
+            if($ress){
+                // 修改成功,跳转到列表页
 
-        $ress = $user->save();
-
-
-
-        if($ress){
-            // 修改成功,跳转到列表页
-
-            return redirect('/user/list');
-        } else {
+                return redirect('/user/list');
+            } else {
 //            back回到原地
-            return back()->with('msg','修改失败');
+                return back()->with('msg','修改失败');
+            }die;
+        } else {
+
+            $user->password = decrypt($user->password);
+            $res = $request->except('_token');
+            if($res['repass'] != $user->password)
+            {
+                return redirect('/admin/recipe')->with('msg','原密码不正确');
+            }
+            $mi = encrypt($res['password']);
+            $user->password = $mi;
+            $ress = $user->save();
+            if($ress)
+            {
+                return redirect('/admin/recipe')->with('msg','修改成功');
+            }
+
         }
+//        $user->password = decrypt($user->password);
+//        // 2.获取要修改的值,更新user模型
+//        $res = $request->except('_token');
+////        dd($res);
+//        if($res['repass'] != $user->password)
+//        {
+//            return redirect('/admin/recipe')->with('msg','原密码不正确');
+//        }
+//
+//        $mi = encrypt($res['password']);
+//        $user->password = $mi;
+//        $user->auth = $res['auth'];
+//        $user->status = $res['status'];
+//
+//        $ress = $user->save();
+
+//        if($ress){
+//            // 修改成功,跳转到列表页
+//
+//            return redirect('/user/list');
+//        } else {
+////            back回到原地
+//            return back()->with('msg','修改失败');
+//        }
 
 
 
@@ -183,9 +218,9 @@ class UserController extends Controller
 
         if($ress){
             // 删除成功
-            return redirect('admin/user/list')->with('msg','删除成功');
+            return redirect('/user/list')->with('msg','删除成功');
         } else {
-            return redirect('admin/user/list')->with('msg','删除失败');
+            return redirect('/user/list')->with('msg','删除失败');
         }
 
     }

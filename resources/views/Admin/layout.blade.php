@@ -232,35 +232,49 @@
     <div class="nav-navicon admin-main admin-sidebar">
 
 
-        <div class="sideMenu am-icon-dashboard" style="color:#aeb2b7; margin: 10px 0 0 0;"> 欢迎系统管理员：清风抚雪</div>
+        <div class="sideMenu am-icon-dashboard" style="color:#aeb2b7; margin: 10px 0 0 0;"> 欢迎系统管理员： {{ session()->get('admin_user')->username }}</div>
+        <br>
+        <div class="sideMenu am-icon-dashboard" style="color:#aeb2b7; margin: 10px 0 0 0;"><a href="/admin/logins"> 退出</a></div>
+
         <div class="sideMenu">
+            @if (session()->get('admin_user')->auth == 1)
             <h3 class="am-icon-users on"><em></em> <a href="#">用户管理</a></h3>
             <ul>
                 <li><a href="{{url('/user/list')}}">后台用户列表</a></li>
                 <li><a href="{{url('/quser/list')}}">前台用户列表</a></li>
             </ul>
-
             <h3 class="am-icon-book on"><em></em> <a href="#">菜谱管理</a></h3>
             <ul>
                 <li><a href="{{url('/admin/recipe')}}">菜谱列表</a></li>
-
             </ul>
-
-
             <h3 class="am-icon-flag"><em></em> <a href="#">菜谱分类管理</a></h3>
             <ul>
                 <li><a href="{{ url('/admin/cate') }}">菜谱分类列表</a></li>
                 <li><a href="{{ url('/admin/cate/create') }}">添加新分类</a></li>
-
             </ul>
-
             <h3 class="am-icon-users on"><em></em> <a href="#">附属模块</a></h3>
             <ul>
                 <li><a href="/admin/fenlei">轮播图</a></li>
                 <li><a href="/admin/home_ad">广告位</a></li>
                 <li><a href="/admin/links">友情链接</a></li>
             </ul>
-
+            @else
+                <h3 class="am-icon-book on"><em></em> <a href="#">菜谱管理</a></h3>
+                <ul>
+                    <li><a href="{{url('/admin/recipe')}}">菜谱列表</a></li>
+                </ul>
+                <h3 class="am-icon-flag"><em></em> <a href="#">菜谱分类管理</a></h3>
+                <ul>
+                    <li><a href="{{ url('/admin/cate') }}">菜谱分类列表</a></li>
+                    <li><a href="{{ url('/admin/cate/create') }}">添加新分类</a></li>
+                </ul>
+                <h3 class="am-icon-users on"><em></em> <a href="#">附属模块</a></h3>
+                <ul>
+                    <li><a href="/admin/fenlei">轮播图</a></li>
+                    <li><a href="/admin/home_ad">广告位</a></li>
+                    <li><a href="/admin/links">友情链接</a></li>
+                </ul>
+            @endif
 
         </div>
         <!-- sideMenu End -->
@@ -292,11 +306,14 @@
                                 {{--href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close="">×</a>--}}
                     {{--</button>--}}
                 {{--</li>--}}
-                {{--<li>--}}
-                    {{--<button type="button" class="am-btn am-btn-default am-radius am-btn-xs">奖金管理<a--}}
-                                {{--href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close="">×</a>--}}
-                    {{--</button>--}}
-                {{--</li>--}}
+                @if(session('msg'))
+                    {{ session('msg') }}
+                @endif
+                <li>
+                    <button type="button" class="am-btn am-btn-default am-radius am-btn-xs" >修改密码
+                        <a href="{{ url('/user/edit/'.session()->get('admin_user')->id) }}" class="am-close am-close-spin" data-am-modal-close="">X</a>
+                    </button>
+                </li>
                 {{--<li>--}}
                     {{--<button type="button" class="am-btn am-btn-default am-radius am-btn-xs">产品管理<a--}}
                                 {{--href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close="">×</a>--}}
