@@ -125,10 +125,10 @@
 
                         <div class="recipe-280 white-bg">
                             <div class="cover">
-                                <a href="#" title="" class="image-link" target="_blank"><img src="/home/recipe/upload/{{$v->cook_book->pic}}" data-src="" alt="" width="280" height="216" class="unveiled"></a>
+                                <a href="#" title="" class="image-link" target="_blank"><img src="/home/recipe/upload/{{$v->pic}}" data-src="" alt="" width="280" height="216" class="unveiled"></a>
                             </div>
                             <p class="name ellipsis red-font">
-                                <a href="#" target="_blank">{{$v->cook_book->title}}</a>
+                                <a href="#" target="_blank">{{$v->title}}</a>
                             </p>
                         <div class="stats ellipsis">10 做过 224 收藏 | <a href="http://www.xiachufang.com/cook/10140953/" class="gray-link">苦哥</a></div>
                         </div>
