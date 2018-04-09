@@ -30,7 +30,7 @@ class CollectController extends Controller
         }
         // dd($data);
 
-        $res =  Cook_book::whereIn('id',$data)->get();
+        $res =  Cook_book::with('User')->whereIn('id',$data)->get();
 
         // dd($res);
         // $res = collect::with('Cook_book')->where(['bid'=>$data,'uid'=>$uid])->get();
@@ -47,6 +47,9 @@ class CollectController extends Controller
 
         $bid = $_GET['bid'];
 
+        $recipe = Recipe::find($bid);
+        $recipe->collect = $recipe->collect+1;
+        $recipe->save();
         // $res = collect::where('bid',$bid)->count();
         // dd($res);
         $uid = $_GET['uid'];
@@ -56,11 +59,6 @@ class CollectController extends Controller
         }
 
 
-
-
-
-
-
     }
     // 删除收藏
     public function delete()
@@ -68,6 +66,10 @@ class CollectController extends Controller
 
         $uid = $_GET['uid'];
         $bid = $_GET['bid'];
+
+        $recipe = Recipe::find($bid);
+        $recipe->collect = $recipe->collect-1;
+        $recipe->save();
 
 
 

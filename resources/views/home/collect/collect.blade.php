@@ -53,13 +53,13 @@
                             <li>
                                 <div class="recipe pure-g">
                                     <div class="cover pure-u">
-                                        <a href="http://www.xiachufang.com/recipe/102253335/" class="image-link" target="_blank">
+                                        <a href="/recipe/{{$v->id}}" class="image-link" target="_blank">
                                             <img src="/home/recipe/upload/{{$v->pic}}" data-src="http://s2.cdn.xiachufang.com/34c5e14c1c0a11e7947d0242ac110002_1280w_1023h.jpg?imageView2/1/w/215/h/138/interlace/1/q/90" width="215" height="138" alt="法式吐司配草莓酱" class="unveiled">
                                         </a>
                                     </div>
                                     <div class="info pure-u">
                                         <p class="name">
-                                            <a href="http://www.xiachufang.com/recipe/102253335/" target="_blank">{{$v->title}}</a>
+                                            <a href="/recipe/{{$v->id}}" target="_blank">{{$v->title}}</a>
                                             <i class="step-icon"></i>
                                         </p>
 
@@ -72,7 +72,7 @@
                                             综合评分&nbsp;<span class="score bold green-font">9.2</span>&nbsp;（<span class="bold score">10</span>&nbsp;做过）
                                         </p>
                                         <p class="author">
-                                            望星子
+                                            {{$v->User->username}}
                                         </p>
                                         <p class="reason">
                                         </p>

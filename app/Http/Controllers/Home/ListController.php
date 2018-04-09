@@ -22,8 +22,11 @@ class ListController extends CommonController
         $cate = $cate->cname;
         //获取分类下左右菜谱
         $recipe = Recipe::with('User')->where("cid",$id)->paginate(3);
+        //广告
+        $gg_t = Home_ad::where('position','top')->inRandomOrder()->first();
+        $gg_r = Home_ad::where('position','list_right')->inRandomOrder()->take(4)->get();
 
-        return view('home.list',['cates'=>$cates,'cate'=>$cate,'recipe'=>$recipe,'request'=>$request]);
+        return view('home.list',['cates'=>$cates,'cate'=>$cate,'recipe'=>$recipe,'request'=>$request,'gg_t'=>$gg_t,'gg_r'=>$gg_r]);
     }
     //搜索页
     public function search(Request $request)
