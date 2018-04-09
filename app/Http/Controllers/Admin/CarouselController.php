@@ -93,6 +93,11 @@ class CarouselController extends Controller
     public function show($id)
     {
         //
+
+//        $data = Home_ad::find($id);
+////        print_r($data);
+//
+//        return view('Admin.Home_ad.edit', ['data' => $data]);
     }
 
     /**
@@ -102,8 +107,17 @@ class CarouselController extends Controller
 * @return \Illuminate\Http\Response
 */
     public function edit($id)
-    {
-        //
+        {
+
+        $data = DB::table('Carousel')->where('id',$id)->first();
+
+//        $cc = DB::table('carousel')->paginate(5);
+//            dd($data);
+
+        return view('Admin.Carousel.edit')->with('data',$data);
+
+
+
     }
 
     /**
@@ -115,7 +129,33 @@ class CarouselController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Carousel::find($id);
+
+        //检车是否有文件上传
+        if ($request->hasFile('pic')) {
+            //获取文件的后缀
+            $ext = '.' . $request->file('pic')->getClientOriginalExtension();
+            //随机生成文件名
+            $fileName = date('YmdHis') . mt_rand(1000, 9999) . $ext;
+
+            $request->file('pic')->move('./uploads/', $fileName);
+
+            $Carousel['pic'] = $fileName;
+
+//            print_r($fileName);
+            $data->pic = $fileName;
+
+        }
+        //添加到数据库
+
+        $tf = $data->save();
+
+        if ($tf) {
+            return redirect('/admin/fenlei');
+
+        } else {
+            return back() -> with('sh', '修改失败');
+        }
     }
 
     /**

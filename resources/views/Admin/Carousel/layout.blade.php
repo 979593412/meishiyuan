@@ -181,19 +181,22 @@
         <div class="sideMenu">
             <h3 class="am-icon-users on"><em></em> <a href="#">用户管理</a></h3>
             <ul>
-                <li><a href="/admin/user/list">用户列表</a></li>
+                <li><a href="{{url('/user/list')}}">后台用户列表</a></li>
+                <li><a href="{{url('/quser/list')}}">前台用户列表</a></li>
+            </ul>
+
+            <h3 class="am-icon-book on"><em></em> <a href="#">菜谱管理</a></h3>
+            <ul>
+                <li><a href="{{url('/admin/recipe')}}">菜谱列表</a></li>
 
             </ul>
 
 
-            <h3 class="am-icon-flag"><em></em> <a href="#">商品管理</a></h3>
+            <h3 class="am-icon-flag"><em></em> <a href="#">菜谱分类管理</a></h3>
             <ul>
-                <li>商品列表</li>
-                <li class="func" dataType='html' dataLink='msn.htm' iconImg='images/msn.gif'>添加新商品</li>
-                <li>商品分类</li>
-                <li>用户评论</li>
-                <li>商品回收站</li>
-                <li>库存管理</li>
+                <li><a href="{{ url('/admin/cate') }}">菜谱分类列表</a></li>
+                <li><a href="{{ url('/admin/cate/create') }}">添加新分类</a></li>
+
             </ul>
 
             <h3 class="am-icon-users on"><em></em> <a href="#">附属模块</a></h3>
@@ -201,45 +204,6 @@
                 <li><a href="/admin/fenlei">轮播图</a></li>
                 <li><a href="/admin/home_ad">广告位</a></li>
                 <li><a href="/admin/links">友情链接</a></li>
-            </ul>
-
-
-            <h3 class="am-icon-cart-plus"><em></em> <a href="#"> 订单管理</a></h3>
-            <ul>
-                <li>订单列表</li>
-                <li>合并订单</li>
-                <li>订单打印</li>
-                <li>添加订单</li>
-                <li>发货单列表</li>
-                <li>换货单列表</li>
-            </ul>
-            <h3 class="am-icon-users on"><em></em> <a href="#">会员管理</a></h3>
-            <ul>
-                <li>会员列表</li>
-                <li>未激活会员</li>
-                <li>团队系谱图</li>
-                <li>会员推荐图</li>
-                <li>推荐列表</li>
-            </ul>
-            <h3 class="am-icon-volume-up"><em></em> <a href="#">信息通知</a></h3>
-            <ul>
-                <li>站内消息 /留言</li>
-                <li>短信</li>
-                <li>邮件</li>
-                <li>微信</li>
-                <li>客服</li>
-            </ul>
-            <h3 class="am-icon-gears"><em></em> <a href="#">系统设置</a></h3>
-            <ul>
-                <li>数据备份</li>
-                <li>邮件/短信管理</li>
-                <li>上传/下载</li>
-                <li>权限</li>
-                <li>网站设置</li>
-                <li>第三方支付</li>
-                <li>提现 /转账 出入账汇率</li>
-                <li>平台设置</li>
-                <li>声音文件</li>
             </ul>
         </div>
         <!-- sideMenu End -->

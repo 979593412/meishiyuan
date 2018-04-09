@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Model\Admin_User; 
+use App\Model\Admin_User;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Crypt;  
+use Illuminate\Support\Facades\Crypt;
+use App\Model\Home_User;
 
 use DB;
 
@@ -19,20 +20,20 @@ class UserController extends Controller
 
     // 保存数据页面
     public function store(Request $request){
-       // 1.接受用户传递过来的信息
+        // 1.接受用户传递过来的信息
         $res = $request->all();
         // return $res;
 
         $pan = Admin_User::where('username',$res['username'])->first();
         if (!empty($pan)){
-            return redirect('admin/user/add')->with('msg','用户名已存在');
+            return redirect('/user/add')->with('msg','用户名已存在');
         }
-      
+
 
         if ($res['password'] !== $res['repass']) {
 
-                return redirect('admin/user/add')->with('msg','两次密码不正确');
-            }
+            return redirect('/user/add')->with('msg','两次密码不正确');
+        }
 
         // 加密
         $password = encrypt($res['password']);
@@ -42,8 +43,8 @@ class UserController extends Controller
 
         // 4.根据添加执行结果,执行跳转(成功,列表页,失败添加页)
         if($ress){
-            // 添加成功跳转到列表页 
-            return redirect('admin/user/list');
+            // 添加成功跳转到列表页
+            return redirect('/user/list');
         } else {
             return back()->with('msg','添加失败');
         }
@@ -53,16 +54,82 @@ class UserController extends Controller
 
 
 
-    //列表页
+
+
+
+    // 后台用户列表页
     public function list(Request $request){
 
 //      分页并且单条件搜索搜索条件
         $username = $request->input('username');
         $user = Admin_User::where('username','like','%'.$username.'%')->paginate(5);
-       
+
         return view('Admin.user.list',['user'=>$user,'request'=>$request]);
 
     }
+    // 前台用户列表页
+    public function qlist(Request $request){
+
+        $username = $request->input('username');
+        $quser = Home_User::where('username','like','%'.$username.'%')->paginate(5);
+        return view('Admin.user.qlist',['quser'=>$quser,'request'=>$request]);
+
+
+    }
+
+
+
+    public function jinyong($id)
+    {
+
+        // dd($id);
+        $ress = DB::table('home_user')->where('id',$id)->update(['status' => '0']);
+
+
+        if($ress){
+            // 修改成功,跳转到列表页
+
+            return redirect('/quser/list');
+        } else {
+//            back回到原地
+            return back()->with('msg','修改失败');
+        }
+
+
+
+
+
+    }
+
+    public function kaitong($id)
+    {
+
+        // dd($id);
+        $ress = DB::table('home_user')->where('id',$id)->update(['status' => '1']);
+
+
+        if($ress){
+            // 修改成功,跳转到列表页
+
+            return redirect('/quser/list');
+        } else {
+//            back回到原地
+            return back()->with('msg','修改失败');
+        }
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
 
     // 修改
     public function edit($id){
@@ -81,7 +148,7 @@ class UserController extends Controller
         $user = Admin_User::find($id);
         // 2.获取要修改的值,更新user模型
         $res = $request->all();
-       
+
         $user->username = $res['username'];
         $mi = encrypt($res['password']);
         $user->password = $mi;
@@ -91,14 +158,16 @@ class UserController extends Controller
         $ress = $user->save();
 
 
+
         if($ress){
             // 修改成功,跳转到列表页
 
-            return redirect('admin/user/list');
+            return redirect('/user/list');
         } else {
 //            back回到原地
             return back()->with('msg','修改失败');
         }
+
 
 
     }
@@ -120,6 +189,7 @@ class UserController extends Controller
         }
 
     }
+
 
 
 }

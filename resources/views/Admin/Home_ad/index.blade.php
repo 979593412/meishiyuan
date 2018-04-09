@@ -7,9 +7,9 @@
     <div class="admin-biaogelist">
 
         <div class="listbiaoti am-cf">
-            <ul class="am-icon-users"> 会员管理</ul>
+            <ul class="am-icon-users"> 广告管理</ul>
 
-            <dl class="am-icon-home" style="float: right;">当前位置： 首页 > <a href="#">商品列表</a></dl>
+            <dl class="am-icon-home" style="float: right;">当前位置： 首页 > <a href="{{url('/admin/home_ad')}}">广告管理</a></dl>
 
             <dl>
                 <a type="button" class="am-btn am-btn-danger am-round am-btn-xs am-icon-plus" href="{{url('admin/home_ad/create')}}"> 添加广告</a>
@@ -28,6 +28,7 @@
 
                     <th class="table-id">ID</th>
                     <th class="table-title">URL</th>
+                    <th class="table-title">显示位置</th>
                     <th class="table-type">广告图片</th>
                     <th class="table-author am-hide-sm-only">添加时间</th>
                     <th class="table-author am-hide-sm-only">修改时间</th>
@@ -35,13 +36,28 @@
                 </tr>
                 </thead>
                 <tbody>
-
+                @if(!empty($gg))
                 @foreach($gg as $v)
                     <tr>
                         <td><input type="checkbox" name="fu" value="{{$v->id}}"/></td>
 
                         <td>{{$v->id}}</td>
                         <td>{{$v->url}}</td>
+                        <td>
+                            @if($v->position == 'top')
+                                主页头部
+                                @elseif($v->position == 'left')
+                            主页左侧
+                                @elseif($v->position == 'right')
+                            主页右侧
+                                @elseif($v->position == 'list_right')
+                            列表右侧
+                                @elseif($v->position == 'recipe_t')
+                            详情上部
+                                @elseif($v->position == 'recipe_b')
+                            详情下部
+                                @endif
+                        </td>
                         <td class="am-hide-sm-only"><img src="/uploads/{{$v->pic}}" width="30px"></td>
                         <td class="am-hide-sm-only">{{$v->created_at}}</td>
                         <td class="am-hide-sm-only">{{$v->updated_at}}</td>
@@ -69,6 +85,7 @@
                     </tr>
 
                 @endforeach
+                    @endif
                 </tbody>
             </table>
 

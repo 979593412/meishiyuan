@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
 use App\Model\Home\collect;
+use App\Model\Cook_book;
 
 class CollectController extends Controller
 {
@@ -18,56 +19,61 @@ class CollectController extends Controller
         $uid = session()->get('user')->id;
 
 
+
         $cook = collect::where('uid',$uid)->select(['bid'])->get()->toArray();
         // dd($cook);
+        // $a = $cook->bid;
+
         $data = [];
         foreach ($cook as $key => $value) {
-          $data[] = $value['bid'];
+            $data[] = $value['bid'];
         }
         // dd($data);
 
-        $res =  collect::with('Cook_book')->whereIn('bid',$data)->get();
+        $res =  Cook_book::with('User')->whereIn('id',$data)->get();
+
+        // dd($res);
+        // $res = collect::with('Cook_book')->where(['bid'=>$data,'uid'=>$uid])->get();
+        // dd($res);
         $ress = collect::where('uid',$uid)->count();
-  
-       
+
+        // $reas = collect::where('bid',)
+
         return view('home.collect.collect',['res'=>$res,'ress'=>$ress]);
     }
     // 添加收藏
     public function add()
     {
-        
-       // var_dump($_GET);  
-       $bid = $_GET['bid'];
-       $uid = $_GET['uid'];
-       
-       // $bid = str_split($bid);
-       // $uid = str_split($uid);
-       // var_dump($bid,$uid);
-        collect::create(['bid' => $bid,'uid' => $uid]);
 
+        $bid = $_GET['bid'];
 
-       
+        $recipe = Recipe::find($bid);
+        $recipe->collect = $recipe->collect+1;
+        $recipe->save();
+        // $res = collect::where('bid',$bid)->count();
+        // dd($res);
+        $uid = $_GET['uid'];
+        $res = collect::where(['bid' => $bid,'uid' => $uid])->first();
+        if(!$res){
+            collect::create(['bid' => $bid,'uid' => $uid]);
+        }
+
 
     }
     // 删除收藏
     public function delete()
-    { 
-       
+    {
+
         $uid = $_GET['uid'];
         $bid = $_GET['bid'];
 
-
-       $res =  collect::where(['uid'=>$uid,'bid'=>$bid])->delete();
-
-        if($res){
-            // 删除成功
-            return redirect('home/dianzan');
-        } else {
-            return redirect('home/dainzan')->with('msg','删除失败');
-        }
+        $recipe = Recipe::find($bid);
+        $recipe->collect = $recipe->collect-1;
+        $recipe->save();
 
 
 
+        $res =  collect::where(['uid'=>$uid,'bid'=>$bid])->delete();
 
     }
 
@@ -77,9 +83,19 @@ class CollectController extends Controller
     }
 
 
+
     public function list()
     {
         return view('home.collect.index');
+    }
+
+    public function shoucang()
+    {
+        $bid = $_GET['bid'];
+        // echo $bid;
+
+        $reas = collect::where('bid',$bid)->count();
+        echo $reas;
     }
 
 }
