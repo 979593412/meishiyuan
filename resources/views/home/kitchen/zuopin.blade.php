@@ -54,16 +54,16 @@
                 <!-- right extra -->
                 <div class="pure-u-1-6 align-center people-base-right pos-r">
                     <div class="people-base-follow">
-                        <a href="http://www.xiachufang.com/account/basic/" class="gray-link font12">设置个人信息</a>
+                        <a href="{{url('home/details')}}" class="gray-link font12">设置个人信息</a>
                     </div>
                     <div class="follow-wrap block-bg p10 pl15 pr15 pure-g w100">
                         <div class="pure-u-1-2 following-num">
                             <div class="font12 dark-gray-font mb10">关注的人</div>
-                            <div><a href="http://www.xiachufang.com/cook/126476453/following_users/" class="bold font16">1</a></div>
+                            <div><a href="javascript:void(0);" class="bold font16">1</a></div>
                         </div>
                         <div class="pure-u-1-2">
                             <div class="font12 dark-gray-font mb10">被关注</div>
-                            <div><a href="http://www.xiachufang.com/cook/126476453/followers/" class="bold font16">0</a></div>
+                            <div><a href="javascript:void(0);" class="bold font16">0</a></div>
                         </div>
                     </div>
                 </div>
@@ -124,7 +124,6 @@
                                         <p class="name ellipsis red-font">
                                             <a href="http://www.xiachufang.com/recipe/230868/" target="_blank">{{$vv->title}}</a>
                                         </p>
-                                        <div class="stats ellipsis">10 做过 224 收藏 | <a href="http://www.xiachufang.com/cook/10140953/" class="gray-link">苦哥</a></div>
                                     </div>
                                 </li>
                                 @endforeach
@@ -136,7 +135,7 @@
 
                 <!-- collected recipes section -->
                     <div class="people-cooked-main">
-                        <div class="align-center p40">你还没有上传过作品，去看看大家都在 <a href="https://www.xiachufang.com/activity/site/">做什么</a> 吧？</div>
+                        <div class="align-center p40"></div>
 
                         <div class="ias-container">
 
