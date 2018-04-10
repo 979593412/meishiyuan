@@ -50,7 +50,7 @@ class HomeController extends CommonController
 
 
 
-        $lunbo=DB::table('Carousel')->get();
+        $lunbo=DB::table('carousel')->get();
         //左侧菜单栏分类
         $cates = Cate::get();
         $cates = $this->getTree($cates,0);

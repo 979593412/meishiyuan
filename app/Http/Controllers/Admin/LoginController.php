@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Model\admin_user;
+use App\Model\Admin_User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-require_once app_path().'\Org\code\code.class.php';
+require_once app_path().'/Org/code/code.class.php';
 use App\Org\code\code;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Validator;
@@ -101,7 +101,7 @@ class LoginController extends Controller
 
 
             //4. 判断是否有此用户
-            $user=admin_user::where('username',$input['username'])->first();
+            $user=Admin_User::where('username',$input['username'])->first();
             if(!$user){
                 return redirect('admin/logins')->with('errors','用户名不存在');
             }
