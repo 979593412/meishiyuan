@@ -198,7 +198,7 @@
       <tr >
         <td><input type="checkbox" /></td>
         <td class="am-text-center">{{$v->id}}</td>
-        <td ><img src="/uploads/{{$v->pic}}" style="width: 100px;height: 100px;" alt=""></td>
+        <td ><img src="/uploads/{{$v->pic}}" style="width: 100px;height: 50px;" alt=""></td>
         <td>{{$v->created_at}}</td>
         <td class="am-hide-sm-only">{{$v->updated_at}}</td>
 

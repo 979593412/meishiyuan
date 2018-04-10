@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Home;
+use App\Model\Cook_book;
 use App\Model\Recipe;
 use DB;
 use App\Model\Home\collect;
@@ -14,17 +15,20 @@ class KitchenController extends Controller
     public function index()
     {
         $uid = session()->get('user')->id;
+
+
+
         $cook = collect::where('uid',$uid)->select(['bid'])->get()->toArray();
         // dd($cook);
+        // $a = $cook->bid;
+
         $data = [];
         foreach ($cook as $key => $value) {
             $data[] = $value['bid'];
         }
         // dd($data);
 
-        $res =  collect::with('Cook_book')->whereIn('bid',$data)->get();
-//        dd($res);
-//        $ress = collect::where('uid',$uid)->count();
+        $res =  Cook_book::whereIn('id',$data)->get();
 
 
         return view('home.kitchen.kitchen',['res'=>$res]);

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\admin;
-
+//-----------------------------
 use App\Model\Carousel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -19,7 +19,7 @@ class CarouselController extends Controller
     public function index()
     {
         //查询数据 显示到页面上
-        $cc = DB::table('carousel')->paginate(5);
+        $cc = DB::table('carousel')->paginate(3);
 
 
         return view('/Admin.Carousel.index',['cc'=>$cc]);
@@ -109,10 +109,8 @@ class CarouselController extends Controller
     public function edit($id)
         {
 
-        $data = DB::table('Carousel')->where('id',$id)->first();
+        $data = DB::table('carousel')->where('id',$id)->first();
 
-//        $cc = DB::table('carousel')->paginate(5);
-//            dd($data);
 
         return view('Admin.Carousel.edit')->with('data',$data);
 

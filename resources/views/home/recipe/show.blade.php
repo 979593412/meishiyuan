@@ -87,7 +87,7 @@
                             <div class="rate-dialog block-negative-margin">
                             </div>
                             <div class="author" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-                                <a href="{{url('home/chufang')}}"  class="avatar-link avatar">
+                                <a href="/home/other_details/{{$user->id}}"  class="avatar-link avatar">
                                     <img src="{{!empty($user->Details->face) ? '/uploads/'.$user->Details->face : '/home/images/face.png'}}" width="60" height="60">
                                     &nbsp;
                                     <span itemprop="name">

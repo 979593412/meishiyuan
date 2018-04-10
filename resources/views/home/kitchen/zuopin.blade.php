@@ -5,6 +5,7 @@
     <div class="page-outer">
         <!--begin of page-container-->
         <div class="page-container">
+            {{--公共部分--}}
             <div class="pure-g pb40">
                 <!-- left avatar -->
                 <div class="pure-u-5-24 people-base-left avatar">
@@ -69,7 +70,7 @@
                 </div>
                 <!-- right extra -->
             </div>
-
+            {{--公共部分结束--}}
             <!-- people profile nav -->
             <div class="mb35">
 

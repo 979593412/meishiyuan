@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Model\Admin_User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-require_once app_path().'\Org\code\code.class.php';
+require_once app_path().'/Org/code/code.class.php';
 use App\Org\code\code;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Validator;
@@ -126,8 +126,21 @@ class LoginController extends Controller
 
 //          session()->get('user')->username;
 //            6. 如果都正确，跳转到后台首页（路由跳转）
-              return redirect('/user/list');
+            $auth = $user->auth;
+            if($auth == 1){
+                return redirect('/user/list');
+            } else{
+                return redirect('/admin/recipe');
+            }
 
+
+        }
+
+
+        public function logout()
+        {
+            Session::forget('admin_user');
+            return redirect('/admin/logins');
         }
 
 }

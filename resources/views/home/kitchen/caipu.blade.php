@@ -93,7 +93,6 @@
                                 <span>作品</span>
                             </a>
                         </li>
-
                     </ul>
                 </div>
 
@@ -111,7 +110,7 @@
                 <!-- collected recipes section -->
                 <div class="people-created-main">
                     <div class="mb25">
-                        <div class="float-right"><a href="{{url('/recipe/create')}}" class="button p15 pt10 pb10">+ 创建菜谱</a></div>
+                        <div class="float-right"><a href="{{url('/recipe/create')}}" class="button p10 pt10 pb10">+ 创建菜谱</a></div>
 
                     </div>
                 </div>
