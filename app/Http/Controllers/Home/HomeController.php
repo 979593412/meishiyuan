@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Home;
 
 use App\Model\Carousel;
+use App\Model\Collection;
 use App\Model\Details;
 use Illuminate\Http\Request;
 use PhpParser\Node\Expr\Cast\Object_;
@@ -29,7 +30,16 @@ class HomeController extends CommonController
 
             Session::put('userInfo', $user);
 
+            //当前用户菜谱总数
+            $recipeCount = Recipe::where('uid',$id)->count();
+
+            //当前用户收藏总数
+            $collectCount = Collection::where('uid',$id)->count();
+
         }
+
+
+
 
         $lunbo=DB::table('Carousel')->get();
         //左侧菜单栏分类
@@ -61,7 +71,7 @@ class HomeController extends CommonController
         $links = Links::get()->toArray();
         Session::put('links',$links);
 
-        return view('home.index',['cates'=>$cates,'gg_r'=>$gg_r,'gg_t'=>$gg_t,'gg_l'=>$gg_l,'three'=>$three,'six'=>$six,'populer'=>$popular])->with('lunbo',$lunbo);
+        return view('home.index',['cates'=>$cates,'gg_r'=>$gg_r,'gg_t'=>$gg_t,'gg_l'=>$gg_l,'three'=>$three,'six'=>$six,'populer'=>$popular,'recipeCount'=>$recipeCount,'collectCount'=>$collectCount])->with('lunbo',$lunbo);
 
     }
 
