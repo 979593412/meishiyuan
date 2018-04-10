@@ -15,17 +15,17 @@
                     <ul class="plain pure-g">
                         <li class=" ">
                             <a href="/home/other_details/{{$details->uid}}">
-                                <span>概况</span>
+                                <span>Ta的收藏</span>
                             </a>
                         </li>
                         <li class="active">
                             <a href="/home/other_details/caipu/{{$details->uid}}">
-                                <span>菜谱</span>
+                                <span>Ta的菜谱</span>
                             </a>
                         </li>
                         <li class="">
                             <a href="/home/other_details/zuopin/{{$details->uid}}">
-                                <span>作品</span>
+                                <span>Ta的作品</span>
                             </a>
                         </li>
 
