@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\admin;
-
 use App\Model\Carousel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -109,7 +108,7 @@ class CarouselController extends Controller
     public function edit($id)
         {
 
-        $data = DB::table('Carousel')->where('id',$id)->first();
+        $data = DB::table('carousel')->where('id',$id)->first();
 
 
         return view('Admin.Carousel.edit')->with('data',$data);
