@@ -6,13 +6,13 @@
 
 
 //轮播图----------------------------------------------------
-Route::resource('/admin/fenlei','admin\CarouselController');
+Route::resource('/admin/fenlei','admin\CarouselController')->middleware('islogin');;
 
 
 
 
 //后台广告
-Route::resource('/admin/home_ad','Admin\Home_adController');
+Route::resource('/admin/home_ad','Admin\Home_adController')->middleware('islogin');;
 
 
 //后台菜谱管理
@@ -69,7 +69,7 @@ Route::group(['parfix'=>'admin','namespace'=>'Admin','middleware'=>'islogin'],fu
 });
 
 //友情链接
-Route::resource('/admin/links','Admin\LinksController');
+Route::resource('/admin/links','Admin\LinksController')->middleware('islogin');
 
 //广告合作
 Route::get('/home/gghz',function (){
