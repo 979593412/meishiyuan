@@ -180,7 +180,7 @@
 
             <a href="javascript:void(0);" class="button">入驻美食源市集</a>
 
-            <a href="{{asset('/home/gghz')}}" class="button">广告合作</a>
+            <a href="{{asset('/home/gghz')}}" class="button">联系我们</a>
         </div>
 
         <div class="pure-g">

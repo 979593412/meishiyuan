@@ -56,22 +56,9 @@
 
             <h1 class="page-title">联系我们</h1>
             <div class="block block-has-padding white-bg">
-                <div class="mb5 mt20 bold">电商合作</div>
-                如果希望入驻下厨房市集，请联系：<br>
-                Email：<img src="/home/images/gghzemail.png" style="height:18px; margin:2px 0 0 5px;">
-                <div class="mb5 mt20 bold">广告合作</div>
-                如果有广告投放、商务合作的需求，请联系：<br>
-                Email：<img src="/home/images/gghzemail.png" style="height:18px; margin:1px 0 0 5px;">
-                <div class="mb5 mt20 bold">市场合作</div>
-                如果希望进行市场合作，或有采访需求，请联系：<br>
-                Email：<img src="/home/images/gghzemail.png" style="height:18px; margin:1px 0 0 5px;">
-                <div class="mb5 mt20 bold">权益保护</div>
-                如果遇到自己的原创菜谱被“盗图”，或“文字大面积copy”，请联系：<br>
-                Email：<img src="/home/images/gghzemail.png" style="height:18px; margin:1px 0 0 5px;">
-                <div class="mb5 mt20 bold">问题反馈</div>
-                如果有问题需要反馈，或寻求帮助，可以通过以下方式联系我们：<br>
-                Email：<img src="/home/images/gghzemail.png" style="height:18px; margin:2px 0 0 -6px;"><br>
-                新浪微博：<a href="http://weibo.com">@辣手小润</a>
+                <div class="mb5 mt20 bold">联系方式</div>
+                QQ：&nbsp;&nbsp;347501534
+                
             </div>
 
         </div>
@@ -87,3 +74,5 @@
 </body>
 
 </html>
+
+
