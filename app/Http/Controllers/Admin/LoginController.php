@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Model\admin_user;
+use App\Model\Admin_user;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 require_once app_path().'\Org\code\code.class.php';
