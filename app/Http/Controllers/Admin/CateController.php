@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Admin\Cate;
 use DB;
+use App\Model\Cook_book;
 class CateController extends Controller
 {
     /**a
@@ -134,6 +135,10 @@ class CateController extends Controller
         $pcate = Cate::where('pid',$id)->first();
         if ($pcate) {
            return redirect('admin/cate')->with('message','该类下面有子类，不能删除！');
+        }
+	$cook = Cook_book::where("cid",$id)->first();
+        if ($cook) {
+            return redirect('admin/cate')->with('message','该类下面有菜谱，不能删除！');
         }
         $cate = Cate::find($id)->delete();
         return redirect('admin/cate')->with('message','删除成功！');

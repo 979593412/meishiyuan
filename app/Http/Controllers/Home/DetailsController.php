@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Session;
 
-class detailsController extends Controller
+class DetailsController extends Controller
 {
     //用户详情页设置页
     public function index()
