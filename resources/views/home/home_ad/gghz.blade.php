@@ -71,7 +71,7 @@
                 <div class="mb5 mt20 bold">问题反馈</div>
                 如果有问题需要反馈，或寻求帮助，可以通过以下方式联系我们：<br>
                 Email：<img src="/home/images/gghzemail.png" style="height:18px; margin:2px 0 0 -6px;"><br>
-                新浪微博：<a href="http://weibo.com">@拉手小润</a>
+                新浪微博：<a href="http://weibo.com">@辣手小润</a>
             </div>
 
         </div>

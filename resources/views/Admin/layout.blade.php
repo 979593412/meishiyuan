@@ -199,25 +199,26 @@
                 <a href="#">产品管理</a>
                 <a href="#">个人中心</a>
                 <a href="#">系统设置</a>
+                <a href="{{url('/admin/logout')}}">退出</a>
             </li>
 
             <li class="soso">
 
-                <p>
+                {{--<p>--}}
 
-                    <select data-am-selected="{btnWidth: 70, btnSize: 'sm', btnStyle: 'default'}">
-                        <option value="b">全部</option>
-                        <option value="o">产品</option>
-                        <option value="o">会员</option>
+                    {{--<select data-am-selected="{btnWidth: 70, btnSize: 'sm', btnStyle: 'default'}">--}}
+                        {{--<option value="b">全部</option>--}}
+                        {{--<option value="o">产品</option>--}}
+                        {{--<option value="o">会员</option>--}}
 
-                    </select>
+                    {{--</select>--}}
 
-                </p>
+                {{--</p>--}}
 
-                <p class="ycfg"><input type="text" class="am-form-field am-input-sm" placeholder="圆角表单域"/></p>
-                <p>
-                    <button class="am-btn am-btn-xs am-btn-default am-xiao"><i class="am-icon-search"></i></button>
-                </p>
+                {{--<p class="ycfg"><input type="text" class="am-form-field am-input-sm" placeholder="圆角表单域"/></p>--}}
+                {{--<p>--}}
+                    {{--<button class="am-btn am-btn-xs am-btn-default am-xiao"><i class="am-icon-search"></i></button>--}}
+                {{--</p>--}}
             </li>
 
 
@@ -234,9 +235,10 @@
 
         <div class="sideMenu am-icon-dashboard" style="color:#aeb2b7; margin: 10px 0 0 0;"> 欢迎系统管理员： {{ session()->get('admin_user')->username }}</div>
         <br>
-        <div class="sideMenu am-icon-dashboard" style="color:#aeb2b7; margin: 10px 0 0 0;"><a href="/admin/logins"> 退出</a></div>
+        {{--<div class="sideMenu am-icon-dashboard" style="color:#aeb2b7; margin: 10px 0 0 0;"><a href="/admin/logins"> 退出</a></div>--}}
 
         <div class="sideMenu">
+            @if (session()->get('admin_user')->auth == 1)
             <h3 class="am-icon-users on"><em></em> <a href="#">用户管理</a></h3>
             <ul>
                 @if (session()->get('admin_user')->auth == 1)
@@ -246,28 +248,38 @@
                     <li><a href="{{url('/user/list')}}">后台用户列表</a></li>
                 @endif
             </ul>
-
             <h3 class="am-icon-book on"><em></em> <a href="#">菜谱管理</a></h3>
             <ul>
                 <li><a href="{{url('/admin/recipe')}}">菜谱列表</a></li>
-
             </ul>
-
-
             <h3 class="am-icon-flag"><em></em> <a href="#">菜谱分类管理</a></h3>
             <ul>
                 <li><a href="{{ url('/admin/cate') }}">菜谱分类列表</a></li>
                 <li><a href="{{ url('/admin/cate/create') }}">添加新分类</a></li>
-
             </ul>
-
             <h3 class="am-icon-users on"><em></em> <a href="#">附属模块</a></h3>
             <ul>
                 <li><a href="/admin/fenlei">轮播图</a></li>
                 <li><a href="/admin/home_ad">广告位</a></li>
                 <li><a href="/admin/links">友情链接</a></li>
             </ul>
-
+            @else
+                <h3 class="am-icon-book on"><em></em> <a href="#">菜谱管理</a></h3>
+                <ul>
+                    <li><a href="{{url('/admin/recipe')}}">菜谱列表</a></li>
+                </ul>
+                <h3 class="am-icon-flag"><em></em> <a href="#">菜谱分类管理</a></h3>
+                <ul>
+                    <li><a href="{{ url('/admin/cate') }}">菜谱分类列表</a></li>
+                    <li><a href="{{ url('/admin/cate/create') }}">添加新分类</a></li>
+                </ul>
+                <h3 class="am-icon-users on"><em></em> <a href="#">附属模块</a></h3>
+                <ul>
+                    <li><a href="/admin/fenlei">轮播图</a></li>
+                    <li><a href="/admin/home_ad">广告位</a></li>
+                    <li><a href="/admin/links">友情链接</a></li>
+                </ul>
+            @endif
 
         </div>
         <!-- sideMenu End -->
@@ -299,11 +311,14 @@
                                 {{--href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close="">×</a>--}}
                     {{--</button>--}}
                 {{--</li>--}}
-                {{--<li>--}}
-                    {{--<button type="button" class="am-btn am-btn-default am-radius am-btn-xs">奖金管理<a--}}
-                                {{--href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close="">×</a>--}}
-                    {{--</button>--}}
-                {{--</li>--}}
+                @if(session('msg'))
+                    {{ session('msg') }}
+                @endif
+                <li>
+                    <button type="button" class="am-btn am-btn-default am-radius am-btn-xs" >修改密码
+                        <a href="{{ url('/user/edit/'.session()->get('admin_user')->id) }}" class="am-close am-close-spin" data-am-modal-close="">X</a>
+                    </button>
+                </li>
                 {{--<li>--}}
                     {{--<button type="button" class="am-btn am-btn-default am-radius am-btn-xs">产品管理<a--}}
                                 {{--href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close="">×</a>--}}

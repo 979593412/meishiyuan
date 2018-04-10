@@ -1,62 +1,60 @@
 <?php
 
 namespace App\Http\Controllers\Home;
+
 use App\Model\Cook_book;
-use App\Model\Recipe;
-use DB;
+use App\Model\Details;
 use App\Model\Home\collect;
 use App\Model\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class KitchenController extends Controller
+class other_detailsController extends Controller
 {
-    //我的厨房首页
-    public function index()
+
+    public function index($id)
     {
-        $uid = session()->get('user')->id;
+        $uid = $id;
+
+        $details = Details::where('uid',$uid)->first();
 
 
+//        dd($details);
 
         $cook = collect::where('uid',$uid)->select(['bid'])->get()->toArray();
-        // dd($cook);
-        // $a = $cook->bid;
+
 
         $data = [];
         foreach ($cook as $key => $value) {
             $data[] = $value['bid'];
         }
-        // dd($data);
 
         $res =  Cook_book::whereIn('id',$data)->get();
 
-
-        return view('home.kitchen.kitchen',['res'=>$res]);
-
-//        return view('home.kitchen.kitchen')->with('res',$res);
+//        dd($res);
+        return view('home.other_details.overview',['res'=>$res,'details'=>$details]);
     }
-    public function caipu()
+
+    public  function caipu($id)
     {
-        $uid = session()->get('user')->id;
+        $uid = $id;
+        $details = Details::where('uid',$uid)->first();
 
         // dd($data);
+
         $res =  User::with('Cook_book')->where('id',$uid)->get();
 //        dd($res);
 //        $ress = User::where('id',$uid)->count();
 
-        return view('home.kitchen.caipu',['res'=>$res]);
-
+        return view('home.other_details.caipu',['res'=>$res,'details'=>$details]);
     }
 
-    public function zuopin()
+    public function zuopin($id)
     {
-        $uid = session()->get('user')->id;
-
+        $uid = $id;
+        $details = Details::where('uid',$uid)->first();
         $res =  User::with('Cook_book')->where('id',$uid)->get();
 
-        return view('home.kitchen.zuopin')->with('res',$res);
-
+        return view('home.other_details.zuopin',['res'=>$res,'details'=>$details]);
     }
-
-
 }

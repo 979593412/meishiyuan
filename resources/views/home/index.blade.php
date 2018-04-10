@@ -201,11 +201,9 @@
                     <a href="{{url('home/chufang')}}">{{ empty(session()->get('userInfo')->nickname) ? session()->get('user')->username :session()->get('userInfo')->nickname}}的厨房</a>
                 </div>
                 <div class="stats">
-                    0 收藏
+                    {{$collectCount}} 收藏
                     &nbsp;|&nbsp;
-                    0 作品
-                    &nbsp;|&nbsp;
-                    0 菜谱
+                    {{$recipeCount}} 菜谱
                 </div>
                 <div class="action">
                     <a href="{{url('recipe/create')}}" class="button">创建菜谱</a>
