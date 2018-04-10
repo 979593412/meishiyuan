@@ -32,10 +32,19 @@ class HomeController extends CommonController
 
             //当前用户菜谱总数
             $recipeCount = Recipe::where('uid',$id)->count();
+            if (empty($recipeCount)){
+                $recipeCount = 0;
+            }
 
             //当前用户收藏总数
             $collectCount = Collection::where('uid',$id)->count();
+            if (empty($collectCount)){
+                $collectCount = 0;
+            }
 
+        }else{
+            $recipeCount = 0;
+            $collectCount = 0;
         }
 
 
